@@ -177,6 +177,14 @@
 				Name="numeric"
 				>
 				<File
+					RelativePath="..\..\src\numeric\matrix.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\numeric\matrix.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\src\numeric\vector.cpp"
 					>
 				</File>

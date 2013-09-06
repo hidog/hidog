@@ -46,8 +46,9 @@ vector<T>::vector( vector& v )
 	_size	=	v.size();
 	data	=	new	T[_size];
 
-	if( data == NULL )
-		error_msg("error");
+	ErrorExceptionMacro( data != NULL );
+	//if( data == NULL )
+	//	error_msg("error");
 
 	// copy
 	for( int i = 0; i < _size; i++ )
@@ -98,8 +99,9 @@ void	vector<T>::resize( int _s )
 	_size	=	_s;
 	data	=	new	T[_size];
 
-	if( data == NULL )
-		error_msg("resize error.");
+	ErrorExceptionMacro( data != NULL );
+	//if( data == NULL )
+	//	error_msg("resize error.");
 }
 
 
@@ -110,8 +112,9 @@ void	vector<T>::resize( int _s )
 template<class T>
 T&	vector<T>::operator () ( int index )
 {
-	if( index >= _size )
-		error_msg("index out of bound.");
+	ErrorExceptionMacro( index < _size );
+	//if( index >= _size )
+	//	error_msg("index out of bound.");
 
 	return	data[index];
 }
@@ -133,7 +136,7 @@ T&	vector<T>::operator [] ( int index )
 	get size
 *************************************************************************************************************/
 template<class T>
-int		vector<T>::size()
+int	vector<T>::size()
 {
 	return	_size;
 }
@@ -160,8 +163,8 @@ void	print( vector<T> vec )
 	std::cout << "numeric vector size : " << size << std::endl;
 
 	for( i = 0; i < size; i++ )
-		std::cout << vec(i) << " ";
-		//std::cout << "data[" << i << "] = " << vec(i) << std::endl;
+		//std::cout << vec(i) << " ";
+		std::cout << "data[" << i << "] = " << vec(i) << std::endl;
 
 	std::cout << "\n\n";
 }
@@ -170,8 +173,26 @@ void	print( vector<T> vec )
 
 
 
+/************************************************************************************************************
+	印出資料
+	沒加 & 會有 error 
+*************************************************************************************************************/
+template<class T>
+std::ostream&	operator << ( std::ostream& out, vector<T>& vec )
+{
+	const int	s	=	vec.size();
 
+	int		i;
 
+	out << "numeric vector size : " << s << "\n";
+
+	for( i = 0; i < s; i++ )
+		out << vec(i) << " ";
+		//std::cout << "data[" << i << "] = " << vec(i) << std::endl;
+	out << "\n\n";
+
+	return	out;
+}
 
 
 

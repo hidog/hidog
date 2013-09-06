@@ -19,15 +19,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	for( int i = 0; i < 100; i++ )
 		vec[i]	=	i + 10;
 
-	print(vec);
+	//print(vec);
+	std::cout <<  vec;
 
 
-	try{
-		if( 1 != 3 )
-			throw	0;
-	}catch( int e ){
-		std::cout << "abc";
-	}
 
 
 	system("PAUSE");

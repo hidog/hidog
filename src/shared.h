@@ -7,7 +7,16 @@
 #include <cassert>
 
 
-
+// error exception handling  ´ú¸Õ¥Î
+#define	ErrorExceptionMacro( statement ) \
+	try{ \
+		if( !(statement) ) \
+			throw	0; \
+	}catch( int err ){ \
+		std::cout << "error = " << err << " \n"; \
+		assert(0); \
+	}
+		
 
 
 

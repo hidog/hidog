@@ -31,6 +31,8 @@ public:
 	T&	operator () ( int index );
 	T&	operator [] ( int index );
 
+	//friend	std::ostream	operator << ( std::ostream out, vector<T> vec );
+
 
 private:
 	T		*data;
@@ -39,17 +41,21 @@ private:
 };
 
 
-
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 template<class T>
 void	print( vector<T> vec );
 
+template<class T>
+std::ostream&	operator << ( std::ostream& out, vector<T>& vec );
 
 
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // class
 template	vector<int>;
 // function
 template	void print<int>( vector<int> vec );
-
+template	std::ostream&	operator << ( std::ostream& out, vector<int>& vec );
 
 
 

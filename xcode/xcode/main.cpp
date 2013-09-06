@@ -8,11 +8,13 @@
 
 #include <iostream>
 
+#include "../src/numeric/vector.h"
+
+
 int main(int argc, const char * argv[])
 {
+    hidog::numeric::vector<int>     vec;
 
-    // insert code here...
-    std::cout << "Hello, World!\n";
     return 0;
 }
 

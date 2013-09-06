@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6D71531E17D9F35E003B1796 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D71531D17D9F35E003B1796 /* main.cpp */; };
 		6D71532017D9F35E003B1796 /* xcode.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6D71531F17D9F35E003B1796 /* xcode.1 */; };
+		6D71532A17D9F3DF003B1796 /* shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D71532817D9F3DF003B1796 /* shared.cpp */; };
+		6D71533017D9F3EA003B1796 /* vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D71532D17D9F3EA003B1796 /* vector.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,10 @@
 		6D71531917D9F35E003B1796 /* xcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xcode; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D71531D17D9F35E003B1796 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		6D71531F17D9F35E003B1796 /* xcode.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = xcode.1; sourceTree = "<group>"; };
+		6D71532817D9F3DF003B1796 /* shared.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shared.cpp; path = ../src/shared.cpp; sourceTree = "<group>"; };
+		6D71532917D9F3DF003B1796 /* shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shared.h; path = ../src/shared.h; sourceTree = "<group>"; };
+		6D71532D17D9F3EA003B1796 /* vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vector.cpp; path = ../src/numeric/vector.cpp; sourceTree = "<group>"; };
+		6D71532E17D9F3EA003B1796 /* vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vector.h; path = ../src/numeric/vector.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +50,7 @@
 		6D71530E17D9F35E003B1796 = {
 			isa = PBXGroup;
 			children = (
+				6D71532617D9F3C1003B1796 /* src */,
 				6D71531C17D9F35E003B1796 /* xcode */,
 				6D71531A17D9F35E003B1796 /* Products */,
 			);
@@ -64,6 +71,25 @@
 				6D71531F17D9F35E003B1796 /* xcode.1 */,
 			);
 			path = xcode;
+			sourceTree = "<group>";
+		};
+		6D71532617D9F3C1003B1796 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				6D71532817D9F3DF003B1796 /* shared.cpp */,
+				6D71532917D9F3DF003B1796 /* shared.h */,
+				6D71532717D9F3C5003B1796 /* numeric */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		6D71532717D9F3C5003B1796 /* numeric */ = {
+			isa = PBXGroup;
+			children = (
+				6D71532D17D9F3EA003B1796 /* vector.cpp */,
+				6D71532E17D9F3EA003B1796 /* vector.h */,
+			);
+			name = numeric;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D71531E17D9F35E003B1796 /* main.cpp in Sources */,
+				6D71532A17D9F3DF003B1796 /* shared.cpp in Sources */,
+				6D71533017D9F3EA003B1796 /* vector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +208,7 @@
 		6D71532417D9F35E003B1796 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = ../src/;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -187,6 +216,7 @@
 		6D71532517D9F35E003B1796 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = ../src/;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

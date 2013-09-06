@@ -46,7 +46,7 @@ template<class T>
 void	print( vector<T> vec );
 
 template<class T>
-std::ostream&	operator << ( std::ostream &out, vector<T> &vec );
+std::ostream&	operator << ( std::ostream &out, vector<T> &vec );		// 寫成 global function, 當範例參考
 
 template<class T>
 vector<T>	operator + ( vector<T> &a, vector<T> &b );
@@ -60,9 +60,9 @@ bool	operator == ( vector<T> &a, vector<T> &b );
 #define	hnVectorTypeDefineMacro( type ) \
 	template class	vector<type>; \
 	template 	void print<type>( vector<type> vec ); \
-	template 	std::ostream&	operator << ( std::ostream &out, vector<type> &vec ); \
-	template 	vector<type>	operator +  ( vector<type> &a, vector<type> &b ); \
-	template 	bool			operator == ( vector<type> &a, vector<type> &b );
+	template 	std::ostream&	operator << <type>( std::ostream &out, vector<type> &vec ); \
+	template 	vector<type>	operator +  <type>( vector<type> &a, vector<type> &b ); \
+	template 	bool			operator == <type>( vector<type> &a, vector<type> &b );
 
 
 hnVectorTypeDefineMacro(int);

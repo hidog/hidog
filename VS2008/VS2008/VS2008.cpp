@@ -16,10 +16,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	vec.resize(100);
 
 	for( int i = 0; i < 100; i++ )
-	{
 		vec[i]	=	i + 10;
-		std::cout << vec(i) << std::endl;
-	}
+
+	print(vec);
 
 
 	system("PAUSE");

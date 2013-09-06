@@ -15,7 +15,7 @@ template<class T>
 vector<T>::vector()
 {
 	data	=	NULL;
-	size	=	0;
+	_size	=	0;
 }
 
 
@@ -23,9 +23,25 @@ vector<T>::vector()
 	建構
 *************************************************************************************************************/
 template<class T>
-vector<T>::vector( int _size )
+vector<T>::vector( int _s )
 {
-	resize(_size);
+	resize(_s);
+}
+
+
+/************************************************************************************************************
+	copy construct
+*************************************************************************************************************/
+template<class T>
+vector<T>::vector( vector& v )
+{
+	data	=	NULL;
+	_size	=	0;
+
+	resize(v.size());
+	
+	for( int i = 0; i < _size; i++ )
+		data[i]	=	v(i);
 }
 
 
@@ -51,7 +67,7 @@ void	vector<T>::destroy()
 {
 	delete	[]	data;
 	data	=	NULL;
-	size	=	0;
+	_size	=	0;
 }
 
 
@@ -63,12 +79,12 @@ void	vector<T>::destroy()
 	重新取得記憶體空間
 *************************************************************************************************************/
 template<class T>
-void	vector<T>::resize( int _size )
+void	vector<T>::resize( int _s )
 {
 	destroy();
 	
-	size	=	_size;
-	data	=	new	T[size];
+	_size	=	_s;
+	data	=	new	T[_size];
 
 	if( data == NULL )
 		error_msg("resize error.");
@@ -82,7 +98,7 @@ void	vector<T>::resize( int _size )
 template<class T>
 T&	vector<T>::operator () ( int index )
 {
-	if( index >= size )
+	if( index >= _size )
 		error_msg("index out of bound.");
 
 	return	data[index];
@@ -98,6 +114,60 @@ T&	vector<T>::operator [] ( int index )
 {
 	return	(*this)(index);
 }
+
+
+
+/************************************************************************************************************
+	get size
+*************************************************************************************************************/
+template<class T>
+int		vector<T>::size()
+{
+	return	_size;
+}
+
+
+
+
+
+
+
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 非class內函數 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+/************************************************************************************************************
+	印出資料
+*************************************************************************************************************/
+template<class T>
+void	print( vector<T> vec )
+{
+	const int	size	=	vec.size();
+
+	int		i;
+
+	std::cout << "numeric vector size : " << size << std::endl;
+
+	for( i = 0; i < size; i++ )
+		std::cout << vec(i) << " ";
+		//std::cout << "data[" << i << "] = " << vec(i) << std::endl;
+
+	std::cout << "\n\n";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

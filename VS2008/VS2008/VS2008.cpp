@@ -8,7 +8,6 @@
 #include "numeric/vector.h"
 
 
-//test
 
 int _tmain(int argc, _TCHAR* argv[])
 {

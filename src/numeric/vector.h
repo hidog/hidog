@@ -58,11 +58,11 @@ bool	operator == ( vector<T> &a, vector<T> &b );
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // 用 define 來快速產生需要的樣板模組
 #define	hnVectorTypeDefineMacro( type ) \
-	template	vector<type>; \
-	template	void print<type>( vector<type> vec ); \
-	template	std::ostream&	operator << ( std::ostream &out, vector<type> &vec ); \
-	template	vector<type>	operator +  ( vector<type> &a, vector<type> &b ); \
-	template	bool			operator == ( vector<type> &a, vector<type> &b );
+	template class	vector<type>; \
+	template 	void print<type>( vector<type> vec ); \
+	template 	std::ostream&	operator << ( std::ostream &out, vector<type> &vec ); \
+	template 	vector<type>	operator +  ( vector<type> &a, vector<type> &b ); \
+	template 	bool			operator == ( vector<type> &a, vector<type> &b );
 
 
 hnVectorTypeDefineMacro(int);

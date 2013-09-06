@@ -52,8 +52,8 @@ std::ostream&	operator << ( std::ostream &out, matrix<T> mat );
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // 用 define 來快速產生需要的樣板模組
 #define	hnMatrixTypeDefineMacro( type ) \
-	template	matrix<type>; \
-	template	std::ostream&	operator << ( std::ostream &out, matrix<type> mat );
+	template class	matrix<type>; \
+	template std::ostream&	operator << ( std::ostream &out, matrix<type> mat );
 
 
 hnMatrixTypeDefineMacro(int);

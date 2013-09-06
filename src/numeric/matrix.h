@@ -3,6 +3,7 @@
 
 #include "shared.h"
 #include "vector.h"
+#include <ostream>
 
 
 
@@ -22,7 +23,11 @@ class	matrix
 public:
 	matrix();
 	matrix( int _w, int _h );
+	matrix( matrix<T> &m );
 	~matrix();
+
+	int		width();
+	int		height();
 
 	T&	operator () ( int x, int y );
 
@@ -38,6 +43,8 @@ private:
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+template<class T>
+std::ostream&	operator << ( std::ostream &out, matrix<T> mat );
 
 
 
@@ -45,7 +52,8 @@ private:
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // 用 define 來快速產生需要的樣板模組
 #define	hnMatrixTypeDefineMacro( type ) \
-	template	matrix<type>; 
+	template	matrix<type>; \
+	template	std::ostream&	operator << ( std::ostream &out, matrix<type> mat );
 
 
 hnMatrixTypeDefineMacro(int);

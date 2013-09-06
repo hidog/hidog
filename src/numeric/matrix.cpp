@@ -47,8 +47,38 @@ matrix<T>::matrix( int _w, int _h )
 
 	for( i = 0; i < _width; i++ )
 		data[i].resize(_height);
-
 }
+
+
+
+
+
+
+/************************************************************************************************************
+	copy constructor 
+*************************************************************************************************************/
+template<class T>
+matrix<T>::matrix( matrix<T> &m )
+{
+	int		i,	j;
+
+	data	=	NULL;
+
+	_width	=	m.width();
+	_height	=	m.height();
+
+	data	=	new vector<T> [_width];
+
+	ErrorExceptionMacro( data != NULL );
+
+	for( i = 0; i < _width; i++ )
+	{
+		data[i].resize(_height);
+		for( j = 0; j < _height; j++ )
+			data[i](j)	=	m( i, j );
+	}
+}
+	
 
 
 
@@ -79,6 +109,51 @@ T&	matrix<T>::operator () ( int x, int y )
 	return	data[x](y);
 }
 
+
+
+/************************************************************************************************************
+	width
+*************************************************************************************************************/
+template<class T>
+int		matrix<T>::width()
+{
+	return	_width;
+}
+
+
+
+/************************************************************************************************************
+	height
+*************************************************************************************************************/
+template<class T>
+int		matrix<T>::height()
+{
+	return	_height;
+}
+
+
+
+
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ global functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+template<class T>
+std::ostream&	operator << ( std::ostream &out, matrix<T> mat )
+{
+	const int		width	=	mat.width();
+	const int		height	=	mat.height();
+
+	int		i,	j;
+
+	for( i = 0; i < width; i++ )
+	{
+		for( j = 0; j < height; j++ )
+			out << mat( i, j ) << " ";
+		out << "\n";
+	}
+
+	return	out;
+}
 
 
 

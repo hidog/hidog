@@ -33,11 +33,9 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	for( i = 0; i < 10; i++ )
 		for( j = 0; j < 10; j++ )
-			mat( i, j )	=	i+j;
+			mat( i, j )	=	i + j;
 
-	for( i = 0; i < 10; i++ )
-		for( j = 0; j < 10; j++ )
-			std::cout << mat( i, j );
+	std::cout << mat;
 
 
 

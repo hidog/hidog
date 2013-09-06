@@ -201,7 +201,7 @@ void	print( vector<T> vec )
 	沒加 & 會有 error 
 *************************************************************************************************************/
 template<class T>
-std::ostream&	operator << ( std::ostream& out, vector<T>& vec )
+std::ostream&	operator << ( std::ostream &out, vector<T> &vec )
 {
 	const int	s	=	vec.size();
 
@@ -240,6 +240,31 @@ vector<T>		operator +  ( vector<T> &a, vector<T> &b )
 }
 
 
+/************************************************************************************************************
+	相等判斷 
+*************************************************************************************************************/
+template<class T>
+bool	operator == ( vector<T> &a, vector<T> &b )
+{
+	ErrorExceptionMacro( a.size() == b.size() );
+
+	const int	size	=	a.size();
+
+	int		i;
+	bool	is;
+
+	is	=	true;
+	for( i = 0; i < size; i++ )
+	{
+		if( a(i) != b(i) )
+		{
+			is	=	false;
+			break;
+		}
+	}
+	
+	return	is;
+}
 
 
 

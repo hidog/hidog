@@ -2,6 +2,8 @@
 //
 
 #include "stdafx.h"
+#include <stdlib.h>
+#include <iostream>
 
 #include "numeric/vector.h"
 
@@ -11,6 +13,16 @@ int _tmain(int argc, _TCHAR* argv[])
 	hidog::numeric::vector<int>		vec;
 
 
+	vec.resize(100);
+
+	for( int i = 0; i < 100; i++ )
+	{
+		vec[i]	=	i + 10;
+		std::cout << vec(i) << std::endl;
+	}
+
+
+	system("PAUSE");
 	return 0;
 }
 

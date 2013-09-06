@@ -2,6 +2,10 @@
 #define _HIDOG_SHARED_H
 
 
+#include <iostream>
+#include <cstring>
+
+
 
 
 #ifndef NULL
@@ -10,6 +14,8 @@
 
 
 
+
+void	error_msg( char *str );		//  ¦L¥X¿ù»~°T®§
 
 
 

@@ -136,12 +136,34 @@ T&	vector<T>::operator [] ( int index )
 	get size
 *************************************************************************************************************/
 template<class T>
-int	vector<T>::size()
+int		vector<T>::size()
 {
 	return	_size;
 }
 
 
+
+/************************************************************************************************************
+	½Æ»s operator
+*************************************************************************************************************/
+template<class T>
+vector<T>	vector<T>::operator = ( vector<T> v )
+{
+	int		i;
+
+	delete	[]	data;
+	data	=	NULL;
+
+	_size	=	v.size();
+	data	=	new	T[_size];
+
+	ErrorExceptionMacro( data != NULL );
+
+	for( i = 0; i < _size; i++ )
+		data[i]	=	v(i);
+
+	return	*this;
+}
 
 
 
@@ -196,7 +218,25 @@ std::ostream&	operator << ( std::ostream& out, vector<T>& vec )
 
 
 
+/************************************************************************************************************
+	¥[ªk 
+*************************************************************************************************************/
+template<class	T>
+vector<T>		operator +  ( vector<T> &a, vector<T> &b )
+{
+	ErrorExceptionMacro( a.size() == b.size() );
 
+	const int	size	=	a.size();
+
+	int		i;
+
+	vector<T>	c(size);
+
+	for( i = 0; i < size; i++ )
+		c(i)	=	a(i) + b(i);
+
+	return	c;
+}
 
 
 

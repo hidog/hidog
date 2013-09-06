@@ -11,16 +11,18 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	hidog::numeric::vector<int>		vec;
+	hidog::numeric::vector<int>		vec1,	vec2(100);
 
-
-	vec.resize(100);
+	vec1.resize(100);
 
 	for( int i = 0; i < 100; i++ )
-		vec[i]	=	i + 10;
+	{
+		vec1[i]	=	i + 10;
+		vec2(i)	=	-i;
+	}
 
 	//print(vec);
-	std::cout <<  vec;
+	std::cout <<  vec1 + vec2;
 
 
 

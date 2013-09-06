@@ -8,4 +8,6 @@
 void	error_msg( char *str )
 {
 	std::cout << "error msg : " << str << std::endl ;
+
+	assert(0);
 }

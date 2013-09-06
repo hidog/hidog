@@ -21,6 +21,14 @@ int _tmain(int argc, _TCHAR* argv[])
 	print(vec);
 
 
+	try{
+		if( 1 != 3 )
+			throw	0;
+	}catch( int e ){
+		std::cout << "abc";
+	}
+
+
 	system("PAUSE");
 	return 0;
 }

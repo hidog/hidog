@@ -25,7 +25,13 @@ vector<T>::vector()
 template<class T>
 vector<T>::vector( int _s )
 {
-	resize(_s);
+	data	=	NULL;	// 為了檢察有沒有new成功
+
+	_size	=	_s;
+	data	=	new	T[_size];
+
+	if( data == NULL )
+		error_msg("error");
 }
 
 
@@ -35,11 +41,15 @@ vector<T>::vector( int _s )
 template<class T>
 vector<T>::vector( vector& v )
 {
-	data	=	NULL;
-	_size	=	0;
+	data	=	NULL;	// 為了檢查有沒有 new 成功
 
-	resize(v.size());
-	
+	_size	=	v.size();
+	data	=	new	T[_size];
+
+	if( data == NULL )
+		error_msg("error");
+
+	// copy
 	for( int i = 0; i < _size; i++ )
 		data[i]	=	v(i);
 }
@@ -52,7 +62,9 @@ vector<T>::vector( vector& v )
 template<class T>
 vector<T>::~vector()
 {
-	destroy();
+	delete	[]	data;
+	data	=	NULL;
+	_size	=	0;
 }
 
 
@@ -135,7 +147,6 @@ int		vector<T>::size()
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 非class內函數 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 /************************************************************************************************************
 	印出資料
 *************************************************************************************************************/

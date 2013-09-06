@@ -48,7 +48,7 @@ void	print( vector<T> vec );
 // class
 template	vector<int>;
 // function
-template	void	print<int>( vector<int> vec );
+template	void print<int>( vector<int> vec );
 
 
 

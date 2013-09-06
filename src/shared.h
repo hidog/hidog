@@ -4,13 +4,10 @@
 
 #include <iostream>
 #include <cstring>
+#include <cassert>
 
 
 
-
-#ifndef NULL
-	#define	NULL	0
-#endif
 
 
 

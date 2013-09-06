@@ -5,6 +5,10 @@
 #include <iostream>
 
 
+
+
+
+
 namespace	hidog
 {
 namespace	numeric
@@ -31,7 +35,8 @@ public:
 	T&	operator () ( int index );
 	T&	operator [] ( int index );
 	
-	vector<T>	operator = ( vector<T> v );
+	vector<T>	operator = ( vector<T> v );		// 當範例用
+
 
 
 private:
@@ -53,15 +58,18 @@ vector<T>	operator + ( vector<T> &a, vector<T> &b );
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// class
-template	vector<int>;
+// 用 define 來快速產生需要的樣板模組
+#define	hnVectorTypeDefineMacro( type ) \
+	template	vector<type>; \
+	template	void print<type>( vector<type> vec ); \
+	template	std::ostream&	operator << ( std::ostream& out, vector<type>& vec ); \
+	template	vector<type>		operator +  ( vector<type> &a, vector<type> &b ); 
 
-// function
-template	void print<int>( vector<int> vec );
 
-template	std::ostream&	operator << ( std::ostream& out, vector<int>& vec );
+hnVectorTypeDefineMacro(int);
+hnVectorTypeDefineMacro(double);
 
-template	vector<int>		operator +  ( vector<int> &a, vector<int> &b );
+
 
 
 	

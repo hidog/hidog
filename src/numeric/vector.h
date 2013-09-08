@@ -52,6 +52,9 @@ template<class T>
 vector<T>	operator + ( vector<T> &a, vector<T> &b );
 
 template<class T>
+vector<T>	operator - ( vector<T> &a, vector<T> &b );
+
+template<class T>
 bool	operator == ( vector<T> &a, vector<T> &b );
 
 
@@ -61,9 +64,10 @@ bool	operator == ( vector<T> &a, vector<T> &b );
 #define	hnVectorTypeDefineMacro( type ) \
 	template class	vector<type>; \
 	template 	void print<type>( vector<type> vec ); \
-	template 	std::ostream&	operator << <type>( std::ostream &out, vector<type> &vec ); \
-	template 	vector<type>	operator +  <type>( vector<type> &a, vector<type> &b ); \
-	template 	bool			operator == <type>( vector<type> &a, vector<type> &b );
+	template 	std::ostream&	operator << ( std::ostream &out, vector<type> &vec ); \
+	template 	vector<type>	operator +  ( vector<type> &a, vector<type> &b ); \
+	template	vector<type>	operator -	( vector<type> &a, vector<type> &b ); \
+	template 	bool			operator == ( vector<type> &a, vector<type> &b );
 
 
 hnVectorTypeDefineMacro(int);

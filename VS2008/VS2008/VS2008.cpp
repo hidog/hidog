@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <iostream>
 
-#include "numeric/matrix.h"
+#include "numeric/matrix.hpp"
 
 
 

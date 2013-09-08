@@ -213,7 +213,11 @@
 				Name="numeric"
 				>
 				<File
-					RelativePath="..\..\src\numeric\vector.h"
+					RelativePath="..\..\src\numeric\matrix.hpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\numeric\vector.hpp"
 					>
 				</File>
 			</Filter>

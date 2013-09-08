@@ -12,7 +12,7 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-#if 0
+#if 1
 	hidog::numeric::vector<int>		vec1,	vec2(100);
 
 	vec1.resize(100);
@@ -25,8 +25,11 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//print(vec);
 	std::cout <<  vec1 + vec2;
+	std::cout << vec1 - vec2;
 #endif
 
+
+#if 1
 	hidog::numeric::matrix<int>		mat(10,10);
 
 	int		i,	j;
@@ -36,7 +39,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			mat( i, j )	=	i + j;
 
 	std::cout << mat;
-
+#endif
 
 
 	system("PAUSE");

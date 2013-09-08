@@ -57,6 +57,7 @@ bool	operator == ( vector<T> &a, vector<T> &b );
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // 用 define 來快速產生需要的樣板模組
+#ifndef MAC_OS
 #define	hnVectorTypeDefineMacro( type ) \
 	template class	vector<type>; \
 	template 	void print<type>( vector<type> vec ); \
@@ -67,7 +68,7 @@ bool	operator == ( vector<T> &a, vector<T> &b );
 
 hnVectorTypeDefineMacro(int);
 hnVectorTypeDefineMacro(double);
-
+#endif
 
 
 

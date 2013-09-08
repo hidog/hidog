@@ -7,6 +7,7 @@
 
 
 
+
 namespace	hidog
 {
 namespace	numeric
@@ -51,14 +52,14 @@ std::ostream&	operator << ( std::ostream &out, matrix<T> mat );
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // 用 define 來快速產生需要的樣板模組
+#ifndef MAC_OS
 #define	hnMatrixTypeDefineMacro( type ) \
 	template class	matrix<type>; \
 	template std::ostream&	operator << <type>( std::ostream &out, matrix<type> mat );
 
-
 hnMatrixTypeDefineMacro(int);
 hnMatrixTypeDefineMacro(double);
-
+#endif
 
 
 

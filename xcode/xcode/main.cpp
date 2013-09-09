@@ -34,7 +34,7 @@ int main(int argc, const char * argv[])
         for( int j = 0; j < 12; j++ )
             mm( i, j )  =   i + j;
     
-    std::cout << mm << "\n";
+    std::cout << mm << "\n"; 
     
     return 0;
 }

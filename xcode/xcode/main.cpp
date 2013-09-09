@@ -9,21 +9,23 @@
 #include <iostream>
 
 
-#ifdef MAC_OS
-#include "../../src/numeric/matrix.cpp"
-#include "../../src/numeric/vector.cpp"
-#endif
+#include "../../src/numeric/vector.hpp"
+
 
 
 
 int main(int argc, const char * argv[])
 {
-    hidog::numeric::vector<int>     vec(100);
+    vector     vec(10), vec2(10);
     
     for( int i = 0; i < 100; i++ )
+    {
         vec(i)  =   i + 10;
+        vec2(i) =   i - 3;
+    }
     
-    std::cout << vec << std::endl;
+    vec =   vec + vec2;
+    //std::cout <<  vec + vec2 << std::endl;
     
     
     return 0;

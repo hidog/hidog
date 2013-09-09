@@ -9,10 +9,7 @@
 /* Begin PBXBuildFile section */
 		6DCA5DA217DCB02300F45276 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DCA5DA117DCB02300F45276 /* main.cpp */; };
 		6DCA5DA417DCB02300F45276 /* xcode.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6DCA5DA317DCB02300F45276 /* xcode.1 */; };
-		6DCA5DBE17DCB08000F45276 /* matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DCA5DB817DCB08000F45276 /* matrix.cpp */; };
-		6DCA5DBF17DCB08000F45276 /* vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DCA5DBA17DCB08000F45276 /* vector.cpp */; };
 		6DCA5DC017DCB08000F45276 /* shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DCA5DBC17DCB08000F45276 /* shared.cpp */; };
-		6DCA5DC117DCB4E400F45276 /* vector.h in Sources */ = {isa = PBXBuildFile; fileRef = 6DCA5DBB17DCB08000F45276 /* vector.h */; };
 		6DCA5DC217DCB4E400F45276 /* shared.h in Sources */ = {isa = PBXBuildFile; fileRef = 6DCA5DBD17DCB08000F45276 /* shared.h */; };
 /* End PBXBuildFile section */
 
@@ -33,12 +30,9 @@
 		6DCA5D9E17DCB02300F45276 /* xcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xcode; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DCA5DA117DCB02300F45276 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		6DCA5DA317DCB02300F45276 /* xcode.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = xcode.1; sourceTree = "<group>"; };
-		6DCA5DB817DCB08000F45276 /* matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matrix.cpp; sourceTree = "<group>"; };
-		6DCA5DB917DCB08000F45276 /* matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = matrix.h; sourceTree = "<group>"; };
-		6DCA5DBA17DCB08000F45276 /* vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vector.cpp; sourceTree = "<group>"; };
-		6DCA5DBB17DCB08000F45276 /* vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector.h; sourceTree = "<group>"; };
 		6DCA5DBC17DCB08000F45276 /* shared.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shared.cpp; path = ../src/shared.cpp; sourceTree = "<group>"; };
 		6DCA5DBD17DCB08000F45276 /* shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shared.h; path = ../src/shared.h; sourceTree = "<group>"; };
+		6DDB8C5617DD49B600C2C8E8 /* vector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vector.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +85,7 @@
 		6DCA5DB717DCB08000F45276 /* numeric */ = {
 			isa = PBXGroup;
 			children = (
-				6DCA5DB817DCB08000F45276 /* matrix.cpp */,
-				6DCA5DB917DCB08000F45276 /* matrix.h */,
-				6DCA5DBA17DCB08000F45276 /* vector.cpp */,
-				6DCA5DBB17DCB08000F45276 /* vector.h */,
+				6DDB8C5617DD49B600C2C8E8 /* vector.hpp */,
 			);
 			name = numeric;
 			path = ../src/numeric;
@@ -151,11 +142,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DCA5DC117DCB4E400F45276 /* vector.h in Sources */,
 				6DCA5DC217DCB4E400F45276 /* shared.h in Sources */,
 				6DCA5DA217DCB02300F45276 /* main.cpp in Sources */,
-				6DCA5DBE17DCB08000F45276 /* matrix.cpp in Sources */,
-				6DCA5DBF17DCB08000F45276 /* vector.cpp in Sources */,
 				6DCA5DC017DCB08000F45276 /* shared.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

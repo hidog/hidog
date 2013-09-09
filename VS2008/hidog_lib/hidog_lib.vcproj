@@ -177,19 +177,11 @@
 				Name="numeric"
 				>
 				<File
-					RelativePath="..\..\src\numeric\matrix.cpp"
+					RelativePath="..\..\src\numeric\matrix.hpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\src\numeric\matrix.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\numeric\vector.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\numeric\vector.h"
+					RelativePath="..\..\src\numeric\vector.hpp"
 					>
 				</File>
 			</Filter>

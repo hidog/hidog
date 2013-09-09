@@ -9,8 +9,8 @@
 #include <iostream>
 
 
-#include "../../src/numeric/vector.cpp"
-#include "../../src/numeric/matrix.cpp"
+#include "numeric/vector.cpp"
+#include "numeric/matrix.cpp"
 
 
 
@@ -26,6 +26,7 @@ int main(int argc, const char * argv[])
     
     vec =   vec + vec2;
     std::cout <<  vec + vec2 << std::endl;
+    std::cout << "inner product = " << inner_prod( vec, vec2 );
     
     
     hidog::numeric::matrix<double>  mm(12,12);

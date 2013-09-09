@@ -56,6 +56,9 @@ vector<T>&	operator - ( vector<T> &a, vector<T> &b );
 
 template<class T>
 bool	operator == ( vector<T> &a, vector<T> &b );
+    
+template<class T>
+T   inner_prod( vector<T> &a, vector<T> &b );
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,7 +70,8 @@ bool	operator == ( vector<T> &a, vector<T> &b );
 	template 	std::ostream&	operator << ( std::ostream &out, vector<type> &vec ); \
 	template 	vector<type>&	operator +  ( vector<type> &a, vector<type> &b ); \
 	template	vector<type>&	operator -	( vector<type> &a, vector<type> &b ); \
-	template 	bool			operator == ( vector<type> &a, vector<type> &b );
+	template 	bool			operator == ( vector<type> &a, vector<type> &b ); \
+    template    type            inner_prod( vector<type> &a, vector<type> &b );
 
 
 hnVectorTypeDefineMacro(int);

@@ -225,6 +225,7 @@
 			buildSettings = {
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = MAC_OS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = ../src;
 			};
 			name = Debug;
 		};
@@ -233,6 +234,7 @@
 			buildSettings = {
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = MAC_OS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = ../src;
 			};
 			name = Release;
 		};

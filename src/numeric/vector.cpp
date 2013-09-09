@@ -289,8 +289,28 @@ bool	operator == ( vector<T> &a, vector<T> &b )
 	return	is;
 }
 
+/************************************************************************************************************
+    inner product
+*************************************************************************************************************/
+template<class T>
+T   inner_prod( vector<T> &a, vector<T> &b )
+{
+    ErrorExceptionMacro( a.size() == b.size() );
+    
+    const int   size    =   a.size();
+    
+    int     i;
+    T       sum;
+    
+    sum     =   0;
+    for( i = 0; i < size; i++ )
+        sum     +=  a(i) * b(i);
 
-
+    return  sum;
+}
+    
+    
+    
 
 
 }	// end namespace numeric

@@ -28,6 +28,14 @@ int main(int argc, const char * argv[])
     std::cout <<  vec + vec2 << std::endl;
     
     
+    hidog::numeric::matrix<double>  mm(12,12);
+    
+    for( int i = 0; i < 12; i++ )
+        for( int j = 0; j < 12; j++ )
+            mm( i, j )  =   i + j;
+    
+    std::cout << mm << "\n";
+    
     return 0;
 }
 

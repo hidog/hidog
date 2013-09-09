@@ -45,7 +45,7 @@ private:
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 template<class T>
-std::ostream&	operator << ( std::ostream &out, matrix<T> mat );
+std::ostream&	operator << ( std::ostream &out, matrix<T>& mat );
 
 
 
@@ -55,7 +55,7 @@ std::ostream&	operator << ( std::ostream &out, matrix<T> mat );
 #ifndef MAC_OS
 #define	hnMatrixTypeDefineMacro( type ) \
 	template class	matrix<type>; \
-	template std::ostream&	operator << <type>( std::ostream &out, matrix<type> mat );
+	template std::ostream&	operator << <type>( std::ostream &out, matrix<type>& mat );
 
 hnMatrixTypeDefineMacro(int);
 hnMatrixTypeDefineMacro(double);

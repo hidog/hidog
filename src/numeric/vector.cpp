@@ -147,7 +147,7 @@ int		vector<T>::size()
 	複製 operator
 *************************************************************************************************************/
 template<class T>
-vector<T>	vector<T>::operator = ( vector<T> v )
+vector<T>&	vector<T>::operator = ( vector<T>& v )
 {
 	int		i;
 
@@ -175,7 +175,7 @@ vector<T>	vector<T>::operator = ( vector<T> v )
 	印出資料
 *************************************************************************************************************/
 template<class T>
-void	print( vector<T> vec )
+void	print( vector<T>& vec )
 {
 	const int	size	=	vec.size();
 
@@ -221,7 +221,7 @@ std::ostream&	operator << ( std::ostream &out, vector<T> &vec )
 	加法 
 *************************************************************************************************************/
 template<class	T>
-vector<T>		operator +  ( vector<T> &a, vector<T> &b )
+vector<T>&		operator +  ( vector<T> &a, vector<T> &b )
 {
 	ErrorExceptionMacro( a.size() == b.size() );
 
@@ -229,7 +229,9 @@ vector<T>		operator +  ( vector<T> &a, vector<T> &b )
 
 	int		i;
 
-	vector<T>	c(size);
+	static	vector<T>	c;
+
+	c.resize( size );
 
 	for( i = 0; i < size; i++ )
 		c(i)	=	a(i) + b(i);
@@ -242,7 +244,7 @@ vector<T>		operator +  ( vector<T> &a, vector<T> &b )
 	減法
 *************************************************************************************************************/
 template<class	T>
-vector<T>		operator -  ( vector<T> &a, vector<T> &b )
+vector<T>&		operator -  ( vector<T> &a, vector<T> &b )
 {
 	ErrorExceptionMacro( a.size() == b.size() );
 
@@ -250,7 +252,9 @@ vector<T>		operator -  ( vector<T> &a, vector<T> &b )
 
 	int		i;
 
-	vector<T>	c(size);
+	static	vector<T>	c;
+
+	c.resize(size);
 
 	for( i = 0; i < size; i++ )
 		c(i)	=	a(i) - b(i);

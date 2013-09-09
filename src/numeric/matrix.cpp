@@ -138,7 +138,7 @@ int		matrix<T>::height()
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ global functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 template<class T>
-std::ostream&	operator << ( std::ostream &out, matrix<T> mat )
+std::ostream&	operator << ( std::ostream &out, matrix<T>& mat )
 {
 	const int		width	=	mat.width();
 	const int		height	=	mat.height();

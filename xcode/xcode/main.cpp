@@ -10,7 +10,7 @@
 
 
 #include "../../src/numeric/vector.cpp"
-
+#include "../../src/numeric/matrix.cpp"
 
 
 

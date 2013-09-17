@@ -53,10 +53,10 @@ template<class T>
 std::ostream&	operator << ( std::ostream &out, vector<T> &vec );		// ºg¶® global function, ∑ÌΩd®“∞—¶“
 
 template<class T>
-vector<T>	operator + ( vector<T> &a, vector<T> &b );
+vector<T>&	operator + ( vector<T> &a, vector<T> &b );
 
 template<class T>
-vector<T>	operator - ( vector<T> &a, vector<T> &b );
+vector<T>&	operator - ( vector<T> &a, vector<T> &b );
 
 template<class T>
 vector<T>	operator * ( vector<T> &a, vector<T> &b );		// dot
@@ -74,8 +74,8 @@ T   inner_prod( vector<T> &a, vector<T> &b );
 	template class	vector<type>; \
 	template 	void            print<type>( vector<type> &vec ); \
 	template 	std::ostream&	operator << ( std::ostream &out, vector<type> &vec ); \
-	template 	vector<type>	operator +  ( vector<type> &a, vector<type> &b ); \
-	template	vector<type>	operator -	( vector<type> &a, vector<type> &b ); \
+	template 	vector<type>&	operator +  ( vector<type> &a, vector<type> &b ); \
+	template	vector<type>&	operator -	( vector<type> &a, vector<type> &b ); \
 	template	vector<type>	operator *	( vector<type> &a, vector<type> &b ); \
 	template 	bool			operator == ( vector<type> &a, vector<type> &b ); \
     template    type            inner_prod( vector<type> &a, vector<type> &b );

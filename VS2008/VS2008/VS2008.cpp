@@ -24,7 +24,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 
 	vec3	=	vec1;
-	vec3	+=	vec2;
+	vec3	-=	5;
 
 	print(vec3);
 	std::cout <<  vec1 + vec2;

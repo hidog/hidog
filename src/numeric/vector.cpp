@@ -166,6 +166,43 @@ vector<T>&	vector<T>::operator = ( vector<T>& v )
 }
 
 
+/************************************************************************************************************
+	+=	operator
+*************************************************************************************************************/
+template<class T>
+vector<T>&	vector<T>::operator +=	( vector<T>& v )
+{
+	const int	size	=	v.size();
+
+	int		i;
+
+	ErrorExceptionMacro( _size == size );
+
+	for( i = 0; i < size; i++ )
+		data[i]	+=	v(i);
+
+	return	*this;
+}
+
+
+
+
+/************************************************************************************************************
+	+=	operator
+*************************************************************************************************************/
+template<class T>
+vector<T>&	vector<T>::operator +=	( T value )
+{
+	const int	size	=	_size;
+
+	int		i;
+
+	for( i = 0; i < size; i++ )
+		data[i]	+=	value;
+
+	return	*this;
+}
+
 
 
 

@@ -14,7 +14,11 @@ namespace	numeric
 
 
 
-
+/*******************************************************************************************
+ 
+    vector obj
+ 
+********************************************************************************************/
 template<class T>
 class	vector
 {
@@ -24,14 +28,14 @@ public:
 	vector( vector& );
 	~vector();
 
-	void	resize( int );			// ≠´∑s®˙±o∞Oæ–≈È™≈∂°
-	void	destroy();					// ≤M∞£∏ÍÆ∆ ƒ¿©Ò∞Oæ–≈È
+	void	resize( int );              // resize
+	void	destroy();					// destroy
 	int		size();
 
 	T&	operator () ( int );
 	T&	operator [] ( int );
 	
-	vector<T>&	operator =  ( vector<T>& );			// ¶≥®«ºg¶®≠˚ ¶≥®«ºg•˛∞Ï ¨O¨∞§F∑ÌΩd®“•Œ   
+	vector<T>&	operator =  ( vector<T>& );			// =  operator   
 	vector<T>&	operator +=	( vector<T>& );			// += operator
 	vector<T>&	operator +=	( T );					// += operator
 	vector<T>&	operator -=	( vector<T>& );			// -= operator
@@ -47,11 +51,11 @@ private:
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 template<class T>
-void	print( vector<T>& );
+void	print( vector<T>& );                                    // 測試用
 
 template<class T>
-std::ostream&	operator << ( std::ostream&, vector<T>& );		// ºg¶® global function, ∑ÌΩd®“∞—¶“
-
+std::ostream&	operator << ( std::ostream&, vector<T>& );		// << operator
+    
 template<class T>
 vector<T>&	operator + ( vector<T>& , vector<T>& );
 
@@ -59,13 +63,13 @@ template<class T>
 vector<T>&	operator - ( vector<T>&, vector<T>& );
 
 template<class T>
-vector<T>&	operator * ( vector<T>&, vector<T>& );		// dot
+vector<T>&	operator * ( vector<T>&, vector<T>& );              // dot
 
 template<class T>
-vector<T>&	operator * ( vector<T>&, T );			// multiple
+vector<T>&	operator * ( vector<T>&, T );                       // multiple
 
 template<class T>
-vector<T>&	operator * ( T , vector<T>& );			// multiple
+vector<T>&	operator * ( T , vector<T>& );                      // multiple
 
 template<class T>
 bool	operator == ( vector<T>&, vector<T>& );
@@ -75,7 +79,7 @@ T   inner_prod( vector<T>&, vector<T>& );
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// •Œ define ®”ß÷≥t≤£•Õª›≠n™∫ºÀ™Oº“≤’
+// 利用macro來產生實體 俱現化等等
 #define	hnVectorTypeDefineMacro( type ) \
 	template class	vector<type>; \
 	template 	void            print<type>( vector<type>& ); \

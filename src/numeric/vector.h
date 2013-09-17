@@ -24,16 +24,19 @@ public:
 	vector( vector& v );
 	~vector();
 
-	void	resize( int _s );			// ­«·s¨ú±o°O¾ĞÅéªÅ¶¡
-	void	destroy();					// ²M°£¸ê®Æ ÄÀ©ñ°O¾ĞÅé
+	void	resize( int _s );			// â‰ Â´âˆ‘sÂ®Ë™Â±oâˆOÃ¦â€“â‰ˆÃˆâ„¢â‰ˆâˆ‚Â°
+	void	destroy();					// â‰¤MâˆÂ£âˆÃÃ†âˆ† Æ’Â¿Â©Ã’âˆOÃ¦â€“â‰ˆÃˆ
 	int		size();
 
 	T&	operator () ( int index );
 	T&	operator [] ( int index );
 	
-	vector<T>&	operator =  ( vector<T>& v );		// ¦³¨Ç¼g¦¨­û ¦³¨Ç¼g¥ş°ì ¬O¬°¤F·í½d¨Ò¥Î
+	vector<T>&	operator =  ( vector<T>& v );		// Â¶â‰¥Â®Â«ÂºgÂ¶Â®â‰ Ëš Â¶â‰¥Â®Â«Âºgâ€¢Ë›âˆÃ Â¨OÂ¨âˆÂ§Fâˆ‘ÃŒÎ©dÂ®â€œâ€¢Å’
 
 
+    //friend  vector<T>& operator + <>( vector<T> &a, vector<T> &b );
+    
+    
 private:
 	T		*data;
 	int		_size;
@@ -43,10 +46,10 @@ private:
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 template<class T>
-void	print( vector<T> vec );
+void	print( vector<T> &vec );
 
 template<class T>
-std::ostream&	operator << ( std::ostream &out, vector<T> &vec );		// ¼g¦¨ global function, ·í½d¨Ò°Ñ¦Ò
+std::ostream&	operator << ( std::ostream &out, vector<T> &vec );		// ÂºgÂ¶Â® global function, âˆ‘ÃŒÎ©dÂ®â€œâˆâ€”Â¶â€œ
 
 template<class T>
 vector<T>&	operator + ( vector<T> &a, vector<T> &b );
@@ -62,21 +65,15 @@ T   inner_prod( vector<T> &a, vector<T> &b );
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// ¥Î define ¨Ó§Ö³t²£¥Í»İ­nªº¼ËªO¼Ò²Õ
-#ifndef MAC_OS
+// â€¢Å’ define Â®â€ÃŸÃ·â‰¥tâ‰¤Â£â€¢Ã•Âªâ€ºâ‰ nâ„¢âˆ«ÂºÃ€â„¢OÂºâ€œâ‰¤â€™
 #define	hnVectorTypeDefineMacro( type ) \
 	template class	vector<type>; \
-	template 	void print<type>( vector<type> vec ); \
+	template 	void            print<type>( vector<type> &vec ); \
 	template 	std::ostream&	operator << ( std::ostream &out, vector<type> &vec ); \
 	template 	vector<type>&	operator +  ( vector<type> &a, vector<type> &b ); \
 	template	vector<type>&	operator -	( vector<type> &a, vector<type> &b ); \
 	template 	bool			operator == ( vector<type> &a, vector<type> &b ); \
     template    type            inner_prod( vector<type> &a, vector<type> &b );
-
-
-hnVectorTypeDefineMacro(int);
-hnVectorTypeDefineMacro(double);
-#endif
 
 
 

@@ -9,8 +9,8 @@
 #include <iostream>
 
 
-#include "numeric/vector.cpp"
-#include "numeric/matrix.cpp"
+#include "numeric/vector.h"
+#include "numeric/matrix.h"
 
 
 
@@ -23,7 +23,7 @@ int main(int argc, const char * argv[])
         vec(i)  =   i + 10;
         vec2(i) =   i - 3;
     }
-    
+
     vec =   vec + vec2;
     std::cout <<  vec + vec2 << std::endl;
     std::cout << "inner product = " << inner_prod( vec, vec2 );
@@ -36,6 +36,7 @@ int main(int argc, const char * argv[])
             mm( i, j )  =   i + j;
     
     std::cout << mm << "\n"; 
+
     
     return 0;
 }

@@ -155,6 +155,11 @@ std::ostream&	operator << ( std::ostream &out, matrix<T>& mat )
 	return	out;
 }
 
+    
+    
+// use macro to general
+hnMatrixTypeDefineMacro(int);
+hnMatrixTypeDefineMacro(double);
 
 
 

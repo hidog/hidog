@@ -310,8 +310,12 @@ T   inner_prod( vector<T> &a, vector<T> &b )
 }
     
     
+
+// use macro to general 
+hnVectorTypeDefineMacro(int);
+hnVectorTypeDefineMacro(double);
     
-
-
+    
+    
 }	// end namespace numeric
 }	// end namespace hidog

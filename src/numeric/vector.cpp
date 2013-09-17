@@ -347,7 +347,7 @@ vector<T>&		operator -  ( vector<T> &a, vector<T> &b )
 	dot 點乘
 *************************************************************************************************************/
 template<class T>
-vector<T>	operator * ( vector<T> &a, vector<T> &b )
+vector<T>&	operator * ( vector<T> &a, vector<T> &b )
 {
 	ErrorExceptionMacro( a.size() == b.size() );
 
@@ -355,7 +355,54 @@ vector<T>	operator * ( vector<T> &a, vector<T> &b )
 
 	int		i;
 
-	vector<T>	c;
+	static	vector<T>	c;
+	c.resize(size);
+
+	for( i = 0; i < size; i++ )
+		c(i)	=	a(i) * b(i);
+
+	return	c;
+}
+
+
+
+/************************************************************************************************************
+	普通乘法
+*************************************************************************************************************/
+template<class T>
+vector<T>&	operator *	( vector<T> &a, T value )
+{
+	const int	size	=	a.size();
+
+	int		i;
+
+	static	vector<T>	c;
+	c.resize(size);
+
+	for( i = 0; i < size; i++ )
+		c(i)		=	a(i) * value;
+
+	return	c;
+}
+
+
+/************************************************************************************************************
+	普通乘法
+*************************************************************************************************************/
+template<class T>
+vector<T>&	operator *	( T value, vector<T> &a )
+{
+	const int	size	=	a.size();
+
+	int		i;
+
+	static	vector<T>	c;
+	c.resize(size);
+
+	for( i = 0; i < size; i++ )
+		c(i)		=	value * a(i);
+
+	return	c;
 }
 
 

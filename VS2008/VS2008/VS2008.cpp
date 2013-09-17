@@ -27,7 +27,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	vec3	-=	5;
 
 	print(vec3);
-	std::cout <<  vec1 + vec2;
+	std::cout <<  vec1 * vec2;
+	std::cout << vec1 * 10 << " " << 2 * vec2;
 	std::cout << vec1 - vec2;
 	std::cout << "inner product = " << inner_prod( vec1, vec2 );
 	

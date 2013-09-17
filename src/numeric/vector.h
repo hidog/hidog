@@ -20,22 +20,22 @@ class	vector
 {
 public:
 	vector();		
-	vector( int _s );
-	vector( vector& v );
+	vector( int );
+	vector( vector& );
 	~vector();
 
-	void	resize( int _s );			// ≠´∑s®˙±o∞Oæ–≈È™≈∂°
+	void	resize( int );			// ≠´∑s®˙±o∞Oæ–≈È™≈∂°
 	void	destroy();					// ≤M∞£∏ÍÆ∆ ƒ¿©Ò∞Oæ–≈È
 	int		size();
 
-	T&	operator () ( int index );
-	T&	operator [] ( int index );
+	T&	operator () ( int );
+	T&	operator [] ( int );
 	
-	vector<T>&	operator =  ( vector<T>& v );		// ¶≥®«ºg¶®≠˚ ¶≥®«ºg•˛∞Ï ¨O¨∞§F∑ÌΩd®“•Œ   
-	vector<T>&	operator +=	( vector<T>& v );		// += operator
-	vector<T>&	operator +=	( T value );			// += operator
-	vector<T>&	operator -=	( vector<T>& v );		// -= operator
-	vector<T>&	operator -=	( T value );			// -= operator
+	vector<T>&	operator =  ( vector<T>& );			// ¶≥®«ºg¶®≠˚ ¶≥®«ºg•˛∞Ï ¨O¨∞§F∑ÌΩd®“•Œ   
+	vector<T>&	operator +=	( vector<T>& );			// += operator
+	vector<T>&	operator +=	( T );					// += operator
+	vector<T>&	operator -=	( vector<T>& );			// -= operator
+	vector<T>&	operator -=	( T );					// -= operator
 
 
 private:
@@ -47,38 +47,46 @@ private:
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 template<class T>
-void	print( vector<T> &vec );
+void	print( vector<T>& );
 
 template<class T>
-std::ostream&	operator << ( std::ostream &out, vector<T> &vec );		// ºg¶® global function, ∑ÌΩd®“∞—¶“
+std::ostream&	operator << ( std::ostream&, vector<T>& );		// ºg¶® global function, ∑ÌΩd®“∞—¶“
 
 template<class T>
-vector<T>&	operator + ( vector<T> &a, vector<T> &b );
+vector<T>&	operator + ( vector<T>& , vector<T>& );
 
 template<class T>
-vector<T>&	operator - ( vector<T> &a, vector<T> &b );
+vector<T>&	operator - ( vector<T>&, vector<T>& );
 
 template<class T>
-vector<T>	operator * ( vector<T> &a, vector<T> &b );		// dot
+vector<T>&	operator * ( vector<T>&, vector<T>& );		// dot
 
 template<class T>
-bool	operator == ( vector<T> &a, vector<T> &b );
+vector<T>&	operator * ( vector<T>&, T );			// multiple
+
+template<class T>
+vector<T>&	operator * ( T , vector<T>& );			// multiple
+
+template<class T>
+bool	operator == ( vector<T>&, vector<T>& );
     
 template<class T>
-T   inner_prod( vector<T> &a, vector<T> &b );
+T   inner_prod( vector<T>&, vector<T>& );
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // •Œ define ®”ß÷≥t≤£•Õª›≠n™∫ºÀ™Oº“≤’
 #define	hnVectorTypeDefineMacro( type ) \
 	template class	vector<type>; \
-	template 	void            print<type>( vector<type> &vec ); \
-	template 	std::ostream&	operator << ( std::ostream &out, vector<type> &vec ); \
-	template 	vector<type>&	operator +  ( vector<type> &a, vector<type> &b ); \
-	template	vector<type>&	operator -	( vector<type> &a, vector<type> &b ); \
-	template	vector<type>	operator *	( vector<type> &a, vector<type> &b ); \
-	template 	bool			operator == ( vector<type> &a, vector<type> &b ); \
-    template    type            inner_prod( vector<type> &a, vector<type> &b );
+	template 	void            print<type>( vector<type>& ); \
+	template 	std::ostream&	operator << ( std::ostream&, vector<type>& );	 \
+	template 	vector<type>&	operator +  ( vector<type>&, vector<type>& );	 \
+	template	vector<type>&	operator -	( vector<type>&, vector<type>& );	 \
+	template	vector<type>&	operator *	( vector<type>&, vector<type>& );	 \
+	template	vector<type>&	operator *	( vector<type>&, type );		 	 \
+	template	vector<type>&	operator *	( type , vector<type>& );		 	 \
+	template 	bool			operator == ( vector<type>&, vector<type>& );	 \
+    template    type            inner_prod( vector<type>&, vector<type>& );
 
 
 

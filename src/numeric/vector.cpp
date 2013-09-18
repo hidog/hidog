@@ -38,18 +38,36 @@ vector<T>::vector( int _s )
 	copy construct
 *************************************************************************************************************/
 template<class T>
-vector<T>::vector( vector& v )
+vector<T>::vector( const vector<T>& v )
 {
 	data	=	NULL;       // 為了檢查是否正確取得空間
     
-	_size	=	v.size();
+	_size	=	v._size;
 	data	=	new	T[_size];
 
 	ErrorExceptionMacro( data != NULL );
 
 	// copy
 	for( int i = 0; i < _size; i++ )
-		data[i]	=	v(i);
+		data[i]	=	v.data[i];
+}
+    
+/************************************************************************************************************
+     copy construct
+*************************************************************************************************************/
+template<class T>
+vector<T>::vector( vector<T>& v )
+{
+    data	=	NULL;       // 為了檢查是否正確取得空間
+        
+    _size	=	v.size();
+    data	=	new	T[_size];
+        
+    ErrorExceptionMacro( data != NULL );
+        
+    // copy
+    for( int i = 0; i < _size; i++ )
+        data[i]	=	v(i);
 }
 
 
@@ -114,6 +132,8 @@ T&	vector<T>::operator () ( int index )
 
 	return	data[index];
 }
+    
+    
 
 
 
@@ -143,20 +163,20 @@ int		vector<T>::size()
 	= operator
 *************************************************************************************************************/
 template<class T>
-vector<T>&	vector<T>::operator = ( vector<T>& v )
+vector<T>&	vector<T>::operator = ( const vector<T>& v )
 {
 	int		i;
 
 	delete	[]	data;
 	data	=	NULL;
 
-	_size	=	v.size();
+	_size	=	v._size;
 	data	=	new	T[_size];
 
 	ErrorExceptionMacro( data != NULL );
 
 	for( i = 0; i < _size; i++ )
-		data[i]	=	v(i);
+		data[i]	=	v.data[i];
 
 	return	*this;
 }
@@ -272,7 +292,7 @@ void	print( vector<T>& vec )
     << operator
 *************************************************************************************************************/
 template<class T>
-std::ostream&	operator << ( std::ostream &out, vector<T> &vec )
+std::ostream&	operator << ( std::ostream &out, vector<T> vec )
 {
 	const int	s	=	vec.size();
 
@@ -294,7 +314,7 @@ std::ostream&	operator << ( std::ostream &out, vector<T> &vec )
     +
 *************************************************************************************************************/
 template<class	T>
-vector<T>&		operator +  ( vector<T> &a, vector<T> &b )
+vector<T>	operator +  ( vector<T> &a, vector<T> &b )
 {
 	ErrorExceptionMacro( a.size() == b.size() );
 
@@ -302,7 +322,7 @@ vector<T>&		operator +  ( vector<T> &a, vector<T> &b )
 
 	int		i;
 
-	static  vector<T>	c;		// ≠t≥d¶^∂«•Œ
+    vector<T>	c;		// ≠t≥d¶^∂«•Œ
 
 	c.resize( size );
 
@@ -317,7 +337,7 @@ vector<T>&		operator +  ( vector<T> &a, vector<T> &b )
     -
 *************************************************************************************************************/
 template<class	T>
-vector<T>&		operator -  ( vector<T> &a, vector<T> &b )
+vector<T>	operator -  ( vector<T> &a, vector<T> &b )
 {
 	ErrorExceptionMacro( a.size() == b.size() );
 
@@ -325,7 +345,7 @@ vector<T>&		operator -  ( vector<T> &a, vector<T> &b )
 
 	int		i;
 
-	static  vector<T>	c;
+    vector<T>	c;
 
 	c.resize(size);
 
@@ -342,7 +362,7 @@ vector<T>&		operator -  ( vector<T> &a, vector<T> &b )
 	dot 點乘
 *************************************************************************************************************/
 template<class T>
-vector<T>&	operator * ( vector<T> &a, vector<T> &b )
+vector<T>	operator * ( vector<T> &a, vector<T> &b )
 {
 	ErrorExceptionMacro( a.size() == b.size() );
 
@@ -350,7 +370,7 @@ vector<T>&	operator * ( vector<T> &a, vector<T> &b )
 
 	int		i;
 
-	static	vector<T>	c;
+    vector<T>	c;
 	c.resize(size);
 
 	for( i = 0; i < size; i++ )
@@ -365,13 +385,13 @@ vector<T>&	operator * ( vector<T> &a, vector<T> &b )
     multiple
 *************************************************************************************************************/
 template<class T>
-vector<T>&	operator *	( vector<T> &a, T value )
+vector<T>	operator *	( vector<T> &a, T value )
 {
 	const int	size	=	a.size();
 
 	int		i;
 
-	static	vector<T>	c;
+    vector<T>	c;
 	c.resize(size);
 
 	for( i = 0; i < size; i++ )
@@ -385,13 +405,13 @@ vector<T>&	operator *	( vector<T> &a, T value )
     multiple
 *************************************************************************************************************/
 template<class T>
-vector<T>&	operator *	( T value, vector<T> &a )
+vector<T>	operator *	( T value, vector<T> &a )
 {
 	const int	size	=	a.size();
 
 	int		i;
 
-	static	vector<T>	c;
+    vector<T>	c;
 	c.resize(size);
 
 	for( i = 0; i < size; i++ )

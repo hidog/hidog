@@ -25,7 +25,8 @@ class	vector
 public:
 	vector();		
 	vector( int );
-	vector( vector& );
+    vector( vector& );
+	vector( const vector& );
 	~vector();
 
 	void	resize( int );              // resize
@@ -35,12 +36,11 @@ public:
 	T&	operator () ( int );
 	T&	operator [] ( int );
 	
-	vector<T>&	operator =  ( vector<T>& );			// =  operator   
+	vector<T>&	operator =  ( const vector<T>& );	// =  operator
 	vector<T>&	operator +=	( vector<T>& );			// += operator
 	vector<T>&	operator +=	( T );					// += operator
 	vector<T>&	operator -=	( vector<T>& );			// -= operator
 	vector<T>&	operator -=	( T );					// -= operator
-
 
 private:
 	T		*data;
@@ -54,22 +54,22 @@ template<class T>
 void	print( vector<T>& );                                    // 測試用
 
 template<class T>
-std::ostream&	operator << ( std::ostream&, vector<T>& );		// << operator
+std::ostream&	operator << ( std::ostream&, vector<T> );		// << operator
     
 template<class T>
-vector<T>&	operator + ( vector<T>& , vector<T>& );
+vector<T>	operator + ( vector<T>& , vector<T>& );
 
 template<class T>
-vector<T>&	operator - ( vector<T>&, vector<T>& );
+vector<T>	operator - ( vector<T>&, vector<T>& );
 
 template<class T>
-vector<T>&	operator * ( vector<T>&, vector<T>& );              // dot
+vector<T>	operator * ( vector<T>&, vector<T>& );              // dot
 
 template<class T>
-vector<T>&	operator * ( vector<T>&, T );                       // multiple
+vector<T>	operator * ( vector<T>&, T );                       // multiple
 
 template<class T>
-vector<T>&	operator * ( T , vector<T>& );                      // multiple
+vector<T>	operator * ( T , vector<T>& );                      // multiple
 
 template<class T>
 bool	operator == ( vector<T>&, vector<T>& );
@@ -83,12 +83,12 @@ T   inner_prod( vector<T>&, vector<T>& );
 #define	hnVectorTypeDefineMacro( type ) \
 	template class	vector<type>; \
 	template 	void            print<type>( vector<type>& ); \
-	template 	std::ostream&	operator << ( std::ostream&, vector<type>& );	 \
-	template 	vector<type>&	operator +  ( vector<type>&, vector<type>& );	 \
-	template	vector<type>&	operator -	( vector<type>&, vector<type>& );	 \
-	template	vector<type>&	operator *	( vector<type>&, vector<type>& );	 \
-	template	vector<type>&	operator *	( vector<type>&, type );		 	 \
-	template	vector<type>&	operator *	( type , vector<type>& );		 	 \
+	template 	std::ostream&	operator << ( std::ostream&, vector<type> );	 \
+	template 	vector<type>	operator +  ( vector<type>&, vector<type>& );	 \
+	template	vector<type>	operator -	( vector<type>&, vector<type>& );	 \
+	template	vector<type>	operator *	( vector<type>&, vector<type>& );	 \
+	template	vector<type>	operator *	( vector<type>&, type );		 	 \
+	template	vector<type>	operator *	( type , vector<type>& );		 	 \
 	template 	bool			operator == ( vector<type>&, vector<type>& );	 \
     template    type            inner_prod( vector<type>&, vector<type>& );
 

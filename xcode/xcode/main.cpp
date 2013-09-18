@@ -16,7 +16,7 @@
 
 int main(int argc, const char * argv[])
 {
-    hidog::numeric::vector<int>     vec(10), vec2(10);
+    hidog::numeric::vector<int>     vec(10), vec2(10), vec3;
     
     for( int i = 0; i < 10; i++ )
     {
@@ -24,8 +24,11 @@ int main(int argc, const char * argv[])
         vec2(i) =   i - 3;
     }
 
-    vec =   vec * vec2;
+    vec3 =   vec + vec2;
     std::cout <<  vec + vec2 << std::endl;
+    std::cout <<  vec - vec2 << std::endl;
+    std::cout <<  vec * vec2 << std::endl;
+    std::cout <<  vec * 2 << std::endl;
     std::cout << "inner product = " << inner_prod( vec, vec2 ) << std::endl;
     
     

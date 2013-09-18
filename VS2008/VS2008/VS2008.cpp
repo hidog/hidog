@@ -46,6 +46,20 @@ int _tmain(int argc, _TCHAR* argv[])
 			mat( i, j )	=	i + j;
 
 	std::cout << mat;
+
+	mat.resize( 10, 20 );
+
+	hidog::numeric::matrix<int>		mat2;
+
+	for( i = 0; i < 10; i++ )
+		for( j = 0; j < 20; j++ )
+			mat( i, j )	=	i + j;
+
+	mat2	=	mat;
+
+	std::cout << mat2;
+		
+
 #endif
 
 

@@ -15,9 +15,7 @@ namespace	numeric
 
 
 /*******************************************************************************************
- 
     vector obj
- 
 ********************************************************************************************/
 template<class T>
 class	vector
@@ -26,21 +24,23 @@ public:
 	vector();		
 	vector( int );
     vector( vector& );
+#ifdef MAC_OS
 	vector( const vector& );
+#endif
 	~vector();
 
-	void	resize( int );              // resize
-	void	destroy();					// destroy
+	void	resize( int );              			// resize
+	void	destroy();								// destroy
 	int		size();
 
 	T&	operator () ( int );
 	T&	operator [] ( int );
 	
-	vector<T>&	operator =  ( const vector<T>& );	// =  operator
-	vector<T>&	operator +=	( vector<T>& );			// += operator
-	vector<T>&	operator +=	( T );					// += operator
-	vector<T>&	operator -=	( vector<T>& );			// -= operator
-	vector<T>&	operator -=	( T );					// -= operator
+	vector&	operator =  ( vector& );			// =  operator
+	vector&	operator +=	( vector& );			// += operator
+	vector&	operator +=	( T );					// += operator
+	vector&	operator -=	( vector& );			// -= operator
+	vector&	operator -=	( T );					// -= operator
 
 private:
 	T		*data;
@@ -72,7 +72,7 @@ template<class T>
 vector<T>	operator * ( T , vector<T>& );                      // multiple
 
 template<class T>
-bool	operator == ( vector<T>&, vector<T>& );
+bool		operator == ( vector<T>&, vector<T>& );
     
 template<class T>
 T   inner_prod( vector<T>&, vector<T>& );

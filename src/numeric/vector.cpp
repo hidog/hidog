@@ -34,6 +34,7 @@ vector<T>::vector( int _s )
 }
 
 
+#ifdef MAC_OS
 /************************************************************************************************************
 	copy construct
 *************************************************************************************************************/
@@ -51,6 +52,9 @@ vector<T>::vector( const vector<T>& v )
 	for( int i = 0; i < _size; i++ )
 		data[i]	=	v.data[i];
 }
+#endif
+
+
     
 /************************************************************************************************************
      copy construct
@@ -114,8 +118,6 @@ void	vector<T>::resize( int _s )
 	data	=	new	T[_size];
 
 	ErrorExceptionMacro( data != NULL );
-	//if( data == NULL )
-	//	error_msg("resize error.");
 }
 
 
@@ -127,8 +129,6 @@ template<class T>
 T&	vector<T>::operator () ( int index )
 {
 	ErrorExceptionMacro( index < _size );
-	//if( index >= _size )
-	//	error_msg("index out of bound.");
 
 	return	data[index];
 }
@@ -163,20 +163,25 @@ int		vector<T>::size()
 	= operator
 *************************************************************************************************************/
 template<class T>
-vector<T>&	vector<T>::operator = ( const vector<T>& v )
+vector<T>&	vector<T>::operator = ( vector<T>& v )
 {
 	int		i;
 
-	delete	[]	data;
-	data	=	NULL;
+	if( this != &v )
+	{
+		delete	[]	data;
+		data	=	NULL;
 
-	_size	=	v._size;
-	data	=	new	T[_size];
+		_size	=	v._size;
+		data	=	new	T[_size];
 
-	ErrorExceptionMacro( data != NULL );
+		ErrorExceptionMacro( data != NULL );
 
-	for( i = 0; i < _size; i++ )
-		data[i]	=	v.data[i];
+		for( i = 0; i < _size; i++ )
+			data[i]	=	v.data[i];
+	}
+	else
+		error_msg("vector this == ref.\n");
 
 	return	*this;
 }

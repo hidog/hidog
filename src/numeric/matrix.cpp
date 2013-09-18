@@ -36,7 +36,7 @@ matrix<T>::matrix( int _w, int _h )
 {
 	int		i;
 
-	data		=	NULL;	// ¬°¤FÀË¬d¬O§_¥¿½T«Å§i°ÊºA°O¾ĞÅé
+	data		=	NULL;	// ç‚ºäº†æª¢æŸ¥æ˜¯å¦æ­£ç¢ºå®£å‘Šå‹•æ…‹è¨˜æ†¶é«”
 
 	_width		=	_w;
 	_height		=	_h;
@@ -81,6 +81,64 @@ matrix<T>::matrix( matrix<T> &m )
 	
 
 
+#ifdef MAC_OS
+/************************************************************************************************************
+	copy constructor 
+*************************************************************************************************************/
+template<class T>
+matrix<T>::matrix( const matrix<T> &m )
+{
+	int		i,	j;
+
+	data	=	NULL;
+
+	_width	=	m._width;
+	_height	=	m._height;
+
+	data	=	new vector<T> [_width];
+
+	ErrorExceptionMacro( data != NULL );
+
+	for( i = 0; i < _width; i++ )
+	{
+		data[i].resize(_height);
+		for( j = 0; j < _height; j++ )
+			data[i](j)	=	m.data[i](j);
+	}
+}
+#endif
+
+
+
+
+/************************************************************************************************************
+	resize
+*************************************************************************************************************/
+template<class T>
+void	matrix<T>::resize( int _w, int _h )
+{
+	int		i;
+
+	// æ¸…é™¤èˆŠçš„è³‡æ–™
+	delete	[]	data;
+	data	=	NULL;
+	_width	=	0;
+	_height	=	0;
+
+	_width	=	_w;
+	_height	=	_h;
+
+	data	=	new vector<T>[_width];
+
+	ErrorExceptionMacro( data != NULL );
+
+	for( i = 0; i < _width; i++ )
+		data[i].resize(_height);
+
+}
+
+
+
 
 /************************************************************************************************************
 	destructor 
@@ -99,7 +157,7 @@ matrix<T>::~matrix()
 
 
 /************************************************************************************************************
-	¨ú¥X¤¸¯À 
+	å–å‡ºå…ƒç´  
 *************************************************************************************************************/
 template<class T>
 T&	matrix<T>::operator () ( int x, int y )
@@ -131,6 +189,29 @@ int		matrix<T>::height()
 	return	_height;
 }
 
+
+
+/************************************************************************************************************
+	= operator
+*************************************************************************************************************/
+template<class T>
+matrix<T>&		matrix<T>::operator = ( matrix<T>& m )
+{
+	int		i,	j;
+
+	if( this != &m )
+	{
+		resize( m.width(), m.height() );
+
+		for( i = 0; i < _width; i++ )
+			for( j = 0; j < _height; j++ )
+				data[i](j)	=	m( i, j );
+	}
+	else
+		error_msg("matrix this == ref\n");
+
+	return	*this;
+}
 
 
 

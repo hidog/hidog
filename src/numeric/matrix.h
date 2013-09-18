@@ -23,14 +23,20 @@ class	matrix
 {
 public:
 	matrix();
-	matrix( int _w, int _h );
-	matrix( matrix<T> &m );
+	matrix( int , int  );
+	matrix( matrix<T>& );
+#ifdef MAC_OS
+	matrix( const matrix<T>& );
+#endif
 	~matrix();
 
 	int		width();
 	int		height();
 
-	T&	operator () ( int x, int y );
+	void	resize( int, int );
+
+	T&		operator () ( int, int );
+	matrix&	operator =  ( matrix& );		
 
 
 private:
@@ -45,7 +51,7 @@ private:
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 template<class T>
-std::ostream&	operator << ( std::ostream &out, matrix<T>& mat );
+std::ostream&	operator << ( std::ostream&, matrix<T>& );
 
 
 
@@ -54,7 +60,7 @@ std::ostream&	operator << ( std::ostream &out, matrix<T>& mat );
 // 用 define 來快速產生需要的樣板模組
 #define	hnMatrixTypeDefineMacro( type ) \
 	template class	matrix<type>; \
-	template std::ostream&	operator << <type>( std::ostream &out, matrix<type>& mat );
+	template std::ostream&	operator << <type>( std::ostream&, matrix<type>& );
 
 
 

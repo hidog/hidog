@@ -24,7 +24,7 @@ int main(int argc, const char * argv[])
         vec2(i) =   i - 3;
     }
 
-    vec3 =   vec + vec2;
+    vec3    =   vec + vec2;
     std::cout <<  vec + vec2 << std::endl;
     std::cout <<  vec - vec2 << std::endl;
     std::cout <<  vec * vec2 << std::endl;

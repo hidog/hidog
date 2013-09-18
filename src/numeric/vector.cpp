@@ -163,12 +163,12 @@ int		vector<T>::size()
 	= operator
 *************************************************************************************************************/
 template<class T>
-vector<T>&	vector<T>::operator = ( vector<T>& v )
+vector<T>	vector<T>::operator = ( vector<T> v )
 {
 	int		i;
 
-	if( this != &v )
-	{
+	//if( this != &v )  如果用reference就需要注意這件事情 避免 a = a;
+	//{
 		delete	[]	data;
 		data	=	NULL;
 
@@ -179,9 +179,8 @@ vector<T>&	vector<T>::operator = ( vector<T>& v )
 
 		for( i = 0; i < _size; i++ )
 			data[i]	=	v.data[i];
-	}
-	else
-		error_msg("vector this == ref.\n");
+    //}
+
 
 	return	*this;
 }
@@ -191,7 +190,7 @@ vector<T>&	vector<T>::operator = ( vector<T>& v )
 	+=	operator
 *************************************************************************************************************/
 template<class T>
-vector<T>&	vector<T>::operator +=	( vector<T>& v )
+vector<T>	vector<T>::operator +=	( vector<T> v )
 {
 	const int	size	=	v.size();
 
@@ -212,7 +211,7 @@ vector<T>&	vector<T>::operator +=	( vector<T>& v )
 	+=	operator
 *************************************************************************************************************/
 template<class T>
-vector<T>&	vector<T>::operator +=	( T value )
+vector<T>	vector<T>::operator +=	( T value )
 {
 	const int	size	=	_size;
 
@@ -230,7 +229,7 @@ vector<T>&	vector<T>::operator +=	( T value )
 	-=	operator
 *************************************************************************************************************/
 template<class T>
-vector<T>&	vector<T>::operator -=	( vector<T>& v )
+vector<T>	vector<T>::operator -=	( vector<T> v )
 {
 	const int	size	=	v.size();
 
@@ -251,7 +250,7 @@ vector<T>&	vector<T>::operator -=	( vector<T>& v )
 	+=	operator
 *************************************************************************************************************/
 template<class T>
-vector<T>&	vector<T>::operator -=	( T value )
+vector<T>	vector<T>::operator -=	( T value )
 {
 	const int	size	=	_size;
 

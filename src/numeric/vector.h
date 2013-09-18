@@ -36,11 +36,11 @@ public:
 	T&	operator () ( int );
 	T&	operator [] ( int );
 	
-	vector&	operator =  ( vector& );			// =  operator
-	vector&	operator +=	( vector& );			// += operator
-	vector&	operator +=	( T );					// += operator
-	vector&	operator -=	( vector& );			// -= operator
-	vector&	operator -=	( T );					// -= operator
+	vector	operator =  ( vector );             // =  operator
+	vector	operator +=	( vector );             // += operator
+	vector	operator +=	( T );					// += operator
+	vector	operator -=	( vector );             // -= operator
+	vector	operator -=	( T );					// -= operator
 
 private:
 	T		*data;

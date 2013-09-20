@@ -10,7 +10,7 @@ shared.o : ../src/shared.cpp ../src/shared.h
 vector.o : ../src/numeric/vector.cpp ../src/numeric/vector.h ../src/shared.h
 	g++ -c ../src/numeric/vector.cpp
 
-matrix.o : ../src/numeric/matrix.cpp ../src/numeric/matrix.h ../src/numeric/vector.h ../src/shared.h ../src/shared.cpp
+matrix.o : ../src/numeric/matrix.cpp ../src/numeric/matrix.h ../src/numeric/vector.h ../src/shared.h 
 	g++ -c ../src/numeric/matrix.cpp
 
 clean :

@@ -1,7 +1,7 @@
 #ifndef _HIDOG_MATRIX_H
 #define _HIDOG_MATRIX_H
 
-#include "shared.h"
+#include "../shared.h"
 #include "vector.h"
 #include <ostream>
 
@@ -25,9 +25,9 @@ public:
 	matrix();
 	matrix( int , int  );
 	matrix( matrix<T>& );
-#ifdef MAC_OS
+//#ifdef MAC_OS
 	matrix( const matrix<T>& );
-#endif
+//#endif
 	~matrix();
 
 	int		width();

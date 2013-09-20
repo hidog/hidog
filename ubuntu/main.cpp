@@ -6,14 +6,19 @@
 
 int	main()
 {
-  hidog::numeric::vector<int>	v(10);
+  hidog::numeric::vector<int>	v1(10), v2(10), v3;
 
   int	i;
 
   for( i = 0; i < 10; i++ )
-	v(i)	=	i;
+  {
+	v1(i)	=	i;
+	v2(i)	=	i%2 ? i+1 : 0;
+  }
 
-  std::cout << v << "\n";
+  v3 = v1 - v2;
+  std::cout << v3 << "\n";
+  std::cout << v1 + v2 << "\n";
 
   hidog::numeric::matrix<int>	m1, m2;
 
@@ -31,9 +36,9 @@ int	main()
 
   hidog::numeric::matrix<int>	m3;
 
-  //m3   =   m1 + m2;
+  m3   =   m1 + m2;
 
-  std::cout << m1 << "\n";
+  std::cout << m3 << "\n";
   std::cout << m1 + m2 << "\n";
   std::cout << m1 - m2 << "\n";
 

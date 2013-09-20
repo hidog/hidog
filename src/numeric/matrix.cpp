@@ -81,7 +81,7 @@ matrix<T>::matrix( matrix<T> &m )
 	
 
 
-#ifdef MAC_OS
+//#ifdef MAC_OS
 /************************************************************************************************************
 	copy constructor 
 *************************************************************************************************************/
@@ -106,7 +106,7 @@ matrix<T>::matrix( const matrix<T> &m )
 			data[i](j)	=	m.data[i](j);
 	}
 }
-#endif
+//#endif
 
 
 
@@ -208,7 +208,8 @@ matrix<T>		matrix<T>::operator = ( matrix<T> m )
 				data[i](j)	=	m( i, j );
 	}
 	else
-		error_msg("matrix this == ref\n");
+		std::cout << "matrix error\n";
+		//error_msg("matrix this == ref\n");
 
 	return	*this;
 }

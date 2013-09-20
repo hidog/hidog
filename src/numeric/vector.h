@@ -24,9 +24,9 @@ public:
 	vector();		
 	vector( int );
     vector( vector& );
-#ifdef MAC_OS
+//#ifdef MAC_OS
 	vector( const vector& );
-#endif
+//#endif
 	~vector();
 
 	void	resize( int );              			// resize

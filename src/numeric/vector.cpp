@@ -25,12 +25,17 @@ vector<T>::vector()
 template<typename T>
 vector<T>::vector( int _s )
 {
+    int     i;
+    
 	data	=	NULL;	// 為了檢查是否正確取得空間
 
 	_size	=	_s;
 	data	=	new	T[_size];
 
     ErrorExceptionMacro( data != NULL );
+
+    for( i = 0; i < _size; i++ )
+        data[i]     =   T();    // 用預設的constructor   int等形態會預設給 0
 }
 
 
@@ -112,12 +117,17 @@ void	vector<T>::destroy()
 template<typename T>
 void	vector<T>::resize( int _s )
 {
+    int     i;
+    
 	destroy();
 	
 	_size	=	_s;
 	data	=	new	T[_size];
 
 	ErrorExceptionMacro( data != NULL );
+    
+    for( i = 0; i < _size; i++ )
+        data[i]     =   T();
 }
 
 

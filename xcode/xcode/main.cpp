@@ -30,6 +30,13 @@ int main(int argc, const char * argv[])
 
     M1  =   M1 + M2;
     
+    
+    hidog::numeric::vector<int>     v;
+    
+    v   =   hidog::numeric::vector<int>(10);
+    
+    std::cout << v << "\n";
+    
     return 0;
 }
 

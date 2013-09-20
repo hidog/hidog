@@ -223,6 +223,8 @@
 		6DCA5DA817DCB02300F45276 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CONFIGURATION_BUILD_DIR = ../Debug;
+				CONFIGURATION_TEMP_DIR = ../Debug;
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = MAC_OS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ../src;
@@ -232,6 +234,8 @@
 		6DCA5DA917DCB02300F45276 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CONFIGURATION_BUILD_DIR = ../Release;
+				CONFIGURATION_TEMP_DIR = ../Release;
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = MAC_OS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ../src;

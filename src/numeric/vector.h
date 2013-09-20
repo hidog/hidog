@@ -17,7 +17,7 @@ namespace	numeric
 /*******************************************************************************************
     vector obj
 ********************************************************************************************/
-template<class T>
+template<typename T>
 class	vector
 {
 public:
@@ -41,6 +41,7 @@ public:
 	vector	operator +=	( T );					// += operator
 	vector	operator -=	( vector );             // -= operator
 	vector	operator -=	( T );					// -= operator
+    vector  operator -  ();                     // 轉成負號
 
 private:
 	T		*data;
@@ -50,31 +51,31 @@ private:
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-template<class T>
+template<typename T>
 void	print( vector<T>& );                                    // 測試用
 
-template<class T>
+template<typename T>
 std::ostream&	operator << ( std::ostream&, vector<T> );		// << operator
     
-template<class T>
+template<typename T>
 vector<T>	operator + ( vector<T>& , vector<T>& );
 
-template<class T>
+template<typename T>
 vector<T>	operator - ( vector<T>&, vector<T>& );
 
-template<class T>
+template<typename T>
 vector<T>	operator * ( vector<T>&, vector<T>& );              // dot
 
-template<class T>
+template<typename T>
 vector<T>	operator * ( vector<T>&, T );                       // multiple
 
-template<class T>
+template<typename T>
 vector<T>	operator * ( T , vector<T>& );                      // multiple
 
-template<class T>
+template<typename T>
 bool		operator == ( vector<T>&, vector<T>& );
     
-template<class T>
+template<typename T>
 T   inner_prod( vector<T>&, vector<T>& );
 
 

@@ -16,30 +16,19 @@
 
 int main(int argc, const char * argv[])
 {
-    hidog::numeric::vector<int>     vec(10), vec2(10), vec3;
-    
-    for( int i = 0; i < 10; i++ )
-    {
-        vec(i)  =   i + 10;
-        vec2(i) =   i - 3;
-    }
-
-    vec3    =   vec + vec2;
-    std::cout <<  vec + vec2 << std::endl;
-    std::cout <<  vec - vec2 << std::endl;
-    std::cout <<  vec * vec2 << std::endl;
-    std::cout <<  vec * 2 << std::endl;
-    std::cout << "inner product = " << inner_prod( vec, vec2 ) << std::endl;
-    
-    
-    hidog::numeric::matrix<double>  mm(12,12);
+    hidog::numeric::matrix<double>  M1(12,12),  M2(12,12);
     
     for( int i = 0; i < 12; i++ )
         for( int j = 0; j < 12; j++ )
-            mm( i, j )  =   i + j;
+        {
+            M1( i, j )  =   i + j;
+            M2( i, j )  =   i > j ? i+2 : j*2;
+        }
     
-    std::cout << mm << "\n"; 
+    std::cout << M1 << "\n" << M2 << "\n";
+    std::cout << M1 + M2 << "\n";
 
+    //M1  =   M1 + M2;
     
     return 0;
 }

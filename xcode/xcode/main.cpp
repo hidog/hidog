@@ -26,7 +26,7 @@ int main(int argc, const char * argv[])
         }
     
     std::cout << M1 << "\n" << M2 << "\n";
-    std::cout << M1 + M2 << "\n";
+    std::cout << M2 - M1 << "\n";
 
     //M1  =   M1 + M2;
     

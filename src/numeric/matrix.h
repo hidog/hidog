@@ -55,6 +55,9 @@ std::ostream&	operator << ( std::ostream&, matrix<T> );
 
 template<typename T>
 matrix<T>   operator + ( matrix<T>&, matrix<T>& );
+    
+template<typename T>
+matrix<T>   operator - ( matrix<T>&, matrix<T>& );
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -62,7 +65,8 @@ matrix<T>   operator + ( matrix<T>&, matrix<T>& );
 #define	hnMatrixTypeDefineMacro( type ) \
 	template class	matrix<type>; \
 	template std::ostream&	operator << ( std::ostream&, matrix<type> ); \
-    template matrix<type>   operator +  ( matrix<type>&, matrix<type>& );
+    template matrix<type>   operator +  ( matrix<type>&, matrix<type>& ); \
+    template matrix<type>   operator -  ( matrix<type>&, matrix<type>& );
 
 
 

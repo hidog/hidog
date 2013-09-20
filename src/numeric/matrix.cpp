@@ -269,7 +269,32 @@ matrix<T>   operator + ( matrix<T> &a, matrix<T> &b )
     
     
     
-
+/************************************************************************************************************
+     - operator
+*************************************************************************************************************/
+template<typename T>
+matrix<T>   operator - ( matrix<T> &a, matrix<T> &b )
+{
+    ErrorExceptionMacro( a.width() == b.height() && a.height() == b.height() );
+    
+    const int   width   =   a.width();
+    const int   height  =   a.height();
+    
+    int     i,  j;
+    
+    matrix<T>   c;
+    c.resize( width, height );
+    
+    for( i = 0; i < width; i++ )
+        for( j = 0; j < height; j++ )
+            c( i, j )   =   a( i, j ) - b( i, j );
+    
+    return c;
+}
+    
+    
+    
+    
     
     
 // use macro to general

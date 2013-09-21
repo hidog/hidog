@@ -24,7 +24,7 @@ public:
 	vector();		
 	vector( int );
     vector( vector& );
-#ifdef MAC_OS
+#if defined(MAC_OS) || defined(LINUX)
 	vector( const vector& );
 #endif
 	~vector();

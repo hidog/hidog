@@ -25,7 +25,7 @@ public:
 	matrix();
 	matrix( int , int  );
 	matrix( matrix<T>& );
-#ifdef MAC_OS
+#if defined(MAC_OS) || defined(LINUX)
 	matrix( const matrix<T>& );
 #endif
 	~matrix();

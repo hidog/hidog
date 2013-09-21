@@ -21,7 +21,7 @@ shared.o : ../src/shared.h
 vector.o : 
 	$(CXX) -c $(DEFINES) $(INCPATH) ../src/numeric/vector.cpp
 
-matrix.o : 
+matrix.o : ../src/numeric/matrix.cpp
 	$(CXX) -c $(DEFINES) $(INCPATH) ../src/numeric/matrix.cpp
 
 .PHONY : clean

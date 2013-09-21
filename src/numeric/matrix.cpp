@@ -208,8 +208,9 @@ matrix<T>		matrix<T>::operator = ( matrix<T> m )
 				data[i](j)	=	m( i, j );
 	}
 	else
-		std::cout << "matrix error\n";
-		//error_msg("matrix this == ref\n");
+		//std::cout << "matrix error\n";
+		error_msg("matrix this == ref\n");
+// test
 
 	return	*this;
 }

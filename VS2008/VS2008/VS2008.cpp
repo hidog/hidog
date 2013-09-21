@@ -12,55 +12,26 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-#if 1
-	hidog::numeric::vector<int>		vec1,	vec2(10),	vec3;
-
-	vec1.resize(10);
-
-	for( int i = 0; i < 10; i++ )
-	{
-		vec1[i]	=	i + 1;
-		vec2(i)	=	2 - i*i;
-	}
-
-	vec3	=	vec1;
-	vec3	-=	5;
-
-	print(vec3);
-	std::cout <<  vec1 * vec2;
-	std::cout << vec1 * 10 << " " << 2 * vec2;
-	std::cout << vec1 - vec2;
-	std::cout << "inner product = " << inner_prod( vec1, vec2 );
-	
-
-#endif
-
-
-#if 1
-	hidog::numeric::matrix<int>		mat(10,10);
-
 	int		i,	j;
 
-	for( i = 0; i < 10; i++ )
-		for( j = 0; j < 10; j++ )
-			mat( i, j )	=	i + j;
+	hidog::numeric::matrix<int>		m1,	m2,	m3;
 
-	std::cout << mat;
+	m1.resize( 2, 4 );
+	m2.resize( 4, 3 );
 
-	mat.resize( 10, 20 );
+	for( i = 0; i < 2; i++ )
+		for( j = 0; j < 4; j++ )
+			m1( i, j )	=	i + j;
 
-	hidog::numeric::matrix<int>		mat2;
+	for( i = 0; i < 4; i++ )
+		for( j = 0; j < 3; j++ )
+			m2( i, j )	=	i + j;
 
-	for( i = 0; i < 10; i++ )
-		for( j = 0; j < 20; j++ )
-			mat( i, j )	=	i + j;
+	m3	=	m1 * m2;
 
-	mat2	=	mat;
-
-	std::cout << mat2;
-		
-
-#endif
+	std::cout << m1 << "\n";
+	std::cout << m2 << "\n";
+	std::cout << m3 << "\n";
 
 
 	system("PAUSE");

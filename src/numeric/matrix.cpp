@@ -199,20 +199,40 @@ matrix<T>		matrix<T>::operator = ( matrix<T> m )
 {
 	int		i,	j;
 
-	if( this != &m )
-	{
+	//if( this != &m )
+	//{
 		resize( m.width(), m.height() );
 
 		for( i = 0; i < _width; i++ )
 			for( j = 0; j < _height; j++ )
 				data[i](j)	=	m( i, j );
-	}
-	else
-		//std::cout << "matrix error\n";
-		error_msg("matrix this == ref\n");
-// test
+	//}
+	//else
+	//	error_msg("matrix this == ref\n");
 
 	return	*this;
+}
+
+
+
+
+/************************************************************************************************************
+	- operator
+*************************************************************************************************************/
+template<typename T>
+matrix<T>	matrix<T>::operator - ()
+{
+	int		i,	j;
+
+	matrix<T>	c;
+	c.resize(_width,_height);
+
+	for( i = 0; i < _width; i++ )
+		for( j = 0; j < _height; j++ )
+			c( i, j )	=	-data[i](j);
+
+
+	return	c;
 }
 
 
@@ -295,6 +315,41 @@ matrix<T>   operator - ( matrix<T> &a, matrix<T> &b )
 }
     
     
+
+
+
+/************************************************************************************************************
+     * operator
+*************************************************************************************************************/
+template<typename T>
+matrix<T>   operator * ( matrix<T> &a, matrix<T> &b )
+{
+	ErrorExceptionMacro( a.height() == b.width() );		
+    
+	const int	a_width		=	a.width();
+	const int	a_height	=	a.height();
+	const int	b_width		=	b.width();
+	const int	b_height	=	b.height();
+	const int	c_width		=	a_width;
+	const int	c_height	=	b_height;
+
+	T		sum;		// 計算每行的累加
+	int		i,	j,	k;
+	
+    matrix<T>   c;
+    c.resize( c_width, c_height );
+
+	for( i = 0; i < a_width; i++ )
+		for( j = 0; j < b_height; j++ )
+		{
+			sum		=	T();
+			for( k = 0; k < a_height; k++ )
+				sum		+=	a( i, k ) * b( k, j );
+			c( i, j )	=	sum;
+		}
+
+    return c;
+}
     
     
     

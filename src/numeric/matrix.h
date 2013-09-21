@@ -37,6 +37,7 @@ public:
 
 	T&		operator () ( int, int );
 	matrix	operator =  ( matrix );		
+	matrix	operator -  ();
 
 
 private:
@@ -59,6 +60,8 @@ matrix<T>   operator + ( matrix<T>&, matrix<T>& );
 template<typename T>
 matrix<T>   operator - ( matrix<T>&, matrix<T>& );
 
+template<typename T>
+matrix<T>	operator * ( matrix<T>&, matrix<T>& );
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // 用 define 來快速產生需要的樣板模組
@@ -66,7 +69,8 @@ matrix<T>   operator - ( matrix<T>&, matrix<T>& );
 	template class	matrix<type>; \
 	template std::ostream&	operator << ( std::ostream&, matrix<type> ); \
     template matrix<type>   operator +  ( matrix<type>&, matrix<type>& ); \
-    template matrix<type>   operator -  ( matrix<type>&, matrix<type>& );
+    template matrix<type>   operator -  ( matrix<type>&, matrix<type>& ); \
+	template matrix<type>	operator *	( matrix<type>&, matrix<type>& );
 
 
 

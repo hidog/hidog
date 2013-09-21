@@ -25,9 +25,9 @@ public:
 	matrix();
 	matrix( int , int  );
 	matrix( matrix<T>& );
-//#ifdef MAC_OS
+#ifdef MAC_OS
 	matrix( const matrix<T>& );
-//#endif
+#endif
 	~matrix();
 
 	int		width();

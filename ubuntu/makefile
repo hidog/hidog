@@ -1,20 +1,32 @@
-run : main.o vector.o shared.o matrix.o
-	g++ -o run main.o vector.o matrix.o
+#######################################
+#	測試ubuntu 撰寫 makefile       
+#######################################
 
-main.o : main.cpp ../src/numeric/vector.h ../src/numeric/matrix.h ../src/shared.h
-	g++ -c main.cpp
+DEFINES = -DLINUX
+INCPATH = -I../src/ -I../src/numeric/ -I.
+CC	= gcc
+CXX	= g++
 
-shared.o : ../src/shared.cpp ../src/shared.h
-	g++ -c ../src/shared.cpp
+run_objs = main.o shared.o vector.o matrix.o
 
-vector.o : ../src/numeric/vector.cpp ../src/numeric/vector.h ../src/shared.h
-	g++ -c ../src/numeric/vector.cpp
+run : $(run_objs)
+	$(CXX) -o run $(run_objs)
 
-matrix.o : ../src/numeric/matrix.cpp ../src/numeric/matrix.h ../src/numeric/vector.h ../src/shared.h 
-	g++ -c ../src/numeric/matrix.cpp
+main.o :  
+	$(CXX) -c $(DEFINES) $(INCPATH) main.cpp
 
+shared.o : ../src/shared.h
+	$(CXX) -c $(DEFINES) $(INCPATH) ../src/shared.cpp
+
+vector.o : 
+	$(CXX) -c $(DEFINES) $(INCPATH) ../src/numeric/vector.cpp
+
+matrix.o : 
+	$(CXX) -c $(DEFINES) $(INCPATH) ../src/numeric/matrix.cpp
+
+.PHONY : clean
 clean :
-	rm run main.o matrix.o vector.o shared.o 
+	rm run $(run_objs)
 	
 
 

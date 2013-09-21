@@ -69,6 +69,9 @@ vector<T>	operator * ( matrix<T>&, vector<T>& );
 template<typename T>
 vector<T>	operator * ( vector<T>&, matrix<T>& );
 
+template<typename T>
+T		det( matrix<T>& );		// determine
+
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -80,7 +83,8 @@ vector<T>	operator * ( vector<T>&, matrix<T>& );
     template matrix<type>   operator -  ( matrix<type>&, matrix<type>& ); \
 	template matrix<type>	operator *	( matrix<type>&, matrix<type>& ); \
 	template vector<type>	operator *	( matrix<type>&, vector<type>& ); \
-	template vector<type>	operator *	( vector<type>&, matrix<type>& );
+	template vector<type>	operator *	( vector<type>&, matrix<type>& ); \
+	template type			det( matrix<type>& );
 
 
 

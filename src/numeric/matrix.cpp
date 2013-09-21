@@ -416,7 +416,54 @@ vector<T>   operator * ( vector<T> &a, matrix<T> &b )
 
 	return	c;
 }
-    
+
+
+
+
+/************************************************************************************************************
+     determine
+*************************************************************************************************************/
+template<typename T>
+T		det( matrix<T> &m )
+{
+	ErrorExceptionMacro( m.width() == m.height() );
+
+	if( m.width() == 2 )
+	{
+		return	m( 0, 0 ) * m( 1, 1 ) - m( 0, 1 ) * m( 1, 0 );
+	}
+	else
+	{
+		const int	width	=	m.width();
+		const int	height	=	m.height();
+
+		T			sum		=	T();
+		int			x;
+		int			i,	j;
+
+		matrix<T>	m_tmp( width-1, height-1 );
+
+		for( x = 0; x < height; x++ )
+		{
+			// 產生 sub matrix
+			// 前半
+			for( j = 0; j < x; j++ )
+				for( i = 1; i < width; i++ )
+					m_tmp( i-1, j )	=	m( i, j );
+			// 後半
+			for( j = x+1; j < height; j++ )
+				for( i = 1; i < width; i++ )
+					m_tmp( i-1, j-1 )	=	m( i, j );
+
+			sum	+=	x%2 ? -m(0,x) * det(m_tmp) : m(0,x) * det(m_tmp);
+			              /* 區分正負 */
+		}
+
+		return	sum;
+	}
+
+}
+
 
 
 

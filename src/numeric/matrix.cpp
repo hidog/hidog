@@ -352,8 +352,74 @@ matrix<T>   operator * ( matrix<T> &a, matrix<T> &b )
 }
     
     
+
+
+/************************************************************************************************************
+     * operator
+*************************************************************************************************************/
+template<typename T>
+vector<T>   operator * ( matrix<T> &a, vector<T> &b )
+{
+	ErrorExceptionMacro( a.height() == b.size() );
+
+	const int	a_width		=	a.width();
+	const int	a_height	=	a.height();
+	const int	b_size		=	b.size();
+	const int	c_size		=	a_width;
+
+	T		sum;
+	int		i,	j;
+
+	vector<T>	c;
+	c.resize(c_size);
+
+	for( i = 0; i < a_width; i++ )
+	{
+		sum		=	T();
+		for( j = 0; j < a_height; j++ )
+			sum		+=	a( i, j ) * b( j );
+		c( i )	=	sum;
+	}
+
+	return	c;
+}
     
+
+
+
+/************************************************************************************************************
+     * operator
+*************************************************************************************************************/
+template<typename T>
+vector<T>   operator * ( vector<T> &a, matrix<T> &b )
+{
+	ErrorExceptionMacro( a.size() == b.width() );
+
+	const int	a_size		=	a.size();
+	const int	b_width		=	b.width();
+	const int	b_height	=	b.height();
+	const int	c_size		=	b_height;
+
+	T		sum;
+	int		i,	j;
+
+	vector<T>	c;
+	c.resize(c_size);
+
+	for( i = 0; i < b_height; i++ )
+	{
+		sum		=	T();
+		for( j = 0; j < a_size; j++ )
+			sum		+=	a( j ) * b( j, i );
+		c( i )	=	sum;
+	}
+
+	return	c;
+}
     
+
+
+
 // use macro to general
 hnMatrixTypeDefineMacro(int);
 hnMatrixTypeDefineMacro(double);

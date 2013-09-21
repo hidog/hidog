@@ -64,7 +64,7 @@ template<typename T>
 vector<T>	operator - ( vector<T>&, vector<T>& );
 
 template<typename T>
-vector<T>	operator * ( vector<T>&, vector<T>& );              // dot
+T			operator * ( vector<T>&, vector<T>& );              // 類似 inner_prod  為了實現  x * A * x^T 而實作.  (點乘似乎不常用到 以後再說吧)
 
 template<typename T>
 vector<T>	operator * ( vector<T>&, T );                       // multiple
@@ -87,7 +87,7 @@ T   inner_prod( vector<T>&, vector<T>& );
 	template 	std::ostream&	operator << ( std::ostream&, vector<type> );	 \
 	template 	vector<type>	operator +  ( vector<type>&, vector<type>& );	 \
 	template	vector<type>	operator -	( vector<type>&, vector<type>& );	 \
-	template	vector<type>	operator *	( vector<type>&, vector<type>& );	 \
+	template	type			operator *	( vector<type>&, vector<type>& );	 \
 	template	vector<type>	operator *	( vector<type>&, type );		 	 \
 	template	vector<type>	operator *	( type , vector<type>& );		 	 \
 	template 	bool			operator == ( vector<type>&, vector<type>& );	 \

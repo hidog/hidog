@@ -63,6 +63,14 @@ matrix<T>   operator - ( matrix<T>&, matrix<T>& );
 template<typename T>
 matrix<T>	operator * ( matrix<T>&, matrix<T>& );
 
+template<typename T>
+vector<T>	operator * ( matrix<T>&, vector<T>& );
+
+template<typename T>
+vector<T>	operator * ( vector<T>&, matrix<T>& );
+
+
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // 用 define 來快速產生需要的樣板模組
 #define	hnMatrixTypeDefineMacro( type ) \
@@ -70,7 +78,9 @@ matrix<T>	operator * ( matrix<T>&, matrix<T>& );
 	template std::ostream&	operator << ( std::ostream&, matrix<type> ); \
     template matrix<type>   operator +  ( matrix<type>&, matrix<type>& ); \
     template matrix<type>   operator -  ( matrix<type>&, matrix<type>& ); \
-	template matrix<type>	operator *	( matrix<type>&, matrix<type>& );
+	template matrix<type>	operator *	( matrix<type>&, matrix<type>& ); \
+	template vector<type>	operator *	( matrix<type>&, vector<type>& ); \
+	template vector<type>	operator *	( vector<type>&, matrix<type>& );
 
 
 

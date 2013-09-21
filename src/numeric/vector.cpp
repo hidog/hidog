@@ -392,10 +392,12 @@ vector<T>	operator -  ( vector<T> &a, vector<T> &b )
 
 
 /************************************************************************************************************
-	dot 點乘
+	 類似 inner_prod  
+	 為了實現  x * A * x^T 而實作.  
+	 (點乘似乎不常用到 以後再說吧)
 *************************************************************************************************************/
 template<typename T>
-vector<T>	operator * ( vector<T> &a, vector<T> &b )
+T		operator * ( vector<T> &a, vector<T> &b )
 {
 	ErrorExceptionMacro( a.size() == b.size() );
 
@@ -403,13 +405,12 @@ vector<T>	operator * ( vector<T> &a, vector<T> &b )
 
 	int		i;
 
-    vector<T>	c;
-	c.resize(size);
+	T	sum		=	T();
 
 	for( i = 0; i < size; i++ )
-		c(i)	=	a(i) * b(i);
+		sum		+=	a(i) * b(i);
 
-	return	c;
+	return	sum;
 }
 
 

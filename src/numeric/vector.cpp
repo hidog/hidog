@@ -505,8 +505,8 @@ T   inner_prod( vector<T> &a, vector<T> &b )
     T       sum;
     
     sum     =   T();
-    //for( i = 0; i < size; i++ )
-      //  sum     +=  a(i) * b(i);
+    for( i = 0; i < size; i++ )
+        sum     +=  a(i) * b(i);
 
     return  sum;
 }

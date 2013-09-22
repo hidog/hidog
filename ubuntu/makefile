@@ -3,11 +3,11 @@
 #######################################
 
 DEFINES = -DLINUX
-INCPATH = -I../src/ -I../src/numeric/ -I.
+INCPATH = -I../src/ -I../src/numeric/ -I../src/math/ -I. 
 CC	= gcc
 CXX	= g++
 
-run_objs = main.o shared.o vector.o matrix.o
+run_objs = main.o shared.o vector.o matrix.o fraction.o
 
 run : $(run_objs)
 	$(CXX) -o run $(run_objs)
@@ -23,6 +23,9 @@ vector.o :
 
 matrix.o : ../src/numeric/matrix.cpp
 	$(CXX) -c $(DEFINES) $(INCPATH) ../src/numeric/matrix.cpp
+
+fraction.o : 
+	$(CXX) -c $(DEFINES) $(INCPATH) ../src/math/fraction.cpp
 
 .PHONY : clean
 clean :

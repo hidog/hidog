@@ -1,5 +1,8 @@
 #include "vector.h"
 
+
+
+
 namespace	hidog
 {
 namespace	numeric
@@ -235,7 +238,8 @@ vector<T>	vector<T>::operator +=	( vector<T> v )
 
 
 
-
+// 測試用 拿掉
+#if 0
 /************************************************************************************************************
 	+=	operator
 *************************************************************************************************************/
@@ -251,6 +255,7 @@ vector<T>	vector<T>::operator +=	( T value )
 
 	return	*this;
 }
+#endif
 
 
 
@@ -274,7 +279,9 @@ vector<T>	vector<T>::operator -=	( vector<T> v )
 
 
 
-
+    
+// 測試用  拿掉
+#if 0
 /************************************************************************************************************
 	+=	operator
 *************************************************************************************************************/
@@ -290,6 +297,7 @@ vector<T>	vector<T>::operator -=	( T value )
 
 	return	*this;
 }
+#endif
 
 
 
@@ -495,7 +503,7 @@ T   inner_prod( vector<T> &a, vector<T> &b )
     int     i;
     T       sum;
     
-    sum     =   0;
+    sum     =   T();
     for( i = 0; i < size; i++ )
         sum     +=  a(i) * b(i);
 
@@ -507,6 +515,8 @@ T   inner_prod( vector<T> &a, vector<T> &b )
 // use macro to general 
 hnVectorTypeDefineMacro(int);
 hnVectorTypeDefineMacro(double);
+hnVectorTypeDefineMacro(float);
+hnVectorTypeDefineMacro(hidog::math::Fraction);
     
     
     

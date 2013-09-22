@@ -2,6 +2,7 @@
 #define _HIDOG_VECTOR_H
 
 #include "../shared.h"
+#include "../math/fraction.h"
 #include <iostream>
 
 
@@ -38,9 +39,9 @@ public:
 	
 	vector	operator =  ( vector );             // =  operator
 	vector	operator +=	( vector );             // += operator
-	vector	operator +=	( T );					// += operator
+	//vector	operator +=	( T );				// += operator    測試用  拿掉
 	vector	operator -=	( vector );             // -= operator
-	vector	operator -=	( T );					// -= operator
+	//vector	operator -=	( T );				// -= operator    測試用  拿掉
     vector  operator -  ();                     // 轉成負號
 
 private:

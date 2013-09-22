@@ -4,7 +4,7 @@
 
 #include "../shared.h"
 #include <iostream>
-#include <cmath>
+
 
 
 
@@ -34,7 +34,11 @@ public:
 	double		toDouble();					// 轉成 double 型態
 	float		toFloat();					// 轉成 float 型態
 
-	Fraction	operator =	( Fraction );
+    Fraction	operator =	( Fraction );
+    Fraction    operator += ( Fraction );
+    Fraction    operator -= ( Fraction );
+    Fraction    operator -  ();
+    
 
 	operator double	();
 

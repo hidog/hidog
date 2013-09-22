@@ -43,8 +43,11 @@ int main(int argc, const char * argv[])
     std::cout << v * M * v << "\n";
     std::cout << det(M) << "\n";
     
-    hidog::math::Fraction   f( -14, 10 );
-    std::cout << f << "\n";
+    
+    
+    hidog::math::Fraction   f1(-14,10), f2(32,7);
+    std::cout << f1 + f2 << "\n";
+    std::cout << (double)(f1/f2) << "\n";
     
     return 0;
 }

@@ -347,7 +347,7 @@ std::ostream&	operator << ( std::ostream &out, vector<T> vec )
     +
 *************************************************************************************************************/
 template<typename	T>
-vector<T>	operator +  ( vector<T> &a, vector<T> &b )
+vector<T>	operator +  ( vector<T> a, vector<T> b )
 {
 	ErrorExceptionMacro( a.size() == b.size() );
 
@@ -370,7 +370,7 @@ vector<T>	operator +  ( vector<T> &a, vector<T> &b )
     -
 *************************************************************************************************************/
 template<typename	T>
-vector<T>	operator -  ( vector<T> &a, vector<T> &b )
+vector<T>	operator -  ( vector<T> a, vector<T> b )
 {
 	ErrorExceptionMacro( a.size() == b.size() );
 
@@ -397,7 +397,7 @@ vector<T>	operator -  ( vector<T> &a, vector<T> &b )
 	 (點乘似乎不常用到 以後再說吧)
 *************************************************************************************************************/
 template<typename T>
-T		operator * ( vector<T> &a, vector<T> &b )
+T		operator * ( vector<T> a, vector<T> b )
 {
 	ErrorExceptionMacro( a.size() == b.size() );
 
@@ -419,7 +419,7 @@ T		operator * ( vector<T> &a, vector<T> &b )
     multiple
 *************************************************************************************************************/
 template<typename T>
-vector<T>	operator *	( vector<T> &a, T value )
+vector<T>	operator *	( vector<T> a, T value )
 {
 	const int	size	=	a.size();
 
@@ -439,7 +439,7 @@ vector<T>	operator *	( vector<T> &a, T value )
     multiple
 *************************************************************************************************************/
 template<typename T>
-vector<T>	operator *	( T value, vector<T> &a )
+vector<T>	operator *	( T value, vector<T> a )
 {
 	const int	size	=	a.size();
 

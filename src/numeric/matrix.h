@@ -55,19 +55,19 @@ template<typename T>
 std::ostream&	operator << ( std::ostream&, matrix<T> );
 
 template<typename T>
-matrix<T>   operator + ( matrix<T>&, matrix<T>& );
+matrix<T>   operator + ( matrix<T>, matrix<T> );
     
 template<typename T>
-matrix<T>   operator - ( matrix<T>&, matrix<T>& );
+matrix<T>   operator - ( matrix<T>, matrix<T> );
 
 template<typename T>
-matrix<T>	operator * ( matrix<T>&, matrix<T>& );
+matrix<T>	operator * ( matrix<T>, matrix<T> );
 
 template<typename T>
-vector<T>	operator * ( matrix<T>&, vector<T>& );
+vector<T>	operator * ( matrix<T>, vector<T> );
 
 template<typename T>
-vector<T>	operator * ( vector<T>&, matrix<T>& );
+vector<T>	operator * ( vector<T>, matrix<T> );
 
 template<typename T>
 T		det( matrix<T>& );		// determine
@@ -79,11 +79,11 @@ T		det( matrix<T>& );		// determine
 #define	hnMatrixTypeDefineMacro( type ) \
 	template class	matrix<type>; \
 	template std::ostream&	operator << ( std::ostream&, matrix<type> ); \
-    template matrix<type>   operator +  ( matrix<type>&, matrix<type>& ); \
-    template matrix<type>   operator -  ( matrix<type>&, matrix<type>& ); \
-	template matrix<type>	operator *	( matrix<type>&, matrix<type>& ); \
-	template vector<type>	operator *	( matrix<type>&, vector<type>& ); \
-	template vector<type>	operator *	( vector<type>&, matrix<type>& ); \
+    template matrix<type>   operator +  ( matrix<type>, matrix<type> ); \
+    template matrix<type>   operator -  ( matrix<type>, matrix<type> ); \
+	template matrix<type>	operator *	( matrix<type>, matrix<type> ); \
+	template vector<type>	operator *	( matrix<type>, vector<type> ); \
+	template vector<type>	operator *	( vector<type>, matrix<type> ); \
 	template type			det( matrix<type>& );
 
 

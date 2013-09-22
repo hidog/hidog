@@ -26,7 +26,9 @@ Fraction::Fraction()
 *************************************************************************************************************/
 Fraction::Fraction( int _n, int _d )
 {
-	int		gcd		=	GCD( _n, _d );
+    int     __n     =   abs(_n);
+    int     __d     =   abs(_d);
+	int		gcd		=	GCD( __n, __d );
 
 	num		=	_n / gcd;
 	den		=	_d / gcd;

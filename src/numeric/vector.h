@@ -58,19 +58,19 @@ template<typename T>
 std::ostream&	operator << ( std::ostream&, vector<T> );		// << operator
     
 template<typename T>
-vector<T>	operator + ( vector<T>& , vector<T>& );
+vector<T>	operator + ( vector<T>, vector<T> );
 
 template<typename T>
-vector<T>	operator - ( vector<T>&, vector<T>& );
+vector<T>	operator - ( vector<T>, vector<T> );
 
 template<typename T>
-T			operator * ( vector<T>&, vector<T>& );              // 類似 inner_prod  為了實現  x * A * x^T 而實作.  (點乘似乎不常用到 以後再說吧)
+T			operator * ( vector<T>, vector<T> );              // 類似 inner_prod  為了實現  x * A * x^T 而實作.  (點乘似乎不常用到 以後再說吧)
 
 template<typename T>
-vector<T>	operator * ( vector<T>&, T );                       // multiple
+vector<T>	operator * ( vector<T>, T );                       // multiple
 
 template<typename T>
-vector<T>	operator * ( T , vector<T>& );                      // multiple
+vector<T>	operator * ( T , vector<T> );                      // multiple
 
 template<typename T>
 bool		operator == ( vector<T>&, vector<T>& );
@@ -84,13 +84,13 @@ T   inner_prod( vector<T>&, vector<T>& );
 #define	hnVectorTypeDefineMacro( type ) \
 	template class	vector<type>; \
 	template 	void            print<type>( vector<type>& ); \
-	template 	std::ostream&	operator << ( std::ostream&, vector<type> );	 \
-	template 	vector<type>	operator +  ( vector<type>&, vector<type>& );	 \
-	template	vector<type>	operator -	( vector<type>&, vector<type>& );	 \
-	template	type			operator *	( vector<type>&, vector<type>& );	 \
-	template	vector<type>	operator *	( vector<type>&, type );		 	 \
-	template	vector<type>	operator *	( type , vector<type>& );		 	 \
-	template 	bool			operator == ( vector<type>&, vector<type>& );	 \
+	template 	std::ostream&	operator << ( std::ostream&, vector<type> ); \
+	template 	vector<type>	operator +  ( vector<type>, vector<type> ); \
+	template	vector<type>	operator -	( vector<type>, vector<type> ); \
+	template	type			operator *	( vector<type>, vector<type> ); \
+	template	vector<type>	operator *	( vector<type>, type ); \
+	template	vector<type>	operator *	( type , vector<type> ); \
+	template 	bool			operator == ( vector<type>&, vector<type>& ); \
     template    type            inner_prod( vector<type>&, vector<type>& );
 
 

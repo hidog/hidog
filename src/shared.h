@@ -7,7 +7,7 @@
 #include <cassert>
 
 
-// error exception handling  ´ú¸Õ¥Î
+// error exception handling è™•ç†ç•°å¸¸
 #define	ErrorExceptionMacro( statement ) \
 	try{ \
 		if( !(statement) ) \
@@ -21,8 +21,7 @@
 
 
 
-void	error_msg( char *str );		//  ¦L¥X¿ù»~°T®§
-
+void	error_msg( char *str );		// å°å‡ºéŒ¯èª¤è¨Šæ¯
 
 
 #endif

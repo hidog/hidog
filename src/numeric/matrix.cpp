@@ -270,7 +270,7 @@ std::ostream&	operator << ( std::ostream &out, matrix<T> mat )
      + operator
 *************************************************************************************************************/
 template<typename T>
-matrix<T>   operator + ( matrix<T> &a, matrix<T> &b )
+matrix<T>   operator + ( matrix<T> a, matrix<T> b )
 {
     ErrorExceptionMacro( a.width() == b.height() && a.height() == b.height() );
     
@@ -295,7 +295,7 @@ matrix<T>   operator + ( matrix<T> &a, matrix<T> &b )
      - operator
 *************************************************************************************************************/
 template<typename T>
-matrix<T>   operator - ( matrix<T> &a, matrix<T> &b )
+matrix<T>   operator - ( matrix<T> a, matrix<T> b )
 {
     ErrorExceptionMacro( a.width() == b.height() && a.height() == b.height() );
     
@@ -322,13 +322,13 @@ matrix<T>   operator - ( matrix<T> &a, matrix<T> &b )
      * operator
 *************************************************************************************************************/
 template<typename T>
-matrix<T>   operator * ( matrix<T> &a, matrix<T> &b )
+matrix<T>   operator * ( matrix<T> a, matrix<T> b )
 {
 	ErrorExceptionMacro( a.height() == b.width() );		
     
 	const int	a_width		=	a.width();
 	const int	a_height	=	a.height();
-	const int	b_width		=	b.width();
+	//const int	b_width		=	b.width();
 	const int	b_height	=	b.height();
 	const int	c_width		=	a_width;
 	const int	c_height	=	b_height;
@@ -358,13 +358,13 @@ matrix<T>   operator * ( matrix<T> &a, matrix<T> &b )
      * operator
 *************************************************************************************************************/
 template<typename T>
-vector<T>   operator * ( matrix<T> &a, vector<T> &b )
+vector<T>   operator * ( matrix<T> a, vector<T> b )
 {
 	ErrorExceptionMacro( a.height() == b.size() );
 
 	const int	a_width		=	a.width();
 	const int	a_height	=	a.height();
-	const int	b_size		=	b.size();
+	//const int	b_size		=	b.size();
 	const int	c_size		=	a_width;
 
 	T		sum;
@@ -391,12 +391,12 @@ vector<T>   operator * ( matrix<T> &a, vector<T> &b )
      * operator
 *************************************************************************************************************/
 template<typename T>
-vector<T>   operator * ( vector<T> &a, matrix<T> &b )
+vector<T>   operator * ( vector<T> a, matrix<T> b )
 {
 	ErrorExceptionMacro( a.size() == b.width() );
 
 	const int	a_size		=	a.size();
-	const int	b_width		=	b.width();
+	//const int	b_width		=	b.width();
 	const int	b_height	=	b.height();
 	const int	c_size		=	b_height;
 

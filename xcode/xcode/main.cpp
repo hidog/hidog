@@ -7,35 +7,44 @@
 //
 
 #include <iostream>
+#include <stdlib.h>
+#include <ctime>
 
-
-#include "numeric/vector.h"
 #include "numeric/matrix.h"
+#include "math/fraction.h"
 
 
 
 int main(int argc, const char * argv[])
 {
-    hidog::numeric::matrix<double>  M1(12,12),  M2(12,12);
+    srand( (int)time(0) );
     
-    for( int i = 0; i < 12; i++ )
-        for( int j = 0; j < 12; j++ )
+    hidog::numeric::matrix<double>  M(5,5);
+    
+    for( int i = 0; i < M.width(); i++ )
+        for( int j = 0; j < M.height(); j++ )
         {
-            M1( i, j )  =   i + j;
-            M2( i, j )  =   i > j ? i+2 : j*2;
+            int     r1  =   rand() % 100 - 50;
+            int     r2  =   rand() % 100 + 1;
+            M( i, j )   =   1.0 * r1 / r2;
         }
     
-    std::cout << M1 << "\n" << M2 << "\n";
-    std::cout << M2 - M1 << "\n";
-
-    M1  =   M1 + M2;
+    hidog::numeric::vector<double>     v(5);
     
+    for( int i = 0; i < v.size(); i++ )
+    {
+        int     r1  =   rand() % 100 - 50;
+        int     r2  =   rand() % 100 + 1;
+        v( i )  =   1.0 * r1 / r2;
+    }
     
-    hidog::numeric::vector<int>     v;
-    
-    v   =   hidog::numeric::vector<int>(10);
-    
+    std::cout << M << "\n";
     std::cout << v << "\n";
+    std::cout << v * M * v << "\n";
+    std::cout << det(M) << "\n";
+    
+    hidog::math::Fraction   f( -14, 10 );
+    std::cout << f << "\n";
     
     return 0;
 }

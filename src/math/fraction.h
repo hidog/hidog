@@ -42,8 +42,7 @@ public:
 	friend	Fraction		operator +  ( Fraction, Fraction );
 	friend	Fraction		operator -	( Fraction, Fraction );
 	friend	Fraction		operator *	( Fraction, Fraction );
-
-
+	friend	Fraction		operator /	( Fraction, Fraction );
 
 private:
 	int		den;							// 分母 denominator

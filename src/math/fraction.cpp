@@ -271,5 +271,35 @@ Fraction	operator * ( Fraction a, Fraction b )
 
 
 
+/************************************************************************************************************
+    / operator 
+*************************************************************************************************************/
+Fraction	operator / ( Fraction a, Fraction b )
+{
+	Fraction	c;
+
+	int		den	=	a.den * b.num;
+	int		num	=	a.num * b.den;
+
+	int		_den	=	abs( den );
+	int		_num	=	abs( num );
+	int		gcd		=	c.GCD( _den, _num );
+
+	den		/=	gcd;
+	num		/=	gcd;
+
+	c.den	=	den;
+	c.num	=	num;
+
+	c.ckeck_den_positive();		// 確保分母是正數
+
+	return	c;
+}
+
+
+
+
+
+
 }	// end namespace math
 }	// end namespace hidog

@@ -147,7 +147,7 @@ T&	vector<T>::operator () ( int index )
 }
     
     
-    
+
 /************************************************************************************************************
      - operator
     轉成負號
@@ -165,6 +165,7 @@ vector<T>   vector<T>::operator - ()
     
     return c;
 }
+
     
 
 
@@ -504,8 +505,8 @@ T   inner_prod( vector<T> &a, vector<T> &b )
     T       sum;
     
     sum     =   T();
-    for( i = 0; i < size; i++ )
-        sum     +=  a(i) * b(i);
+    //for( i = 0; i < size; i++ )
+      //  sum     +=  a(i) * b(i);
 
     return  sum;
 }
@@ -516,7 +517,7 @@ T   inner_prod( vector<T> &a, vector<T> &b )
 hnVectorTypeDefineMacro(int);
 hnVectorTypeDefineMacro(double);
 hnVectorTypeDefineMacro(float);
-hnVectorTypeDefineMacro(hidog::math::Fraction);
+hnVectorTypeDefineMacro(math::Fraction);
     
     
     

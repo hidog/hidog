@@ -1,6 +1,6 @@
 #include "vector_test.h"
 #include "numeric/vector.h"
-
+#include "math/fraction.h"
 
 bool	vector_obj_test( int id )
 {

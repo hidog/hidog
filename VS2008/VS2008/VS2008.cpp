@@ -14,11 +14,32 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	hidog::math::Fraction	f1( 352, 85 ),	f2( 24, 47 ),	f3( 21,	4 );
+	srand( (int)time(NULL) );
 
-	std::cout << (f1 - f2*f3).toDouble() << std::endl;
-	std::cout << (double)f1 << " " << static_cast<double>(f2) << "\n";
-	std::cout << f1/f3 << "\n";
+	hidog::numeric::vector<hidog::math::Fraction>	v1(10),	v2(10);
+
+	int		i,	r1,	r2;
+
+	for( i = 0; i < 10; i++ )
+	{
+		r1		=	rand() % 100 - 50;
+		r2		=	rand() % 50 + 1;
+
+		v1(i)	=	hidog::math::Fraction(r1,r2);
+
+		r1		=	rand() % 100 - 50;
+		r2		=	rand() % 50 + 1;
+
+		v2(i)	=	hidog::math::Fraction(r1,r2);
+	}
+
+	std::cout << v1 << "\n";
+	std::cout << v2 << "\n";
+	std::cout << v1 + v2 << "\n";
+	std::cout << v1 * v2 << "\n";
+
+	v1	+=	v2;
+	std::cout << v1 << "\n";
 
 
 	system("PAUSE");

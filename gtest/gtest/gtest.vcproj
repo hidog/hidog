@@ -260,6 +260,14 @@
 					RelativePath="..\..\src\math\fraction.h"
 					>
 				</File>
+				<File
+					RelativePath="..\..\src\math\polynomial.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\math\polynomial.h"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<File

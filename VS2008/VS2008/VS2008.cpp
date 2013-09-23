@@ -8,7 +8,7 @@
 
 #include "numeric/matrix.h"
 #include "math/fraction.h"
-
+#include "math/polynomial.h"
 
 
 
@@ -46,6 +46,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout << v * M * v << "\n";
 	std::cout << det(M) << "\n";
 
+
+
+	hidog::math::Polynomial<int>	p;
 
 
 

@@ -39,6 +39,8 @@ public:
 	T&		operator () ( int, int );
 	matrix	operator =  ( matrix );		
 	matrix	operator -  ();
+    matrix  operator += ( matrix );
+    matrix  operator -= ( matrix );
 
 
 private:

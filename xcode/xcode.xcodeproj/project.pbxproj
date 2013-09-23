@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D754B5F17EFD9B2005155DB /* polynomial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D754B5E17EFD9B2005155DB /* polynomial.cpp */; };
 		6DC62A5817DD667200ACDC66 /* matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DC62A5417DD667200ACDC66 /* matrix.cpp */; };
 		6DC62A5917DD667200ACDC66 /* vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DC62A5617DD667200ACDC66 /* vector.cpp */; };
 		6DCA5DA217DCB02300F45276 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DCA5DA117DCB02300F45276 /* main.cpp */; };
@@ -29,6 +30,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6D754B5D17EFD9B2005155DB /* polynomail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = polynomail.h; sourceTree = "<group>"; };
+		6D754B5E17EFD9B2005155DB /* polynomial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = polynomial.cpp; sourceTree = "<group>"; };
 		6DC62A5417DD667200ACDC66 /* matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matrix.cpp; sourceTree = "<group>"; };
 		6DC62A5517DD667200ACDC66 /* matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
 		6DC62A5617DD667200ACDC66 /* vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = vector.cpp; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 		6DCD357717EE9E0D001F439E /* math */ = {
 			isa = PBXGroup;
 			children = (
+				6D754B5D17EFD9B2005155DB /* polynomail.h */,
+				6D754B5E17EFD9B2005155DB /* polynomial.cpp */,
 				6DCD357817EE9E0D001F439E /* fraction.cpp */,
 				6DCD357917EE9E0D001F439E /* fraction.h */,
 			);
@@ -164,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DE4EA6F17EEA082005E9129 /* shared.cpp in Sources */,
+				6D754B5F17EFD9B2005155DB /* polynomial.cpp in Sources */,
 				6DCD357A17EE9E0D001F439E /* fraction.cpp in Sources */,
 				6DCA5DA217DCB02300F45276 /* main.cpp in Sources */,
 				6DC62A5817DD667200ACDC66 /* matrix.cpp in Sources */,

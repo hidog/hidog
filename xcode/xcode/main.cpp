@@ -19,35 +19,30 @@ int main(int argc, const char * argv[])
 {
     srand( (int)time(0) );
     
-    hidog::numeric::matrix<double>  M(5,5);
+    hidog::numeric::vector<hidog::math::Fraction>   v1(10), v2(10);
     
-    for( int i = 0; i < M.width(); i++ )
-        for( int j = 0; j < M.height(); j++ )
-        {
-            int     r1  =   rand() % 100 - 50;
-            int     r2  =   rand() % 100 + 1;
-            M( i, j )   =   1.0 * r1 / r2;
-        }
+    int     i,  r1, r2;
     
-    hidog::numeric::vector<double>     v(5);
-    
-    for( int i = 0; i < v.size(); i++ )
+    for( i = 0; i < v1.size(); i++ )
     {
-        int     r1  =   rand() % 100 - 50;
-        int     r2  =   rand() % 100 + 1;
-        v( i )  =   1.0 * r1 / r2;
+        r1      =   rand() % 100 - 50;
+        r2      =   rand() % 50 + 1;
+        
+        v1(i)  =   hidog::math::Fraction(r1,r2);
+        
+        r1      =   rand() % 100 - 50;
+        r2      =   rand() % 50 + 1;
+        
+        v2(i)  =   hidog::math::Fraction(r1,r2);
     }
     
-    std::cout << M << "\n";
-    std::cout << v << "\n";
-    std::cout << v * M * v << "\n";
-    std::cout << det(M) << "\n";
+    std::cout << (double)(v1*v2) << "\n";
+    std::cout << v1 + v2 << "\n";
+
+    v1  -=  v2;
     
+    std::cout << v1 << "\n";
     
-    
-    hidog::math::Fraction   f1(-14,10), f2(32,7);
-    std::cout << f1 + f2 << "\n";
-    std::cout << (double)(f1/f2) << "\n";
     
     return 0;
 }

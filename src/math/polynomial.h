@@ -26,7 +26,7 @@ public:
 	Polynomial( Polynomial& );
 	Polynomial( int, T* );					// 丟入 degree, array 做 setting
 #if defined(MAC_OS) || defined(LINUX)
-	Polynomial( const Polynomail& );
+	Polynomial( const Polynomial& );
 #endif
 
 	int		deg();				// 回傳 degree

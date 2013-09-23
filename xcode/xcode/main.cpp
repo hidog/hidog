@@ -46,9 +46,9 @@ int main(int argc, const char * argv[])
     M   +=  M;
     std::cout << M;
     
-    
-    hidog::math::Polynomial<int>    poly;
-    
+    int     pdata[10]   =   { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    hidog::math::Polynomial<int>    poly(9, pdata);
+    std::cout << poly;
     
     return 0;
 }

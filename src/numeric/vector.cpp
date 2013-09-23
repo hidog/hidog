@@ -475,7 +475,7 @@ T   inner_prod( vector<T> &a, vector<T> &b )
 hnVectorTypeDefineMacro(int);
 hnVectorTypeDefineMacro(double);
 hnVectorTypeDefineMacro(float);
-hnVectorTypeDefineMacro(math::Fraction);
+hnVectorTypeDefineMacro(hidog::math::Fraction);
     
     
     

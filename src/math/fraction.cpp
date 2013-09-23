@@ -18,8 +18,8 @@ namespace	math
 *************************************************************************************************************/
 Fraction::Fraction()
 {
-	num		=	0;		// §¿§l
-	den		=	1;		// §¿•¿
+	num		=	0;		// 分子
+	den		=	1;		// 分母
 }
 
 
@@ -40,7 +40,7 @@ Fraction::Fraction( int _n, int _d )
 	num		=	_n / gcd;
 	den		=	_d / gcd;
 
-	ckeck_den_positive();		// ΩT´O§¿•¿¨O•øº∆
+	ckeck_den_positive();		// 確保分母是正數
 }
 
 
@@ -61,7 +61,7 @@ Fraction::Fraction( Fraction &f)
 	num		=	f.num;
 	den		=	f.den;
 
-	ckeck_den_positive();		// ΩT´O§¿•¿¨O•øº∆
+	ckeck_den_positive();		// 確保分母是正數
 }
 
 
@@ -75,7 +75,7 @@ Fraction::Fraction( const Fraction &f)
 	num		=	f.num;
 	den		=	f.den;
 
-	ckeck_den_positive();		// ΩT´O§¿•¿¨O•øº∆
+	ckeck_den_positive();		// 確保分母是正數
 }
 #endif
 
@@ -87,6 +87,9 @@ Fraction::Fraction( const Fraction &f)
 *************************************************************************************************************/
 int		Fraction::GCD( int a, int b )
 {
+	if( a <= 0 || b <= 0 )
+		return	1;
+
 	int		tmp;
 
 	while( a % b != 0 )
@@ -103,7 +106,7 @@ int		Fraction::GCD( int a, int b )
 
 
 /************************************************************************************************************
-    ¬‡´¨ 
+	轉成浮點數型態
 *************************************************************************************************************/
 Fraction::operator double ()
 {
@@ -133,7 +136,7 @@ Fraction	Fraction::operator = ( Fraction f )
 	den		=	f.den;
 	num		=	f.num;
 
-	ckeck_den_positive();		// ΩT´O§¿•¿¨O•øº∆
+	ckeck_den_positive();		// 確保分母是正數
 
 	return	*this;
 }
@@ -186,6 +189,58 @@ Fraction    Fraction::operator -= ( Fraction a )
 
 
 /************************************************************************************************************
+    *= operator
+*************************************************************************************************************/
+Fraction    Fraction::operator *= ( Fraction a )
+{
+    int     _den    =   den * a.den;
+    int     _num    =	num * a.num;
+    int     __den   =   abs(_den);
+    int     __num   =   abs(_num);
+    int     gcd     =   GCD(__den,__num);
+    
+    _den    /=  gcd;
+    _num    /=  gcd;
+    
+    // 回寫資料
+    den     =   _den;
+    num     =   _num;
+    
+	ckeck_den_positive();		// 保證分母大於零
+    
+	return	*this;
+}
+
+
+
+
+/************************************************************************************************************
+    /= operator
+*************************************************************************************************************/
+Fraction    Fraction::operator /= ( Fraction a )
+{
+    int     _den    =   den * a.num;
+    int     _num    =	num * a.den;
+    int     __den   =   abs(_den);
+    int     __num   =   abs(_num);
+    int     gcd     =   GCD(__den,__num);
+    
+    _den    /=  gcd;
+    _num    /=  gcd;
+    
+    // 回寫資料
+    den     =   _den;
+    num     =   _num;
+    
+	ckeck_den_positive();		// 保證分母大於零
+    
+	return	*this;
+}
+
+
+
+
+/************************************************************************************************************
     += operator
 *************************************************************************************************************/
 Fraction    Fraction::operator += ( Fraction a )
@@ -194,8 +249,8 @@ Fraction    Fraction::operator += ( Fraction a )
     int     _num    =   num*a.den + den*a.num;
     int     __den   =   abs(_den);
     int     __num   =   abs(_num);
-
-	int     gcd     =   __num == 0 ? 1 : GCD(__den,__num);
+	int		gcd		=	GCD(__den,__num);
+	//int     gcd     =   __num == 0 ? 1 : GCD(__den,__num);
     
     _den    /=  gcd;
     _num    /=  gcd;
@@ -255,7 +310,7 @@ float		Fraction::toFloat()
 *************************************************************************************************************/
 std::ostream&	operator << ( std::ostream &out, Fraction f )
 {
-	out << f.num << "/" << f.den << "\n";
+	out << f.num << "/" << f.den ;
 
 	return	out;
 }
@@ -274,7 +329,8 @@ Fraction	operator + ( Fraction a, Fraction b )
 
 	int		_den	=	abs( den );
 	int		_num	=	abs( num );
-	int		gcd		=	_num == 0 ? 1 : c.GCD( _den, _num );
+	int		gcd		=	c.GCD(_den,_num);
+	//int		gcd		=	_num == 0 ? 1 : c.GCD( _den, _num );
 
 	den		/=	gcd;
 	num		/=	gcd;
@@ -282,7 +338,7 @@ Fraction	operator + ( Fraction a, Fraction b )
 	c.den	=	den;
 	c.num	=	num;
 
-	c.ckeck_den_positive();		// ΩT´O§¿•¿¨O•øº∆
+	c.ckeck_den_positive();		// 確保分母是正數
 
 	return	c;
 }
@@ -310,7 +366,7 @@ Fraction	operator - ( Fraction a, Fraction b )
 	c.den	=	den;
 	c.num	=	num;
 
-	c.ckeck_den_positive();		// ΩT´O§¿•¿¨O•øº∆
+	c.ckeck_den_positive();		// 確保分母是正數
 
 	return	c;
 }
@@ -332,7 +388,8 @@ Fraction	operator * ( Fraction a, Fraction b )
 
 	int		_den	=	abs( den );
 	int		_num	=	abs( num );
-	int		gcd		=	_num == 0 ? 1 : c.GCD( _den, _num );
+	int		gcd		=	c.GCD(_den,_num);
+	//int		gcd		=	_num == 0 ? 1 : c.GCD( _den, _num );
 
 	den		/=	gcd;
 	num		/=	gcd;
@@ -340,7 +397,7 @@ Fraction	operator * ( Fraction a, Fraction b )
 	c.den	=	den;
 	c.num	=	num;
 
-	c.ckeck_den_positive();		// ΩT´O§¿•¿¨O•øº∆
+	c.ckeck_den_positive();		// 確保分母是正數
 
 	return	c;
 }
@@ -370,7 +427,7 @@ Fraction	operator / ( Fraction a, Fraction b )
 	c.den	=	den;
 	c.num	=	num;
 
-	c.ckeck_den_positive();		// ΩT´O§¿•¿¨O•øº∆
+	c.ckeck_den_positive();		// 確保分母是正數
 
 	return	c;
 }

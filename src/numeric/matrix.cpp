@@ -470,6 +470,7 @@ T		det( matrix<T> &m )
 // use macro to general
 hnMatrixTypeDefineMacro(int);
 hnMatrixTypeDefineMacro(double);
+hnMatrixTypeDefineMacro(hidog::math::Fraction);
 
 
 

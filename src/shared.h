@@ -7,6 +7,8 @@
 #include <cassert>
 
 
+
+
 // error exception handling 處理異常
 #define	ErrorExceptionMacro( statement ) \
 	try{ \

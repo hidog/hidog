@@ -16,30 +16,37 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	srand( (int)time(NULL) );
 
-	hidog::numeric::vector<hidog::math::Fraction>	v1(10),	v2(10);
+	int		size	=	3;
 
-	int		i,	r1,	r2;
+	hidog::numeric::matrix<hidog::math::Fraction>	M(size,size);
+	hidog::numeric::vector<hidog::math::Fraction>	v(size);
 
-	for( i = 0; i < 10; i++ )
+	int		i,	j,	r1,	r2;
+
+	for( i = 0; i < M.width(); i++ )
+		for( j = 0; j < M.height(); j++ )
+		{
+			r1	=	rand() % 100 - 50;
+			r2	=	rand() % 50 + 1;
+
+			M(i,j)	=	hidog::math::Fraction(r1,r2);
+		}
+
+	for( i = 0; i < v.size(); i++ )
 	{
-		r1		=	rand() % 100 - 50;
-		r2		=	rand() % 50 + 1;
+		r1	=	rand() % 100 - 50;
+		r2	=	rand() % 50 + 1;
 
-		v1(i)	=	hidog::math::Fraction(r1,r2);
-
-		r1		=	rand() % 100 - 50;
-		r2		=	rand() % 50 + 1;
-
-		v2(i)	=	hidog::math::Fraction(r1,r2);
+		v(i)	=	hidog::math::Fraction(r1,r2);
 	}
 
-	std::cout << v1 << "\n";
-	std::cout << v2 << "\n";
-	std::cout << v1 + v2 << "\n";
-	std::cout << v1 * v2 << "\n";
+	std::cout << M << "\n";
+	std::cout << v << "\n";
 
-	v1	+=	v2;
-	std::cout << v1 << "\n";
+	std::cout << v * M * v << "\n";
+	std::cout << det(M) << "\n";
+
+
 
 
 	system("PAUSE");

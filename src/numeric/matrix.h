@@ -3,6 +3,7 @@
 
 #include "../shared.h"
 #include "vector.h"
+#include "../math/fraction.h"
 #include <ostream>
 
 

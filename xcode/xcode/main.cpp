@@ -12,7 +12,7 @@
 
 #include "numeric/matrix.h"
 #include "math/fraction.h"
-
+#include "math/polynomial.h"
 
 
 int main(int argc, const char * argv[])
@@ -45,6 +45,10 @@ int main(int argc, const char * argv[])
     std::cout << M;
     M   +=  M;
     std::cout << M;
+    
+    
+    hidog::math::Polynomial<int>    poly;
+    
     
     return 0;
 }

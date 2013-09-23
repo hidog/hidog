@@ -239,24 +239,6 @@ vector<T>	vector<T>::operator +=	( vector<T> v )
 
 
 
-// 測試用 拿掉
-#if 0
-/************************************************************************************************************
-	+=	operator
-*************************************************************************************************************/
-template<typename T>
-vector<T>	vector<T>::operator +=	( T value )
-{
-	const int	size	=	_size;
-
-	int		i;
-
-	for( i = 0; i < size; i++ )
-		data[i]	+=	value;
-
-	return	*this;
-}
-#endif
 
 
 
@@ -277,29 +259,6 @@ vector<T>	vector<T>::operator -=	( vector<T> v )
 
 	return	*this;
 }
-
-
-
-    
-// 測試用  拿掉
-#if 0
-/************************************************************************************************************
-	+=	operator
-*************************************************************************************************************/
-template<typename T>
-vector<T>	vector<T>::operator -=	( T value )
-{
-	const int	size	=	_size;
-
-	int		i;
-
-	for( i = 0; i < size; i++ )
-		data[i]	-=	value;
-
-	return	*this;
-}
-#endif
-
 
 
 
@@ -344,7 +303,6 @@ std::ostream&	operator << ( std::ostream &out, vector<T> vec )
 
 	for( i = 0; i < s; i++ )
 		out << vec(i) << " ";
-		//std::cout << "data[" << i << "] = " << vec(i) << std::endl;
 	out << "\n";
 
 	return	out;
@@ -364,7 +322,7 @@ vector<T>	operator +  ( vector<T> a, vector<T> b )
 
 	int		i;
 
-    vector<T>	c;		// ≠t≥d¶^∂«•Œ
+    vector<T>	c;		// 測試過 如果需要使用 a = b+c 這樣的語法  用reference會出問題
 
 	c.resize( size );
 
@@ -505,8 +463,8 @@ T   inner_prod( vector<T> &a, vector<T> &b )
     T       sum;
     
     sum     =   T();
-    //for( i = 0; i < size; i++ )
-      //  sum     +=  a(i) * b(i);
+    for( i = 0; i < size; i++ )
+        sum     +=  a(i) * b(i);
 
     return  sum;
 }

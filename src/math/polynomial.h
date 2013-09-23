@@ -3,7 +3,7 @@
 
 
 #include <iostream>
-
+#include "../shared.h"
 
 
 namespace hidog
@@ -23,19 +23,53 @@ class   Polynomial
 public:
     Polynomial();
     ~Polynomial();
-    
+	Polynomial( Polynomial& );
+	Polynomial( int, T* );					// 丟入 degree, array 做 setting
+#if defined(MAC_OS) || defined(LINUX)
+	Polynomial( const Polynomail& );
+#endif
+
+	int		deg();				// 回傳 degree
+	T&		coef( int n );		// 回傳第 n 個 coef  (可讀寫)
+
+
 private:
-    T       *coef;      // 各項系數
-    int     deg;        //
+    T       *_coef;      // 各項系數
+    int     _deg;        // degree
     
 };
     
     
-    
+
+
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+template<typename T>
+std::ostream&	operator << ( std::ostream&, Polynomial<T> );
+
+
+
+
+
+
+
+
+
+
+
+
+
 #define hnPolynomialTypeDefineMacro(type) \
-    template class  Polynomial<type>;
+    template class  Polynomial<type>; \
+	template	std::ostream&	operator << ( std::ostream&, Polynomial<type> );
     
-        
+
+
+
+
+
+
         
 } // end namespace math
 } // end namespace hidog

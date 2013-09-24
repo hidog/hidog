@@ -32,6 +32,7 @@ public:
 	int		deg();				// 回傳 degree
 	T&		coef( int n );		// 回傳第 n 個 coef  (可讀寫)
 
+	Polynomial	operator = ( Polynomial );
 
 private:
     T       *_coef;      // 各項系數

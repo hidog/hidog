@@ -10,25 +10,22 @@ int	main()
 {
   srand( (int)time(NULL) );
 
-  hidog::numeric::matrix<int>	M(10,10);
-  hidog::numeric::vector<int>   v(10);
+  int	r,	*a;
 
-  for( int i = 0; i < M.width(); i++ )
-     for( int j = 0; j < M.height(); j++ )
-     {
-         M( i, j ) = rand() % 100 - 50;
-     }
+  r	=	rand() % 10 + 5;
 
-  for( int i = 0; i < v.size(); i++ )
-     v(i) = rand() % 100 - 50;
+  a	=	new int[r];
 
-  std::cout << M << "\n" << v << "\n";
-  std::cout << v*M*v << "\n";
-  std::cout << det(M) << "\n";
+  for( int i = 0; i < r; i++ )
+	a[i]	=	rand() % 20 - 10;
 
-  hidog::math::Fraction   f(10,15);
-  std::cout << f << "\n";
- 
+  hidog::math::Polynomial<int>	p( r-1, a );
+
+  std::cout << p << "\n";
+
+  hidog::math::Polynomial<int>	p2	=	p;
+
+  std::cout << p2 << "\n";
 
   return   0;
 }

@@ -135,6 +135,30 @@ T&	Polynomial<T>::coef( int n )
 
 
 
+/************************************************************************************************************
+     = operator
+*************************************************************************************************************/
+template<typename T>
+Polynomial<T>	Polynomial<T>::operator = ( Polynomial<T> p )
+{
+	int	i;
+
+	delete	[] _coef;
+	_coef	=	NULL;
+	
+	_deg	=	p.deg();
+	_coef	=	new T[ _deg + 1 ];
+	
+	ErrorExceptionMacro( _coef != NULL );
+
+	for( i = 0; i < _deg + 1; i++ )
+		_coef[i]	=	p.coef(i);
+
+	return	*this;	
+}
+
+
+
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ global function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 template<typename T>

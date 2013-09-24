@@ -30,9 +30,10 @@ public:
 #endif
 
 	int		deg();				// 回傳 degree
-	T&		coef( int n );		// 回傳第 n 個 coef  (可讀寫)
+	T		coef( int n );		// 回傳第 n 個 coef  (只有回傳 不可寫入)
 
 	Polynomial	operator = ( Polynomial );
+	T&		operator [] ( int );		// 讓Polynomial可以像vector這樣存取中間的coef 可以寫入
 
 private:
     T       *_coef;      // 各項系數
@@ -49,9 +50,8 @@ private:
 template<typename T>
 std::ostream&	operator << ( std::ostream&, Polynomial<T> );
 
-
-
-
+template<typename T>
+Polynomial<T>	operator + ( Polynomial<T>, Polynomial<T> );
 
 
 
@@ -63,7 +63,8 @@ std::ostream&	operator << ( std::ostream&, Polynomial<T> );
 
 #define hnPolynomialTypeDefineMacro(type) \
     template class  Polynomial<type>; \
-	template	std::ostream&	operator << ( std::ostream&, Polynomial<type> );
+    template	std::ostream&	operator << ( std::ostream&, Polynomial<type> ); \
+    template	Polynomial<type> operator + ( Polynomial<type>, Polynomial<type> );
     
 
 

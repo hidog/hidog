@@ -253,6 +253,14 @@
 				Name="math"
 				>
 				<File
+					RelativePath="..\..\src\math\complex.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\math\complex.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\src\math\fraction.cpp"
 					>
 				</File>

@@ -1,8 +1,6 @@
-
-
-
 #include "fraction.h"
 
+// test
 
 namespace	hidog
 {
@@ -327,8 +325,8 @@ Fraction	operator + ( Fraction a, Fraction b )
 	int		den	=	a.den * b.den;
 	int		num	=	a.num*b.den + a.den*b.num;
 
-	int		_den	=	abs( den );
-	int		_num	=	abs( num );
+	int		_den	=	c.abs( den );
+	int		_num	=	c.abs( num );
 	int		gcd		=	c.GCD(_den,_num);
 	//int		gcd		=	_num == 0 ? 1 : c.GCD( _den, _num );
 
@@ -356,8 +354,8 @@ Fraction	operator - ( Fraction a, Fraction b )
 	int		den	=	a.den * b.den;
 	int		num	=	a.num*b.den - a.den*b.num;
 
-	int		_den	=	abs( den );
-	int		_num	=	abs( num );
+	int		_den	=	c.abs( den );
+	int		_num	=	c.abs( num );
 	int		gcd		=	c.GCD( _den, _num );
 
 	den		/=	gcd;
@@ -386,8 +384,8 @@ Fraction	operator * ( Fraction a, Fraction b )
 	int		den	=	a.den * b.den;
 	int		num	=	a.num * b.num;
 
-	int		_den	=	abs( den );
-	int		_num	=	abs( num );
+	int		_den	=	c.abs( den );
+	int		_num	=	c.abs( num );
 	int		gcd		=	c.GCD(_den,_num);
 	//int		gcd		=	_num == 0 ? 1 : c.GCD( _den, _num );
 
@@ -417,8 +415,8 @@ Fraction	operator / ( Fraction a, Fraction b )
 	int		den	=	a.den * b.num;
 	int		num	=	a.num * b.den;
 
-	int		_den	=	abs( den );
-	int		_num	=	abs( num );
+	int		_den	=	c.abs( den );
+	int		_num	=	c.abs( num );
 	int		gcd		=	c.GCD( _den, _num );
 
 	den		/=	gcd;

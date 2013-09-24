@@ -20,12 +20,14 @@ SOURCES		=	../src/shared.cpp \
 			../src/numeric/matrix.cpp \
 			../src/math/fraction.cpp \
 			../src/math/polynomial.cpp \
+			../src/math/complex.cpp \
 
 HEADS		=	../src/shared.h \
 			../src/numeric/vector.h \
 			../src/numeric/matrix.h \
 			../src/math/fraction.h \
 			../src/math/polynomial.h \
+			../src/math/complex.h \
 
 OBJECTS		=	main.o \
 			shared.o \
@@ -33,6 +35,7 @@ OBJECTS		=	main.o \
 			matrix.o \
 			fraction.o \
 			polynomial.o \
+			complex.o \
 
 TARGET		=	run
 
@@ -59,6 +62,9 @@ fraction.o : $(SOURCES) $(HEADS)
 
 polynomial.o : $(SOURCES) $(HEADS)
 	$(CXX) -c $(DEFINES) $(INCPATH) ../src/math/polynomial.cpp
+	
+complex.o : $(SOURCES) $(HEADS)
+	$(CXX) -c $(DEFINES) $(INCPATH) ../src/math/complex.cpp
 
 # clean rule
 .PHONY : clean

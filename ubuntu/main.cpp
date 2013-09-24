@@ -5,38 +5,27 @@
 #include "../src/math/fraction.h"
 #include "../src/numeric/matrix.h"
 #include "../src/math/polynomial.h"
+#include "../src/math/complex.h"
 
 int	main()
 {
   srand( (int)time(NULL) );
 
-  int	r,	*a;
 
-  r	=	rand() % 10 + 5;
-  a	=	new int[r];
+  hidog::math::Complex	c1,	c2;
+  
+  c1.real()		=	2;
+  c1.image()	=	5;
+  
+  c2.real()	=	33.44;
+  c2.image()	=	-5;
+  
 
-  for( int i = 0; i < r; i++ )
-	a[i]	=	rand() % 20 - 10;
-
-  hidog::math::Polynomial<int>	p( r-1, a );
-
-  delete [] a;
-
-  r	=	rand() % 10 + 5;
-  a	=	new int[r];
-
-  for( int i = 0; i < r; i++ )
-	a[i]	=	rand() % 20 - 10;
-
-  hidog::math::Polynomial<int>	p2( r-1, a );
-
-  std::cout << p << "\n" << p2 << "\n" << p + p2 << "\n";
-
-  hidog::math::Polynomial<int>	p3;
-
-  p3	=	p + p2;
-
-  std::cout << p3 << "\n";
+	std::cout << c1 << "\n";
+	std::cout << c1 + c2 << "\n";
+	std::cout << c1 * c2 << "\n";
+	std::cout << c1 - c2 << "\n";
+	std::cout << c1 / c2 << "\n";
 
   return   0;
 }

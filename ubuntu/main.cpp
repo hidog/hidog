@@ -2,9 +2,9 @@
 #include <ctime>
 #include <stdlib.h>
 
-#include "fraction.h"
+#include "../src/math/fraction.h"
 #include "../src/numeric/matrix.h"
-
+#include "../src/math/polynomial.h"
 
 int	main()
 {

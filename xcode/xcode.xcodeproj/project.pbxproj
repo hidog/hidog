@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6D754B6217EFE04A005155DB /* polynomial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D754B6017EFE04A005155DB /* polynomial.cpp */; };
+		6DB7460117F1C0C20020DB50 /* complex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DB745FF17F1C0C20020DB50 /* complex.cpp */; };
 		6DC62A5817DD667200ACDC66 /* matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DC62A5417DD667200ACDC66 /* matrix.cpp */; };
 		6DC62A5917DD667200ACDC66 /* vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DC62A5617DD667200ACDC66 /* vector.cpp */; };
 		6DCA5DA217DCB02300F45276 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DCA5DA117DCB02300F45276 /* main.cpp */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		6D754B6017EFE04A005155DB /* polynomial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = polynomial.cpp; sourceTree = "<group>"; };
 		6D754B6117EFE04A005155DB /* polynomial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = polynomial.h; sourceTree = "<group>"; };
+		6DB745FF17F1C0C20020DB50 /* complex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = complex.cpp; sourceTree = "<group>"; };
+		6DB7460017F1C0C20020DB50 /* complex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = complex.h; sourceTree = "<group>"; };
 		6DC62A5417DD667200ACDC66 /* matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matrix.cpp; sourceTree = "<group>"; };
 		6DC62A5517DD667200ACDC66 /* matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
 		6DC62A5617DD667200ACDC66 /* vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = vector.cpp; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 		6DCD357717EE9E0D001F439E /* math */ = {
 			isa = PBXGroup;
 			children = (
+				6DB745FF17F1C0C20020DB50 /* complex.cpp */,
+				6DB7460017F1C0C20020DB50 /* complex.h */,
 				6D754B6017EFE04A005155DB /* polynomial.cpp */,
 				6D754B6117EFE04A005155DB /* polynomial.h */,
 				6DCD357817EE9E0D001F439E /* fraction.cpp */,
@@ -173,6 +178,7 @@
 				6DCD357A17EE9E0D001F439E /* fraction.cpp in Sources */,
 				6DCA5DA217DCB02300F45276 /* main.cpp in Sources */,
 				6DC62A5817DD667200ACDC66 /* matrix.cpp in Sources */,
+				6DB7460117F1C0C20020DB50 /* complex.cpp in Sources */,
 				6DC62A5917DD667200ACDC66 /* vector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

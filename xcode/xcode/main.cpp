@@ -13,42 +13,17 @@
 #include "numeric/matrix.h"
 #include "math/fraction.h"
 #include "math/polynomial.h"
+#include "math/complex.h"
+
 
 
 int main(int argc, const char * argv[])
 {
     srand( (int)time(0) );
     
-    hidog::numeric::matrix<hidog::math::Fraction>   M(10,10);
-    hidog::numeric::vector<hidog::math::Fraction>   v(10);
+    hidog::math::Complex    c( rand()%100, rand()%100 );
     
-    int     i, j,   r1, r2;
-    
-    for( i = 0; i < M.width(); i++ )
-        for( j = 0; j < M.height(); j++ )
-        {
-            r1  =   rand() % 100 - 50;
-            r2  =   rand() % 50 + 1;
-            
-            M(i,j)  =   hidog::math::Fraction(r1,r2);
-        }
-    
-    for( i = 0; i < v.size(); i++ )
-    {
-        r1  =   rand() % 100 - 50;
-        r2  =   rand() % 50 + 1;
-        
-        v(i)    =   hidog::math::Fraction(r1,r2);
-    }
-    
-    std::cout << v * M * v;
-    std::cout << M;
-    M   +=  M;
-    std::cout << M;
-    
-    int     pdata[10]   =   { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-    hidog::math::Polynomial<int>    poly(9, pdata);
-    std::cout << poly;
+    std::cout << c << "\n";
     
     return 0;
 }

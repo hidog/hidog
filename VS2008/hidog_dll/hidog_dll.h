@@ -2,8 +2,10 @@
 #define _HIDOG_DLL_H
 
 
+#include "../../src/shared.h"
 
-__declspec(dllexport)	void	hidog_dll_test( int a );
+
+HIDOG_EXPORT_DLL	void	hidog_dll_test();
 
 
 

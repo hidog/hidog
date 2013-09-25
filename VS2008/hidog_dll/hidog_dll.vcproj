@@ -60,6 +60,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="hidog_lib.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="D:\code\hidog\VS2008\Debug"
 				GenerateDebugInformation="true"
@@ -219,6 +220,42 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+		</Filter>
+		<Filter
+			Name="src"
+			>
+			<File
+				RelativePath="..\..\src\shared.h"
+				>
+			</File>
+			<Filter
+				Name="math"
+				>
+				<File
+					RelativePath="..\..\src\math\complex.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\math\fraction.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\math\polynomial.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="numeric"
+				>
+				<File
+					RelativePath="..\..\src\numeric\matrix.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\numeric\vector.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\ReadMe.txt"

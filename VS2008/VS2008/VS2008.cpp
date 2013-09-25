@@ -17,11 +17,11 @@
 
 
 
-
 int _tmain(int argc, _TCHAR* argv[])
 {
-	while(1)
-		hidog_dll_test(78);
+
+	hidog_dll_test();
+
 
 	system("PAUSE");
 	return 0;

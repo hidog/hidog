@@ -8,6 +8,13 @@
 
 
 
+#ifdef WIN32
+#define		HIDOG_EXPORT_DLL	__declspec(dllexport)
+#else
+#define		HIDOG_EXPORT_DLL
+#endif
+
+
 
 // error exception handling 處理異常
 #define	ErrorExceptionMacro( statement ) \

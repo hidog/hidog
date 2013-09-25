@@ -3,6 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VS2008", "VS2008\VS2008.vcproj", "{0657363F-1671-46D4-BAFA-BC06452A6A31}"
 	ProjectSection(ProjectDependencies) = postProject
+		{A26FE21F-E46A-422D-ACC2-92DEDE667E31} = {A26FE21F-E46A-422D-ACC2-92DEDE667E31}
 		{C8C82ECF-89DD-4E8E-8C1F-4A782D7D7456} = {C8C82ECF-89DD-4E8E-8C1F-4A782D7D7456}
 	EndProjectSection
 EndProject
@@ -11,6 +12,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtest", "..\gtest\gtest\gtest.vcproj", "{2A224797-1F84-4603-8273-B4ABB61B80DE}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hidog_dll", "hidog_dll\hidog_dll.vcproj", "{C8C82ECF-89DD-4E8E-8C1F-4A782D7D7456}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A26FE21F-E46A-422D-ACC2-92DEDE667E31} = {A26FE21F-E46A-422D-ACC2-92DEDE667E31}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

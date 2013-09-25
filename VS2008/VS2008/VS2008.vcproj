@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="hidog_dll.lib"
+				AdditionalDependencies="hidog_dll.lib hidog_lib.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="D:\code\hidog\VS2008\Debug"
 				GenerateDebugInformation="true"

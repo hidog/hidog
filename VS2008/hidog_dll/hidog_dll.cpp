@@ -4,15 +4,23 @@
 #include "stdafx.h"
 #include "hidog_dll.h"
 
+#include "../../src/numeric/vector.h"
+
 #include <iostream>
 
 
 
-void	hidog_dll_test( int a )
+void	hidog_dll_test()
 {
-	static	int	b	=	a;
+	hidog::numeric::vector<int>		v;
 
-	std::cout << b << "\n";
+	v.resize(10);
+
+	for( int i = 0; i < 10; i++ )
+		v(i)	=	i;
+
+	std::cout << v << std::endl;
+
 }
 
 

@@ -3,6 +3,7 @@
 
 #include "../shared.h"
 #include "../math/fraction.h"
+#include "../math/polynomial.h"
 #include <iostream>
 
 
@@ -72,10 +73,10 @@ template<typename T>
 vector<T>	operator * ( T , vector<T> );                      // multiple
 
 template<typename T>
-bool		operator == ( vector<T>&, vector<T>& );
+bool		operator == ( vector<T>, vector<T> );
     
 template<typename T>
-T   inner_prod( vector<T>&, vector<T>& );
+T   inner_prod( vector<T>, vector<T> );
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ template ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -89,8 +90,8 @@ T   inner_prod( vector<T>&, vector<T>& );
 	template	type			operator *	( vector<type>, vector<type> ); \
 	template	vector<type>	operator *	( vector<type>, type ); \
 	template	vector<type>	operator *	( type , vector<type> ); \
-	template 	bool			operator == ( vector<type>&, vector<type>& ); \
-    template    type            inner_prod( vector<type>&, vector<type>& );
+	template 	bool			operator == ( vector<type>, vector<type> ); \
+    template    type            inner_prod( vector<type>, vector<type> );
 
 
 

@@ -427,7 +427,7 @@ vector<T>	operator *	( T value, vector<T> a )
     == 
 *************************************************************************************************************/
 template<typename T>
-bool	operator == ( vector<T> &a, vector<T> &b )
+bool	operator == ( vector<T> a, vector<T> b )
 {
 	ErrorExceptionMacro( a.size() == b.size() );
 
@@ -453,7 +453,7 @@ bool	operator == ( vector<T> &a, vector<T> &b )
     inner product
 *************************************************************************************************************/
 template<typename T>
-T   inner_prod( vector<T> &a, vector<T> &b )
+T   inner_prod( vector<T> a, vector<T> b )
 {
     ErrorExceptionMacro( a.size() == b.size() );
     
@@ -476,6 +476,8 @@ hnVectorTypeDefineMacro(int);
 hnVectorTypeDefineMacro(double);
 hnVectorTypeDefineMacro(float);
 hnVectorTypeDefineMacro(hidog::math::Fraction);
+hnVectorTypeDefineMacro(hidog::math::Polynomial<int>);
+hnVectorTypeDefineMacro(hidog::math::Polynomial<double>);
     
     
     

@@ -446,7 +446,77 @@ vector<T>   operator * ( vector<T> a, matrix<T> b )
 
 
 /************************************************************************************************************
+     == operator
+*************************************************************************************************************/
+template<typename T>
+bool   operator == ( matrix<T> a, matrix<T> b )
+{
+	bool	is	=	true;
+	int		i,	j;
+
+	if( a.width() != b.width() || a.height() != b.height() );
+		return	false;
+
+	const int	width	=	a.width();
+	const int	height	=	a.height();
+
+	for( i = 0; i < width; i++ )
+	{
+		for( j = 0; j < height; j++ )
+		{
+			if( a( i, j ) != b( i, j ) )
+			{
+				is	=	false;
+				break;
+			}
+		}
+
+		if( is == false )
+			break;
+	}
+
+	return	is;
+}
+
+
+/************************************************************************************************************
+     != operator
+*************************************************************************************************************/
+template<typename T>
+bool   operator != ( matrix<T> a, matrix<T> b )
+{
+	bool	is	=	false;
+	int		i,	j;
+
+	if( a.width() != b.width() || a.height() != b.height() );
+		return	true;
+
+	const int	width	=	a.width();
+	const int	height	=	a.height();
+
+	for( i = 0; i < width; i++ )
+	{
+		for( j = 0; j < height; j++ )
+		{
+			if( a( i, j ) != b( i, j ) )
+			{
+				is	=	true;
+				break;
+			}
+		}
+
+		if( is == true )
+			break;
+	}
+
+	return	is;
+}
+
+
+/************************************************************************************************************
      determine
+	 為了加速, 使用參照
+	 避免使用 det( A+B) 這樣的語法
 *************************************************************************************************************/
 template<typename T>
 T		det( matrix<T> &m )
@@ -496,7 +566,8 @@ T		det( matrix<T> &m )
 hnMatrixTypeDefineMacro(int);
 hnMatrixTypeDefineMacro(double);
 hnMatrixTypeDefineMacro(hidog::math::Fraction);
-
+hnMatrixTypeDefineMacro(hidog::math::Polynomial<int>);
+hnMatrixTypeDefineMacro(hidog::math::Polynomial<double>);
 
 
 

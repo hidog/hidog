@@ -4,6 +4,7 @@
 #include "../shared.h"
 #include "vector.h"
 #include "../math/fraction.h"
+#include "../math/polynomial.h"
 #include <ostream>
 
 
@@ -73,6 +74,12 @@ template<typename T>
 vector<T>	operator * ( vector<T>, matrix<T> );
 
 template<typename T>
+bool	operator == ( matrix<T>, matrix<T> );
+
+template<typename T>
+bool	operator != ( matrix<T>, matrix<T> );
+
+template<typename T>
 T		det( matrix<T>& );		// determine
 
 
@@ -87,6 +94,8 @@ T		det( matrix<T>& );		// determine
 	template matrix<type>	operator *	( matrix<type>, matrix<type> ); \
 	template vector<type>	operator *	( matrix<type>, vector<type> ); \
 	template vector<type>	operator *	( vector<type>, matrix<type> ); \
+	template bool	operator == ( matrix<type>, matrix<type> ); \
+	template bool	operator != ( matrix<type>, matrix<type> ); \
 	template type			det( matrix<type>& );
 
 

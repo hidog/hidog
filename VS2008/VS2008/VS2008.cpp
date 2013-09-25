@@ -20,7 +20,9 @@
 int _tmain(int argc, _TCHAR* argv[])
 {
 
-	hidog_dll_test();
+	//hidog_dll_test();
+
+	hidog_abc_class_test	aaa;
 
 
 	system("PAUSE");

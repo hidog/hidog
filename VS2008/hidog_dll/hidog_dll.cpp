@@ -1,12 +1,9 @@
 // hidog_dll.cpp : 定義 DLL 應用程式的匯出函式。
 //
 
-#include "stdafx.h"
+
 #include "hidog_dll.h"
 
-#include "../../src/numeric/vector.h"
-
-#include <iostream>
 
 
 
@@ -21,6 +18,21 @@ void	hidog_dll_test()
 
 	std::cout << v << std::endl;
 
+
+	hidog_dll_test2();
+
+}
+
+
+hidog_abc_class_test::hidog_abc_class_test()
+{
+	std::cout << "hidog_abc_class_test";
+}
+
+
+void	hidog_dll_test2()
+{
+	std::cout << "hidog_dll_test2\n" ;
 }
 
 

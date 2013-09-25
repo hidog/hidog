@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="hidog_lib.lib"
+				AdditionalDependencies="hidog_dll.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="D:\code\hidog\VS2008\Debug"
 				GenerateDebugInformation="true"
@@ -190,6 +190,10 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath="..\hidog_dll\hidog_dll.h"
+				>
+			</File>
 			<File
 				RelativePath=".\stdafx.h"
 				>

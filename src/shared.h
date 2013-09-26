@@ -9,9 +9,9 @@
 
 
 #ifdef WIN32
-#define		HIDOG_EXPORT_DLL	__declspec(dllexport)
+#define		HIDOG_DLL_EXPORT	__declspec(dllexport)
 #else
-#define		HIDOG_EXPORT_DLL
+#define		HIDOG_DLL_EXPORT
 #endif
 
 

@@ -8,17 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		6D9E648A17F809F800E762A9 /* shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DE4EA6D17EEA082005E9129 /* shared.cpp */; };
-		6D9E648B17F809F800E762A9 /* shared.h in Sources */ = {isa = PBXBuildFile; fileRef = 6DE4EA6E17EEA082005E9129 /* shared.h */; };
 		6D9E648C17F809F800E762A9 /* complex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DB745FF17F1C0C20020DB50 /* complex.cpp */; };
-		6D9E648D17F809F800E762A9 /* complex.h in Sources */ = {isa = PBXBuildFile; fileRef = 6DB7460017F1C0C20020DB50 /* complex.h */; };
 		6D9E648E17F809F800E762A9 /* polynomial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D754B6017EFE04A005155DB /* polynomial.cpp */; };
-		6D9E648F17F809F800E762A9 /* polynomial.h in Sources */ = {isa = PBXBuildFile; fileRef = 6D754B6117EFE04A005155DB /* polynomial.h */; };
 		6D9E649017F809F800E762A9 /* fraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD357817EE9E0D001F439E /* fraction.cpp */; };
-		6D9E649117F809F800E762A9 /* fraction.h in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD357917EE9E0D001F439E /* fraction.h */; };
 		6D9E649217F809F800E762A9 /* matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DC62A5417DD667200ACDC66 /* matrix.cpp */; };
-		6D9E649317F809F800E762A9 /* matrix.h in Sources */ = {isa = PBXBuildFile; fileRef = 6DC62A5517DD667200ACDC66 /* matrix.h */; };
 		6D9E649417F809F800E762A9 /* vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DC62A5617DD667200ACDC66 /* vector.cpp */; };
-		6D9E649517F809F800E762A9 /* vector.h in Sources */ = {isa = PBXBuildFile; fileRef = 6DC62A5717DD667200ACDC66 /* vector.h */; };
 		6D9E649617F80A7A00E762A9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DCA5DA117DCB02300F45276 /* main.cpp */; };
 		6D9E649717F80A8C00E762A9 /* libxcode_lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9E648617F809E600E762A9 /* libxcode_lib.a */; };
 		6DCA5DA417DCB02300F45276 /* xcode.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6DCA5DA317DCB02300F45276 /* xcode.1 */; };
@@ -230,17 +224,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D9E648A17F809F800E762A9 /* shared.cpp in Sources */,
-				6D9E648B17F809F800E762A9 /* shared.h in Sources */,
 				6D9E648C17F809F800E762A9 /* complex.cpp in Sources */,
-				6D9E648D17F809F800E762A9 /* complex.h in Sources */,
 				6D9E648E17F809F800E762A9 /* polynomial.cpp in Sources */,
-				6D9E648F17F809F800E762A9 /* polynomial.h in Sources */,
 				6D9E649017F809F800E762A9 /* fraction.cpp in Sources */,
-				6D9E649117F809F800E762A9 /* fraction.h in Sources */,
 				6D9E649217F809F800E762A9 /* matrix.cpp in Sources */,
-				6D9E649317F809F800E762A9 /* matrix.h in Sources */,
 				6D9E649417F809F800E762A9 /* vector.cpp in Sources */,
-				6D9E649517F809F800E762A9 /* vector.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +381,7 @@
 				6D9E648817F809E600E762A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		6DCA5D9917DCB02300F45276 /* Build configuration list for PBXProject "xcode" */ = {
 			isa = XCConfigurationList;

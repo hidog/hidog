@@ -14,37 +14,43 @@
 #include "math/fraction.h"
 #include "math/polynomial.h"
 #include "math/complex.h"
+#include "../xcode_dylib/xcode_dylib.h"
 
 
 
 int main(int argc, const char * argv[])
 {
-    srand( (int)time(0) );
+    srand((int)time(0));
     
-    hidog::numeric::matrix<hidog::math::Polynomial<int>>    M;
+    hidog::numeric::matrix<double>  M;
+    hidog::numeric::vector<double>  b;
     
-    M.resize(6,6);
+    int     r,  r1, r2, i,  j;
     
-    int     i,  j,  a[2];
+    r   =   rand() % 20 + 10;
     
-    for( i = 0; i < 6; i++ )
-        for( j = 0; j < 6; j++ )
+    M.resize( r, r );
+    b.resize( r );
+    
+    for( i = 0; i < r; i++ )
+        for( j = 0; j < r; j++ )
         {
-            if( i == j )
-            {
-                a[1]    =   -1;
-                a[0]    =   rand()%10 - 5;
-                M(i,j)  =   hidog::math::Polynomial<int>(1,a);
-            }
-            else
-            {
-                a[1]    =   0;
-                a[0]    =   rand()%10-5;
-                M(i,j)  =   hidog::math::Polynomial<int>(0,a);
-            }
+            r1  =   rand() % 200 - 100;
+            r2  =   rand() % 100 + 1;
+            
+            M( i, j )   =   1.0 * r1 / r2;
         }
     
-    std::cout << M << "\n" << det(M) << "\n";
+    for( i = 0; i < r; i++ )
+    {
+        r1  =   rand() % 200 - 100;
+        r2  =   rand() % 100 + 1;
+        
+        b( i )  =   1.0 * r1 / r2;
+    }
+    
+    hidog_dll_solve_matrix( M, b );
+    
     
     return 0;
 }

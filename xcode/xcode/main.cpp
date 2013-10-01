@@ -10,10 +10,7 @@
 #include <stdlib.h>
 #include <ctime>
 
-#include "numeric/matrix.h"
-#include "math/fraction.h"
-#include "math/polynomial.h"
-#include "math/complex.h"
+
 #include "../xcode_dylib/xcode_dylib.h"
 
 
@@ -49,7 +46,7 @@ int main(int argc, const char * argv[])
         b( i )  =   1.0 * r1 / r2;
     }
     
-    hidog_dll_solve_matrix( M, b );
+    std::cout << hidog_dll_solve_matrix( M, b );
     
     
     return 0;

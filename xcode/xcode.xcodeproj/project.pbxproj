@@ -32,6 +32,7 @@
 		6D9E649617F80A7A00E762A9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DCA5DA117DCB02300F45276 /* main.cpp */; };
 		6D9FA2BF17FA75490013AB1A /* xcode_dylib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9FA2BE17FA75490013AB1A /* xcode_dylib.cpp */; };
 		6D9FA2D117FA78140013AB1A /* libxcode_lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9FA2D017FA78140013AB1A /* libxcode_lib.a */; };
+		6D9FA2D417FA7A570013AB1A /* xcode_dylib.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9FA2D317FA7A570013AB1A /* xcode_dylib.dylib */; };
 		6DCA5DA417DCB02300F45276 /* xcode.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6DCA5DA317DCB02300F45276 /* xcode.1 */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		6D9FA2B717FA749F0013AB1A /* xcode_dylib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xcode_dylib.h; sourceTree = "<group>"; };
 		6D9FA2BE17FA75490013AB1A /* xcode_dylib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xcode_dylib.cpp; sourceTree = "<group>"; };
 		6D9FA2D017FA78140013AB1A /* libxcode_lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libxcode_lib.a; path = Debug/libxcode_lib.a; sourceTree = "<group>"; };
+		6D9FA2D317FA7A570013AB1A /* xcode_dylib.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = xcode_dylib.dylib; path = Debug/xcode_dylib.dylib; sourceTree = "<group>"; };
 		6DB745FF17F1C0C20020DB50 /* complex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = complex.cpp; sourceTree = "<group>"; };
 		6DB7460017F1C0C20020DB50 /* complex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = complex.h; sourceTree = "<group>"; };
 		6DC62A5417DD667200ACDC66 /* matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matrix.cpp; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D9FA2D417FA7A570013AB1A /* xcode_dylib.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +171,7 @@
 		6DCA5D9517DCB02300F45276 = {
 			isa = PBXGroup;
 			children = (
+				6D9FA2D317FA7A570013AB1A /* xcode_dylib.dylib */,
 				6D9FA2D017FA78140013AB1A /* libxcode_lib.a */,
 				6DCA5DAA17DCB06500F45276 /* src */,
 				6DCA5DA017DCB02300F45276 /* xcode */,
@@ -569,6 +573,10 @@
 				CONFIGURATION_BUILD_DIR = Debug;
 				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = MAC_OS;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/hidog/code/hidog/xcode/Debug,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ../src;
@@ -581,6 +589,10 @@
 				CONFIGURATION_BUILD_DIR = Release;
 				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = MAC_OS;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/hidog/code/hidog/xcode/Debug,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ../src;

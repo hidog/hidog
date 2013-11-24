@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="D:\code\hidog\src"
+				AdditionalIncludeDirectories="D:\opencv\build\include\opencv;D:\opencv\build\include;D:\opencv\build\include\opencv2;D:\code\hidog\src"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -61,9 +61,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="hidog_dll.lib hidog_lib.lib"
+				AdditionalDependencies="opencv_highgui246d.lib opencv_core246d.lib hidog_dll.lib hidog_lib.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="D:\code\hidog\VS2008\Debug"
+				AdditionalLibraryDirectories="D:\opencv\build\x86\vc9\lib;D:\code\hidog\VS2008\Debug"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"

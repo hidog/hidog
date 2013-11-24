@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="D:\code\hidog\src;D:\gtest\include"
+				AdditionalIncludeDirectories="D:\code\hidog\src;D:\code\gtest\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -63,7 +63,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="gtest.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="D:\gtest\gtest_bin\Debug"
+				AdditionalLibraryDirectories="D:\code\gtest\gtest_bin\Debug"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"

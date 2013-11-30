@@ -97,6 +97,8 @@
 /* Begin PBXFileReference section */
 		6D754B6017EFE04A005155DB /* polynomial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = polynomial.cpp; sourceTree = "<group>"; };
 		6D754B6117EFE04A005155DB /* polynomial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = polynomial.h; sourceTree = "<group>"; };
+		6D9D6170184A46F4002F0A76 /* queue_static.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = queue_static.cpp; path = ../src/container/queue_static.cpp; sourceTree = "<group>"; };
+		6D9D6171184A46F4002F0A76 /* queue_static.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = queue_static.h; path = ../src/container/queue_static.h; sourceTree = "<group>"; };
 		6D9E648617F809E600E762A9 /* libxcode_lib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libxcode_lib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D9FA2B117FA749F0013AB1A /* xcode_dylib.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = xcode_dylib.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D9FA2B417FA749F0013AB1A /* xcode_dylib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xcode_dylib-Prefix.pch"; sourceTree = "<group>"; };
@@ -148,6 +150,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D9D616F184A4630002F0A76 /* container */ = {
+			isa = PBXGroup;
+			children = (
+				6D9D6171184A46F4002F0A76 /* queue_static.h */,
+				6D9D6170184A46F4002F0A76 /* queue_static.cpp */,
+			);
+			name = container;
+			sourceTree = "<group>";
+		};
 		6D9FA2B217FA749F0013AB1A /* xcode_dylib */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +216,7 @@
 			children = (
 				6DE4EA6D17EEA082005E9129 /* shared.cpp */,
 				6DE4EA6E17EEA082005E9129 /* shared.h */,
+				6D9D616F184A4630002F0A76 /* container */,
 				6DCD357717EE9E0D001F439E /* math */,
 				6DCA5DB717DCB08000F45276 /* numeric */,
 			);
@@ -618,6 +630,7 @@
 				6D9FA2BD17FA749F0013AB1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		6D9FA2C417FA76690013AB1A /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
@@ -626,6 +639,7 @@
 				6D9FA2C617FA76690013AB1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		6DCA5D9917DCB02300F45276 /* Build configuration list for PBXProject "xcode" */ = {
 			isa = XCConfigurationList;

@@ -572,12 +572,21 @@
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = Debug;
 				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"~/code/openCV/include/opencv/",
+					"~/code/openCV/include/opencv2/",
+					"~/code/openCV/include/",
+				);
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = MAC_OS;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/hidog/code/hidog/xcode/Debug,
+					"~/code/openCV/opencv_bin/lib/Debug/",
+					/Users/hidog/code/openCV/opeoncv_bin/lib/Debug,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ../src;
 			};
@@ -588,12 +597,20 @@
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = Release;
 				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"~/code/openCV/include/opencv/",
+					"~/code/openCV/include/opencv2/",
+					"~/code/openCV/include/",
+				);
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = MAC_OS;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/hidog/code/hidog/xcode/Debug,
+					/Users/hidog/code/openCV/opeoncv_bin/lib/Debug,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ../src;
 			};
@@ -618,6 +635,7 @@
 				6D9FA2BD17FA749F0013AB1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		6D9FA2C417FA76690013AB1A /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
@@ -626,6 +644,7 @@
 				6D9FA2C617FA76690013AB1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		6DCA5D9917DCB02300F45276 /* Build configuration list for PBXProject "xcode" */ = {
 			isa = XCConfigurationList;

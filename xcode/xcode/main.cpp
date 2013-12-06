@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <ctime>
 
+#include <cv.h>
 
 #include "../xcode_dylib/xcode_dylib.h"
 

@@ -10,45 +10,24 @@
 #include <stdlib.h>
 #include <ctime>
 
-#include <cv.h>
+//#include "../xcode_dylib/xcode_dylib.h"
 
-#include "../xcode_dylib/xcode_dylib.h"
-
-
+#include "../src/container/queue_static.h"
+#include "../src/numeric/vector.h"
 
 int main(int argc, const char * argv[])
 {
-    srand((int)time(0));
+    QueueStatic    qs(10);
     
-    hidog::numeric::matrix<double>  M;
-    hidog::numeric::vector<double>  b;
+    for( int i = 1; i < 10; i++ )
+        qs.push(i);
     
-    int     r,  r1, r2, i,  j;
+    std::cout << qs.top() << std::endl;
+    hidog::numeric::vector<int>     a;
     
-    r   =   rand() % 20 + 10;
     
-    M.resize( r, r );
-    b.resize( r );
     
-    for( i = 0; i < r; i++ )
-        for( j = 0; j < r; j++ )
-        {
-            r1  =   rand() % 200 - 100;
-            r2  =   rand() % 100 + 1;
-            
-            M( i, j )   =   1.0 * r1 / r2;
-        }
-    
-    for( i = 0; i < r; i++ )
-    {
-        r1  =   rand() % 200 - 100;
-        r2  =   rand() % 100 + 1;
-        
-        b( i )  =   1.0 * r1 / r2;
-    }
-    
-    std::cout << hidog_dll_solve_matrix( M, b );
-    
+    std::cout << "test";
     
     return 0;
 }

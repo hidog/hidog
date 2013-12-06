@@ -13,12 +13,27 @@
 
 #include "../hidog_dll/hidog_dll.h"
 
+#include <cv.h>
+#include <highgui.h>
+
+
+
+using namespace std;
+using namespace cv;
 
 
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	Mat		image;
+	image	=	imread("test.bmp");
+	
+	imwrite( "output.bmp", image );
+
+	imshow( "image show", image );
+	waitKey(1);
+	
 
 
 	system("PAUSE");

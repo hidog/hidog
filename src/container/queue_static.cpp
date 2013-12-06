@@ -1,16 +1,26 @@
 #include "queue_static.h"
 
+
+
+namespace   hidog
+{
+namespace   container
+{
+
+
+
+
 /*********************************************************************************
     constructor
 **********************************************************************************/
-//template<typename T>
-QueueStatic/*<T>*/::QueueStatic()
+template<typename T>
+QueueStatic<T>::QueueStatic()
 {
     num     =   0;
-    size    =   0;
+    _size    =   0;
     head    =   0;
     tail    =   0;
-    *data   =   NULL;
+    data   =   NULL;
 }
 
 
@@ -18,25 +28,25 @@ QueueStatic/*<T>*/::QueueStatic()
 /*********************************************************************************
     constructor
 **********************************************************************************/
-//template<typename T>
-QueueStatic/*<T>*/::QueueStatic( int _size )
+template<typename T>
+QueueStatic<T>::QueueStatic( int s )
 {
     num     =   0;
-    size    =   _size;
+    _size   =   s;
     head    =   0;
     tail    =   0;
     
-    data   =   new int[size];
+    data   =   new T[_size];
     
-   // ErrorExceptionMacro( data != NULL );
+    ErrorExceptionMacro( data != NULL );
 }
 
 
 /*********************************************************************************
     destructor
  **********************************************************************************/
-//template<typename T>
-QueueStatic/*<T>*/::~QueueStatic()
+template<typename T>
+QueueStatic<T>::~QueueStatic()
 {
     delete  []  data;
     data    =   NULL;
@@ -44,7 +54,7 @@ QueueStatic/*<T>*/::~QueueStatic()
     num     =   0;
     head    =   0;
     tail    =   0;
-    size    =   0;
+    _size    =   0;
 }
 
 
@@ -53,20 +63,20 @@ QueueStatic/*<T>*/::~QueueStatic()
 /*********************************************************************************
     回傳循環的下一個位置
 **********************************************************************************/
-//template<typename T>
-int     QueueStatic/*<T>*/::next_index( int index )
+template<typename T>
+int     QueueStatic<T>::next_index( int index )
 {
-    return  (index+1) % size;
+    return  (index+1) % _size;
 }
 
 
 /*********************************************************************************
     push
  **********************************************************************************/
-//template<typename T>
-bool    QueueStatic/*<T>*/::push( int d )
+template<typename T>
+bool    QueueStatic<T>::push( T d )
 {
-    if( num < size )
+    if( num < _size )
     {
         data[tail]  =   d;
         tail        =   next_index( tail );
@@ -74,28 +84,91 @@ bool    QueueStatic/*<T>*/::push( int d )
     }
     else
     {
-        //error_msg( "queue is full." );
+        error_msg( "queue is full." );
         return  false;
     }
 }
 
 
-
+/*********************************************************************************
+     init
+**********************************************************************************/
+template<typename T>
+void    QueueStatic<T>::init( int s )
+{
+    _size   =   s;
+    head    =   0;
+    tail    =   0;
+    
+    data    =   new T[_size];
+    
+    ErrorExceptionMacro( data != NULL );
+}
+    
+    
+    
+/*********************************************************************************
+    destroy
+**********************************************************************************/
+template<typename T>
+void    QueueStatic<T>::destroy()
+{
+    delete  []  data;
+    data    =   NULL;
+    
+    _size   =   0;
+    head    =   0;
+    tail    =   0;
+}
+    
+    
+    
+    
+/*********************************************************************************
+     pop
+**********************************************************************************/
+template<typename T>
+T   QueueStatic<T>::pop()
+{
+    if( _size <= 0 )
+    {
+        error_msg( "queue is empty." );
+        return  0;
+    }
+    
+    T   tmp;
+    
+    tmp     =   data[head];
+    head    =   next_index( head );
+    
+    return  tmp;
+}
+    
+    
 
 /*********************************************************************************
     top
  **********************************************************************************/
-//template<typename T>
-int    QueueStatic/*<T>*/::top( )
+template<typename T>
+T    QueueStatic<T>::top( )
 {
-    return  data[head];
+    ErrorExceptionMacro( _size > 0 );
+    
+    return  data[ head ];
 }
 
 
 
-//template class	QueueStatic<int>;
+    
+    
+// use macro to general
+template class	QueueStatic<int>;
 
 
 
+    
+    
+}   // end namespace container
+}   // end namespace hidog
 
 

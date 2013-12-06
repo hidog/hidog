@@ -15,19 +15,36 @@
 #include "../src/container/queue_static.h"
 #include "../src/numeric/vector.h"
 
+
+using namespace std;
+
+
 int main(int argc, const char * argv[])
 {
-    QueueStatic    qs(10);
+    hidog::container::QueueStatic<int>    qs;
     
-    for( int i = 1; i < 10; i++ )
+    qs.init(100);
+    
+    for( int i = 0; i < 100; i++ )
         qs.push(i);
     
-    std::cout << qs.top() << std::endl;
-    hidog::numeric::vector<int>     a;
+    for( int i = 0; i < 100; i++ )
+        cout << qs.pop() << endl;
+    
+    for( int i = 0; i < 70; i++ )
+        qs.push(i);
+    
+    for( int i = 0; i < 30; i++ )
+        cout << qs.pop() << endl;
+    
+    for( int i = 0; i < 10; i++ )
+        qs.push(i);
+    
+    for( int i = 0; i < 50; i++ )
+        cout << qs.pop() << endl;
     
     
-    
-    std::cout << "test";
+    std::cout << "test" << endl;
     
     return 0;
 }

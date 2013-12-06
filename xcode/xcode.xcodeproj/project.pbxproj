@@ -23,7 +23,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		6D6F55271851E19C0070FCDB /* queue_static.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9D6170184A46F4002F0A76 /* queue_static.cpp */; };
+		6D6B10B61851ECBD00A77BED /* queue_static.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9D6170184A46F4002F0A76 /* queue_static.cpp */; };
+		6D6B10B71851ECE300A77BED /* libxcode_lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9E648617F809E600E762A9 /* libxcode_lib.a */; };
 		6D9E648A17F809F800E762A9 /* shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DE4EA6D17EEA082005E9129 /* shared.cpp */; };
 		6D9E648C17F809F800E762A9 /* complex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DB745FF17F1C0C20020DB50 /* complex.cpp */; };
 		6D9E648E17F809F800E762A9 /* polynomial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D754B6017EFE04A005155DB /* polynomial.cpp */; };
@@ -144,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6B10B71851ECE300A77BED /* libxcode_lib.a in Frameworks */,
 				6D9FA2D417FA7A570013AB1A /* xcode_dylib.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6B10B61851ECBD00A77BED /* queue_static.cpp in Sources */,
 				6D9E648A17F809F800E762A9 /* shared.cpp in Sources */,
 				6D9E648C17F809F800E762A9 /* complex.cpp in Sources */,
 				6D9E648E17F809F800E762A9 /* polynomial.cpp in Sources */,
@@ -379,7 +382,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D6F55271851E19C0070FCDB /* queue_static.cpp in Sources */,
 				6D9E649617F80A7A00E762A9 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

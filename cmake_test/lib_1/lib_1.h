@@ -1,4 +1,5 @@
-#include "lib_1.h"
+#ifndef LIB_1_H
+#define LIB_1_h
 
 
 int 	lib_1_message( int n )
@@ -7,3 +8,5 @@ int 	lib_1_message( int n )
 	
 	return 	1;
 }
+
+#endif

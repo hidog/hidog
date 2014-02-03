@@ -11,17 +11,26 @@ message("root path =" ${CMAKE_SOURCE_DIR} )
 set( PROJECT_NAME cmake_test )
 project(${PROJECT_NAME})
 
+# output path
+set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin )
+
 # preprocessor define
 set( DEFINE "-DCMAKE_TEST"
             "-DCMAKE_TEST2" )
 add_definitions( ${DEFINE} )
 
 # include path
-set( INCLUDE_PATH )
+set( INCLUDE_PATH "./lib_1/" )
 include_directories( ${INCLUDE_PATH} )
 
 # library link 
-set( LIB_PATH )
+if( _DEBUG )
+	set( LIB_PATH "-I"${CMAKE_BINARY_DIR}lib/Debug )
+elseif( _NDEBUG )
+	set( LIB_PATH "-I"${CMAKE_BINARY_DIR}lib/Release )
+else()
+	set( LIB_PATH "-I"${CMAKE_BINARY_DIR}lib )
+endif( _DEBUG )
 link_directories( ${LIB_PATH} )
 
 # main source path

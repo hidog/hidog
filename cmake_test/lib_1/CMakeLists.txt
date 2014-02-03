@@ -8,6 +8,9 @@ message("current path =" ${CMAKE_CURRENT_SOURCE_DIR} )
 set( PROJECT_NAME lib_1 )
 project(${PROJECT_NAME})
 
+# output path
+set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib )
+
 # preprocessor define
 set( DEFINE "-DLIB_1" )
 add_definitions( ${DEFINE} )

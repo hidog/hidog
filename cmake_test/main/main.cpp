@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "cmake.h"
+#include "lib_1.h"
 
 using namespace std;
 

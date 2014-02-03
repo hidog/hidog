@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.6)
 
 # sub project
 add_subdirectory(lib_1)
+include(./cmake/lib_2.cmake)
 
 # print message
 message("cmake test project")
@@ -17,10 +18,15 @@ set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin )
 # preprocessor define
 set( DEFINE "-DCMAKE_TEST"
             "-DCMAKE_TEST2" )
+if( MSVC )
+	set( DEFINE ${DEFINE} "-DMSVC" )
+endif( MSVC )
 add_definitions( ${DEFINE} )
 
 # include path
-set( INCLUDE_PATH "./lib_1/" )
+set( INCLUDE_PATH "./lib_1/"
+                  "./lib/"
+                  "./main/src/" )
 include_directories( ${INCLUDE_PATH} )
 
 # library link 
@@ -37,9 +43,11 @@ link_directories( ${LIB_PATH} )
 set( SOURCE_PATH ./main/ )
 # source 
 set( SOURCE ${SOURCE_PATH}main.cpp )
-set( SOURCE ${SOURCE} ${SOURCE_PATH}cmake.cpp )
+set( SOURCE ${SOURCE} ${SOURCE_PATH}cmake.cpp 
+            ${SOURCE_PATH}src/cmake_1.cpp )
 # head
-set( HEAD ${SOURCE_PATH}cmake.h )
+set( HEAD ${SOURCE_PATH}cmake.h 
+          ${SOURCE_PATH}src/cmake_1.h )
 # exec file
 add_executable( ${PROJECT_NAME} ${SOURCE} ${HEAD} )
-target_link_libraries( ${PROJECT_NAME} lib_1 )
+target_link_libraries( ${PROJECT_NAME} lib_1 lib_2 )   # 未來改成用迴圈方式

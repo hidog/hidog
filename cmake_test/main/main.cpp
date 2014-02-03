@@ -6,6 +6,8 @@
 #include "lib_1.h"
 #include "lib_2.h"
 
+#include "dlltest.h"
+
 
 using namespace std;
 
@@ -32,8 +34,15 @@ int		main()
 #endif
 
 	cmake_1_func();
-
 	lib_2_test();
+
+
+
+	DllTestObj	dll_obj;
+	dll_obj.set_data( 100 );
+	dll_obj.message();
+
+
 
 	system("PAUSE");
 	return 	0;

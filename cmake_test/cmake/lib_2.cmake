@@ -21,7 +21,7 @@ set( DEFINE )
 add_definitions( ${DEFINE} )
 
 # include path
-set( INCLUDE_PATH "-I"${CMAKE_SOURCE_DIR}/lib/src )
+set( INCLUDE_PATH ${CMAKE_SOURCE_DIR}/lib/src )
 include_directories( ${INCLUDE_PATH} )
 
 # library link 

@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 2.6)
 
 # sub project
 add_subdirectory(lib_1)
+add_subdirectory(dlltest)
 include(${CMAKE_SOURCE_DIR}/cmake/lib_2.cmake)
 
 
@@ -26,9 +27,10 @@ endif( MSVC )
 add_definitions( ${DEFINE} )
 
 # include path
-set( INCLUDE_PATH "-I"${CMAKE_SOURCE_DIR}/lib_1/
-                  "-I"${CMAKE_SOURCE_DIR}/lib/
-                  "-I"${CMAKE_SOURCE_DIR}/main/src/ )
+set( INCLUDE_PATH ${CMAKE_SOURCE_DIR}/lib_1
+                  ${CMAKE_SOURCE_DIR}/lib
+				  ${CMAKE_SOURCE_DIR}/dlltest
+                  ${CMAKE_SOURCE_DIR}/main/src )
 include_directories( ${INCLUDE_PATH} )
 
 # library link 
@@ -52,4 +54,4 @@ set( HEAD ${SOURCE_PATH}/cmake.h
           ${SOURCE_PATH}/src/cmake_1.h )
 # exec file
 add_executable( ${PROJECT_NAME} ${SOURCE} ${HEAD} )
-target_link_libraries( ${PROJECT_NAME} lib_1 lib_2 )   # 未來改成用迴圈方式
+target_link_libraries( ${PROJECT_NAME} lib_1 lib_2 dlltest )   # 未來改成用迴圈方式

@@ -43,7 +43,8 @@ int		main()
 	dll_obj.message();
 
 
-
+#ifdef WIN32
 	system("PAUSE");
+#endif
 	return 	0;
 }

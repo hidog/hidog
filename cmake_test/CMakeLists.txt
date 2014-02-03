@@ -5,6 +5,7 @@ cmake_minimum_required(VERSION 2.6)
 add_subdirectory(lib_1)
 add_subdirectory(dlltest)
 include(${CMAKE_SOURCE_DIR}/cmake/lib_2.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/dlldyn.cmake)
 
 
 # print message
@@ -53,5 +54,7 @@ set( SOURCE ${SOURCE} ${SOURCE_PATH}/cmake.cpp
 set( HEAD ${SOURCE_PATH}/cmake.h 
           ${SOURCE_PATH}/src/cmake_1.h )
 # exec file
+#SET(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/Bin/${CMAKE_BUILD_TYPE} CACHE PATH "Library output path")
+#SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin/${CMAKE_BUILD_TYPE} CACHE PATH "Executable output path")
 add_executable( ${PROJECT_NAME} ${SOURCE} ${HEAD} )
 target_link_libraries( ${PROJECT_NAME} lib_1 lib_2 dlltest )   # 未來改成用迴圈方式

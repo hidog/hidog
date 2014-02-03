@@ -41,5 +41,5 @@ set( SOURCE ${SOURCE_PATH}/lib_2.cpp )
 # head
 set( HEAD ${SOURCE_PATH}/lib_2.h )
 # exec file
-add_library( ${PROJECT_NAME} ${SOURCE} ${HEAD} )
+add_library( ${PROJECT_NAME} STATIC ${SOURCE} ${HEAD} )
 target_link_libraries( ${PROJECT_NAME} lib_3 lib_4 )   # 未來改成用迴圈方式

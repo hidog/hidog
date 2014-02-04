@@ -4,9 +4,13 @@
 #include "shared.h"
 
 
-extern "C" DLL_EXPORT	int	dll_dynamic_message( char *s );
 
 
+
+
+
+
+extern "C" DLL_EXPORT	int				dll_dynamic_message( char *s );
 
 
 #endif

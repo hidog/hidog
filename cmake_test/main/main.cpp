@@ -8,19 +8,20 @@
 
 #include "dlltest.h"
 
-//#ifdef WIN32
+#ifdef WIN32
 	#include <windows.h>
-//#endif
+#endif
 
 
 using namespace std;
 
 
-typedef int (*LPFNDLLFUNC1)(char*);
+typedef int (*DllFunc)(char*);
 
 
 void	load_dll_test()
 {
+#ifdef WIN32
 	HINSTANCE	hDLL;
 	hDLL	=	LoadLibrary("dlldyn");
 	if( hDLL != NULL )
@@ -28,17 +29,18 @@ void	load_dll_test()
 	else
 		cout << "load fail.\n" ;
 
-	LPFNDLLFUNC1 	lpfnDlFunc1;
+	DllFunc 	dll_func;
 
-	lpfnDlFunc1	=	(LPFNDLLFUNC1)GetProcAddress(hDLL, "dll_dynamic_message");
-	if( lpfnDlFunc1 != NULL )
+	dll_func	=	(DllFunc)GetProcAddress(hDLL, "dll_dynamic_message");
+	if( dll_func != NULL )
 		cout << "get func point sucess\n" ;
 	else
 		cout << "Get func point fail.\n" ;
 
-	lpfnDlFunc1("load from main");
+	dll_func("load from main");
 
 	FreeLibrary(hDLL);
+#endif
 }
 
 

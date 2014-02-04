@@ -2,6 +2,8 @@
 #include <ctime>
 #include <stdlib.h>
 
+#include "gtest/gtest.h"
+
 #include "../src/math/fraction.h"
 #include "../src/numeric/matrix.h"
 #include "../src/math/polynomial.h"

@@ -3,8 +3,12 @@
 #######################################
 
 DEFINES 	= -DLINUX
-INCPATH 	= -I../src/ -I../src/numeric/ -I../src/math/ -I. 
-LIBS		= #-L...這樣的語法
+INCPATH 	= -I../src/ \
+		  -I../src/numeric/ \
+                  -I../src/math/ \
+		  -I~/code/gtest/include/ \
+                  -I. 
+LIBS		= -L~/gtest/gtest_bin/libgtest.a
 CFLAGS		=
 CXXFLAGS	= 
 CC		= gcc

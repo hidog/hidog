@@ -10,13 +10,11 @@
 
 #ifdef WIN32
 	#include <windows.h>
-#elif defined(MACOS)
+#elif defined(MACOS) | defined(UNIX)
     #include "dlfcn.h"
 #else
     # error. undefined operator system.
 #endif
-
-
 
 
 using namespace std;
@@ -46,7 +44,7 @@ void	load_dll_test()
 	dll_func("load from main");
 
 	FreeLibrary(hDLL);
-#elif defined(MACOS)
+#elif  defined(MACOS) | defined(UNIX)
     void        *handle;
     DllFunc     func;
     

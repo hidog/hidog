@@ -23,7 +23,14 @@ set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin )
 set( DEFINE -DCMAKE_TEST
             -DCMAKE_TEST2 )
 if( MSVC )
-	set( DEFINE ${DEFINE} -DMSVC )
+	set( DEFINE ${DEFINE} -DMSVC 
+	                      -DWIN32 )
+elseif( XCODE )
+	message("define xcode")
+	set( DEFINE ${DEFINE} -DMACOS )
+elseif( UNIX )
+        message("define unix")
+        set( DEFINE ${DEFINE} -DUNIX )
 endif( MSVC )
 add_definitions( ${DEFINE} )
 
@@ -58,3 +65,6 @@ set( HEAD ${SOURCE_PATH}/cmake.h
 #SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin/${CMAKE_BUILD_TYPE} CACHE PATH "Executable output path")
 add_executable( ${PROJECT_NAME} ${SOURCE} ${HEAD} )
 target_link_libraries( ${PROJECT_NAME} lib_1 lib_2 dlltest )   # 未來改成用迴圈方式
+if(UNIX)
+    target_link_libraries( ${PROJECT_NAME} dl )    # ubuntu底下需要手動link到此library
+endif(UNIX)

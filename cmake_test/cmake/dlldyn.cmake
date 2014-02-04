@@ -13,7 +13,12 @@ set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin )
 # preprocessor define
 set( DEFINE -DUSE_DLL )
 if(MSVC)
-	set( DEFINE ${DEFINE} -DWIN32 )
+	set( DEFINE ${DEFINE} -DWIN32 )	
+elseif(XCODE)
+	message("define xcode")
+	set( DEFINE ${DEFINE} -DMACOS )
+else()
+	message("no define")
 endif(MSVC)
 add_definitions( ${DEFINE} )
 

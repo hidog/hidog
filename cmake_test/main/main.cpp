@@ -10,7 +10,13 @@
 
 #ifdef WIN32
 	#include <windows.h>
+#elif defined(MACOS)
+    #include "dlfcn.h"
+#else
+    # error. undefined operator system.
 #endif
+
+
 
 
 using namespace std;
@@ -40,6 +46,26 @@ void	load_dll_test()
 	dll_func("load from main");
 
 	FreeLibrary(hDLL);
+#elif defined(MACOS)
+    void        *handle;
+    DllFunc     func;
+    
+    handle  =   dlopen( "libdlldyn.so", RTLD_LAZY );
+    if( handle )
+        cout << "open .so success\n";
+    else
+        cout << "open .so fail\n";
+
+    func    =   (DllFunc)dlsym( handle, "dll_dynamic_message" );
+    if( func )
+        cout << "load func success\n";
+    else
+        cout << "load func fail\n";
+
+    char    str[100]    =   "load .so dynamic.\n";
+    func( str );
+#else
+    # error. undefined operator system.
 #endif
 }
 

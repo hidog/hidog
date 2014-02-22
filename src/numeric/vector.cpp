@@ -475,9 +475,9 @@ T   inner_prod( vector<T> a, vector<T> b )
 hnVectorTypeDefineMacro(int);
 hnVectorTypeDefineMacro(double);
 hnVectorTypeDefineMacro(float);
-hnVectorTypeDefineMacro(hidog::math::Fraction);
-hnVectorTypeDefineMacro(hidog::math::Polynomial<int>);
-hnVectorTypeDefineMacro(hidog::math::Polynomial<double>);
+//hnVectorTypeDefineMacro(hidog::math::Fraction);
+//hnVectorTypeDefineMacro(hidog::math::Polynomial<int>);
+//hnVectorTypeDefineMacro(hidog::math::Polynomial<double>);
     
     
     

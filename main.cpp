@@ -4,6 +4,9 @@
 
 #include "./src/numeric/vector.h"
 #include "./src/math/complex.h"
+#include "./src/math/Fraction.h"
+
+
 
 using namespace std;
 
@@ -22,6 +25,11 @@ int		main()
 	c.image()	=	10;
 	c.real()	=	-5;
 	cout << c << endl;
+
+	hidog::math::Fraction	f(10,23);
+	cout << f.toDouble() << endl;
+	
+	
 
 #ifdef _WIN32
 	system("PAUSE");

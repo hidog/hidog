@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 2.6)
 # sub project
 include(${CMAKE_SOURCE_DIR}/cmake/numeric_vector.cmake)
 include(${CMAKE_SOURCE_DIR}/cmake/math_complex.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/math_fraction.cmake)
 
 # print message
 message("cmake test project")
@@ -51,12 +52,14 @@ set( SOURCE main.cpp )
 
 # head
 set( HEAD ${CMAKE_SOURCE_DIR}/src/numeric/vector.h
-          ${CMAKE_SOURCE_DIR}/src/math/complex.h )
+          ${CMAKE_SOURCE_DIR}/src/math/complex.h 
+		  ${CMAKE_SOURCE_DIR}/src/math/fraction.h )
 
 # exec file
 add_executable( ${PROJECT_NAME} ${SOURCE} ${HEAD} )
 
 # link libs
 set( LIB numeric_vector
-		 math_complex )
+		 math_complex 
+		 math_fraction)
 target_link_libraries( ${PROJECT_NAME} ${LIB} )   # 未來改成用迴圈方式

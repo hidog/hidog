@@ -2,8 +2,8 @@
 #define _HIDOG_VECTOR_H
 
 #include "../shared.h"
-//#include "../math/fraction.h"
-//#include "../math/polynomial.h"
+#include "../math/fraction.h"
+#include "../math/polynomial.h"
 #include <iostream>
 
 

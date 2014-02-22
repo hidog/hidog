@@ -5,6 +5,7 @@
 #include "./src/numeric/vector.h"
 #include "./src/math/complex.h"
 #include "./src/math/Fraction.h"
+#include "./src/math/polynomial.h"
 
 
 
@@ -29,7 +30,10 @@ int		main()
 	hidog::math::Fraction	f(10,23);
 	cout << f.toDouble() << endl;
 	
-	
+	int		a[10]	=	{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	hidog::math::Polynomial<int>	p( 10, a );
+	cout << p << endl;
+
 
 #ifdef _WIN32
 	system("PAUSE");

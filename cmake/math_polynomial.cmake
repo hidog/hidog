@@ -2,11 +2,11 @@
 #cmake_policy(VERSION 2.6)
 
 # print message
-message("numeric vector")
+message("math polynomial")
 message("current path =" ${CMAKE_CURRENT_SOURCE_DIR} )
 
 # Project Name
-set( PROJECT_NAME numeric_vector )
+set( PROJECT_NAME math_polynomial )
 project(${PROJECT_NAME})
 
 # output path
@@ -18,21 +18,16 @@ add_definitions( ${DEFINE} )
 
 # include path
 set( INCLUDE_PATH ${CMAKE_SOURCE_DIR}/src
-				  ${CMAKE_SOURCE_DIR}/src/numeric )
+				  ${CMAKE_SOURCE_DIR}/src/math )
 include_directories( ${INCLUDE_PATH} )
 
 # source 
-set( SOURCE ${CMAKE_SOURCE_DIR}/src/numeric/vector.cpp
+set( SOURCE ${CMAKE_SOURCE_DIR}/src/math/polynomial.cpp
             ${CMAKE_SOURCE_DIR}/src/shared.cpp )
 # head
-set( HEAD ${CMAKE_SOURCE_DIR}/src/numeric/vector.h
+set( HEAD ${CMAKE_SOURCE_DIR}/src/math/polynomial.h
           ${CMAKE_SOURCE_DIR}/src/shared.h )
 		  
 # lib file
 add_library( ${PROJECT_NAME} STATIC ${SOURCE} ${HEAD} )
 
-# link libs
-set( LIB math_complex 
-		 math_fraction 
-		 math_polynomial )
-target_link_libraries( ${PROJECT_NAME} ${LIB} )

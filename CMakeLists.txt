@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 2.6)
 include(${CMAKE_SOURCE_DIR}/cmake/numeric_vector.cmake)
 include(${CMAKE_SOURCE_DIR}/cmake/math_complex.cmake)
 include(${CMAKE_SOURCE_DIR}/cmake/math_fraction.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/math_polynomial.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/container_queueStatic.cmake)
 
 # print message
 message("cmake test project")
@@ -34,7 +36,8 @@ add_definitions( ${DEFINE} )
 # include path
 set( INCLUDE_PATH ${CMAKE_SOURCE_DIR}/src
                   ${CMAKE_SOURCE_DIR}/src/numeric
-				  ${CMAKE_SOURCE_DIR}/src/math )
+				  ${CMAKE_SOURCE_DIR}/src/math 
+				  ${CMAKE_SOURCE_DIR}/src/container )
 include_directories( ${INCLUDE_PATH} )
 
 # library link 
@@ -53,7 +56,9 @@ set( SOURCE main.cpp )
 # head
 set( HEAD ${CMAKE_SOURCE_DIR}/src/numeric/vector.h
           ${CMAKE_SOURCE_DIR}/src/math/complex.h 
-		  ${CMAKE_SOURCE_DIR}/src/math/fraction.h )
+		  ${CMAKE_SOURCE_DIR}/src/math/fraction.h 
+		  ${CMAKE_SOURCE_DIR}/src/math/polynomial.h 
+		  ${CMAKE_SOURCE_DIR}/src/container/queue_static.h )
 
 # exec file
 add_executable( ${PROJECT_NAME} ${SOURCE} ${HEAD} )
@@ -61,5 +66,7 @@ add_executable( ${PROJECT_NAME} ${SOURCE} ${HEAD} )
 # link libs
 set( LIB numeric_vector
 		 math_complex 
-		 math_fraction)
+		 math_fraction 
+		 math_polynomial 
+		 container_queueStatic )
 target_link_libraries( ${PROJECT_NAME} ${LIB} )   # 未來改成用迴圈方式

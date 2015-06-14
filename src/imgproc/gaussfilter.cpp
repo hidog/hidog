@@ -1,130 +1,9 @@
 #include "gaussfilter.h"
 
+#include <boost/math/distributions/normal.hpp>
+
 
 using namespace std;
-
-#define MAX(A,B)   A>B ? A : B
-#define MIN(A,B)   A<B ? A : B
-
-
-
-
-
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	這邊放 GaussFilter 1D
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-
-/*======================================================================================
-	GaussFilter 1D
-	建構函式
-========================================================================================*/
-GaussFilter1D::GaussFilter1D()
-{}
-GaussFilter1D::GaussFilter1D( int _scale )
-{
-
-	//if( _scale %2 == 0 )
-	//	error_msg( "scale must be odd" );
-	//if( _scale <= 0 )	error_msg( "scale must lager than 0");
-
-	scale		=	_scale;
-	mean		=	0;
-	deviation	=	scale / sqrt( 3.0 );
-
-	// 產生filter map
-	generate_map();
-
-}
-GaussFilter1D::~GaussFilter1D()
-{}
-
-
-
-
-
-
-
-
-
-/*======================================================================================
-	產生filter map
-========================================================================================*/
-void	GaussFilter1D::generate_map()
-{
-	int			i;//,	j;
-
-	boost::math::normal		gauss( 0, deviation );
-
-
-	/*
-		deviation	=	scale / sqrt(3)
-		搜尋範圍	=	deviation * sqrt(3)	=	scale
-	*/
-	filter_map.resize( 2*scale+1 );
-	
-
-	for( i = -scale; i<=scale; i++ )
-		filter_map[ i+scale ]	=	pdf( gauss, i );
-
-
-}
-
-
-
-
-/*======================================================================================
-	取 map 值用, 會自動將index 轉成 以 0 為中心  
-	可以處理 -index ~ index
-	並且做檢查index是否合理等等
-========================================================================================*/
-double&		GaussFilter1D::operator [] ( int index )
-{
-	//if( index < -scale || index > scale )	error_msg( "GaussFilter_1D [] out of range" );
-
-	return	filter_map[ index + scale ];
-}
-
-
-/*======================================================================================
-	取出Dog的Map
-========================================================================================*/
-double	GaussFilter1D::get_DoG( int index )
-{
-	int		k	=	2;
-	int		scale2	=	k*scale;
-
-	//if( index < -scale2 || index > scale2 )	error_msg("GaussFilter_1D::get_DoG");
-
-	return	DoG[ index + scale2 ];
-}
-
-
-/*======================================================================================
-	取 map 值用, 會自動將index 轉成 以 0 為中心  
-	可以處理 -index ~ index
-	並且做檢查index是否合理等等
-========================================================================================*/
-double&		GaussFilter1D::operator () ( int index )
-{
-	//if( index < -scale || index > scale )		error_msg( "GaussFilter_1D () out of range" );
-
-	return	filter_map[ index + scale ];
-}
-
-
-
-
-
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	這邊放 GaussFilter 2D
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-
-
-
 
 
 
@@ -132,213 +11,188 @@ double&		GaussFilter1D::operator () ( int index )
 
 
 /*******************************************************************************
-	conscturcot
+	constructor
 ********************************************************************************/
-QImage	GaussFilter::do_filter( QImage passImage )
+GaussFilter1D::GaussFilter1D()
 {
-	const int	w	=	w_scale,	l	=	l_scale;
-	
-	const int	width	=	passImage.width();
-	const int	height	=	passImage.height();
+	scale		=	1;
+	mean		=	0;
+	deviation	=	1.0 * scale / sqrt(3.0);
 
-	QImage			img		=	passImage;								// 原始圖像
-	bMatrixDouble	wmatrix( width, height );							// 存放橫向filter結果的圖像
-	bMatrixDouble	lmatrix( width, height );							// 存放縱向filter結果的圖像   (最後的結果)
-
-	int				i,	j,	x,	y;
-	double			dsum;
-
-	wmatrix.clear();
-	lmatrix.clear();
+	generate_map();
+}
 
 
+/*******************************************************************************
+	constructor
+********************************************************************************/
+GaussFilter1D::GaussFilter1D( int s )
+{
+#ifdef _DEBUG
+	if( s%2 == 0 )
+		assert(false);
+	if( s <= 0 )
+		assert(false);
+#endif
 
-	// 開始進行filter
-	for(  i = 0;  i < width;  i++  )
-	{
+	scale		=	s;
+	mean		=	0;
+	deviation	=	1.0 * scale / sqrt( 3.0 );
 
-
-
-		for(  j = 0;  j < height;  j++ )
-		{
-			// 對每一個pixel的位置做橫向的filter
-			dsum	=	0;
-			for(  x = -w;  x <= w;  x++  )
-			{
-				if( i+x < 0 || i+x >= width )	continue;
-
-				dsum	+=	filter_map_w( x+w ) * img.gray_channel( i+x, j );
-			}
-			wmatrix( i, j )	=	dsum;
-		}
-	}
-
-
-	// 進行縱向的filter
-	for( i = 0;  i < width;  i++  )
-	{
-
-
-		for( j = 0;  j < height;  j++ )
-		{
-			// 對wimg做縱向的filter
-			dsum	=	0;
-			for( y = -l;  y <= l;  y++ )
-			{
-				if(  j+y < 0 || j+y >= height )		continue;
-
-				dsum	+=	filter_map_l( y+l ) * wmatrix( i, j+y );
-			}
-			lmatrix( i, j )	=	dsum;
-		}
-	}
-
-	QImage	filter( width, height, QImage::Format_RGB888 );
-
-	for( i = 0;  i < width;  i++  )
-		for(  j = 0;  j < height;  j++  )
-			filter.gray_channel( i, j, static_cast<int>( lmatrix(i,j) ) );
+	// 產生filter map
+	generate_map();
+}
 
 
 
-	//filter.save("filter1.bmp");
+/*******************************************************************************
+	destructor
+********************************************************************************/
+GaussFilter1D::~GaussFilter1D()
+{}
 
-	return		filter;
+
+
+
+/*******************************************************************************
+	set_scale
+********************************************************************************/
+void	GaussFilter1D::set_scale( int s )
+{
+#ifdef _DEBUG
+	if( s%2 == 0 )
+		assert(false);
+	if( s <= 0 )
+		assert(false);
+#endif
+	scale		=	s;
+	mean		=	0;
+	deviation	=	1.0 * scale / sqrt( 3.0 );
+
+	// 產生filter map
+	generate_map();
+}
+
+
+
+/*******************************************************************************
+	generate_map
+********************************************************************************/
+void	GaussFilter1D::generate_map()
+{
+	boost::math::normal		gauss( mean, deviation );
+
+	int			i;
 
 	/*
-	//int			i,	j,	x,	y;
-	int			itmp;
-	BYTE		tmp;
-	//double		dsum,	sum;
+		deviation		=	scale / sqrt(3)
+		search range	=	deviation * sqrt(3)	=	scale
+	*/
+	filter_map.resize( 2*scale+1 );
 	
-	//const int	width	=	passImage.width();
-	//const int	height	=	passImage.height();
+	//
+	for( i = -scale; i<=scale; i++ )
+		filter_map( i+scale )	=	pdf( gauss, i );	// use boost gauss 
+}
 
-	//dsum	=	new double[l];
 
-	QImage	image222	=	passImage;
-	QRgb	rgb;
-	//int		r,	g,	b;
-	int		gray;
-	
-#ifdef _OPENPIV_
-	// 進度條控制
-	if( progress != NULL )
-		progress->setGress(0);
+
+/*******************************************************************************
+	operator (int) 
+********************************************************************************/
+double&		GaussFilter1D::operator () ( int index )
+{
+#ifdef _DEBUG
+	if( index < -scale || index > scale )		
+		assert(false);
 #endif
-
-	for(     i = 0;       i < width;   i++    )
-	{
-
-#ifdef _OPENPIV_
-		if( progress != NULL )
-			progress->setGress( (i-w)*100/(width-2*w) );
-#endif
-
-		for(  j = 0;    j < height;     j++     )
-		{
-
-			// 針對此 pixel 做 filter
-			dsum	=	0;
-
-			for( x = -w;    x <= w;    x++  )
-				for( y = -l;    y <= l;   y++  )
-				{
-
-					if( i+x < 0 || i+x >= width || j+y < 0 || j+y >= height )	continue;
-
-					rgb		=	passImage.pixel( i+x, j+y );
-					gray	=	qGray( rgb );
-					dsum	+=	gray * get(x,y);
-				}
-			
-			// 寫入資料 (避免影響到原本的資料)
-			tmp		=	static_cast<BYTE>(dsum);
-			rgb		=	qRgb( tmp, tmp, tmp );
-			image222.setPixel( i, j, rgb );
-
-
-		}
-	}
-
-	image222.save("filter2.bmp");
-
-#ifdef _OPENPIV_
-	if( progress != NULL )
-		progress->setGress( 100 );
-#endif
-
-	//delete	[]	dsum;
-
-	return	image222;*/
+	return	filter_map( index + scale );
 }
 
 
 
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GaussFileter ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-/*======================================================================================
-	將圖檔讀進來, 做filter的動作
-	(不做progress)
-========================================================================================*/
-QImage	GaussFilter::do_filter_no_progress( QImage passImage )
+
+
+
+
+/*******************************************************************************
+	operator(QImage)
+********************************************************************************/
+QImage	GaussFilter::operator () ( QImage input )
 {
-	const int	w	=	w_scale,	l	=	l_scale;
+	const int	w	=	w_scale,
+				l	=	l_scale;
+	
+	const int	width	=	input.width();
+	const int	height	=	input.height();
+							
+	bMatrixDouble	w_red_mat( width, height ),			// 用橫向 縱向的filter來處理 加速用.
+					w_green_mat( width, height ),
+					w_blue_mat( width, height );
+	bMatrixDouble	l_red_mat( width, height ),
+					l_green_mat( width, height ),
+					l_blue_mat( width, height );
 
-	const int	width	=	passImage.width();
-	const int	height	=	passImage.height();
+	int				i,	j,	x,	y,	r,	g,	b;
+	double			dsum_r,	dsum_g,	dsum_b;
 
-	QImage			img		=	passImage;								// 原始圖像
-	bMatrixDouble	wmatrix( width, height );							// 存放橫向filter結果的圖像
-	bMatrixDouble	lmatrix( width, height );							// 存放縱向filter結果的圖像   (最後的結果)
-
-	int				i,	j,	x,	y;
-	double			dsum;
-
-	wmatrix.clear();
-	lmatrix.clear();
-
-	// 開始進行filter
+	//  橫向的filter
 	for(  i = 0;  i < width;  i++  )
-	{
 		for(  j = 0;  j < height;  j++ )
 		{
 			// 對每一個pixel的位置做橫向的filter
-			dsum	=	0;
+			dsum_r	=	0;
+			dsum_g	=	0;
+			dsum_b	=	0;
 			for(  x = -w;  x <= w;  x++  )
 			{
-				if( i+x < 0 || i+x >= width )	continue;
-
-				dsum	+=	filter_map_w( x+w ) * img.gray_channel( i+x, j );
+				if( i+x < 0 || i+x >= width )	
+					continue;
+				dsum_r	+=	filter_w(x) * input.red_channel( i+x, j );
+				dsum_g	+=	filter_w(x) * input.green_channel( i+x, j );
+				dsum_b	+=	filter_w(x) * input.blue_channel( i+x, j );
 			}
-			wmatrix( i, j )	=	dsum;
+			w_red_mat(i,j)		=	dsum_r;
+			w_green_mat(i,j)	=	dsum_g;
+			w_blue_mat(i,j)		=	dsum_b;
 		}
-	}
 
 	// 進行縱向的filter
 	for( i = 0;  i < width;  i++  )
-	{
 		for( j = 0;  j < height;  j++ )
 		{
 			// 對wimg做縱向的filter
-			dsum	=	0;
+			dsum_r	=	0;
+			dsum_g	=	0;
+			dsum_b	=	0;
 			for( y = -l;  y <= l;  y++ )
 			{
-				if(  j+y < 0 || j+y >= height )		continue;
-
-				dsum	+=	filter_map_l( y+l ) * wmatrix( i, j+y );
+				if(  j+y < 0 || j+y >= height )		
+					continue;
+				dsum_r	+=	filter_l(y) * input.red_channel( i, j+y );
+				dsum_g	+=	filter_l(y) * input.green_channel( i, j+y );
+				dsum_b	+=	filter_l(y) * input.blue_channel( i, j+y );
 			}
-			lmatrix( i, j )	=	dsum;
+			l_red_mat(i,j)		=	dsum_r;
+			l_green_mat(i,j)	=	dsum_g;
+			l_blue_mat(i,j)		=	dsum_b;
 		}
-	}
 
-	QImage	filter( width, height, QImage::Format_RGB888 );
-
+	// result output
+	QImage	&result	=	input;
 	for( i = 0;  i < width;  i++  )
 		for(  j = 0;  j < height;  j++  )
-			filter.gray_channel( i, j, static_cast<int>( lmatrix(i,j) ) );
+		{
+			r	=	l_red_mat(i,j);
+			g	=	l_green_mat(i,j);
+			b	=	l_blue_mat(i,j);
+			result.rgb_channel( i, j, r, g, b );
+		}
 
-	return		filter;
+	return		result;
 }
 
 
@@ -360,16 +214,23 @@ GaussFilter::GaussFilter()
 /*******************************************************************************
 	conscturcot
 ********************************************************************************/
-GaussFilter::GaussFilter( int _w, int _l )
+GaussFilter::GaussFilter( int w, int l )
 {
-	w_scale		=	_w;
-	l_scale		=	_l;
+	w_scale		=	w;
+	l_scale		=	l;
+
+	filter_w.set_scale(w);
+	filter_l.set_scale(l);
 
 	// 
 	generate_map();
 }
 
-
+/*******************************************************************************
+	destructor
+********************************************************************************/
+GaussFilter::~GaussFilter()
+{}
 
 
 
@@ -386,73 +247,24 @@ void	GaussFilter::generate_map()
 	double		normalized;
 
 	// use gauss filter 1d to generate 2d filter.
-	GaussFilter1D		gw( w ),	gl( l );
 	filter_map.resize( w*2+1, l*2+1 );
 
 	// generate filter map
 	for( i = -w;   i <= w;   i++ )
 		for(   j = -l;   j <= l;    j++  )
-			filter_map(  i + w,  j + l  )	=	gw[i] * gl[j] ;
+			filter_map(  i + w,  j + l  )	=	filter_w(i) * filter_l(j) ;
 
 	// generate normalized coefficient.
 	dsum	=	0;
-	for( i = 0; i < filter_map.size1(); i++ )
-		for( j = 0; j < filter_map.size2(); j++ )
+	for( i = 0; i < (int)filter_map.size1(); i++ )
+		for( j = 0; j < (int)filter_map.size2(); j++ )
 			dsum	+=	filter_map( i, j );
 	normalized	=	1.0 / dsum ;
 
 	// normalized
-	for( i = 0; i < filter_map.size1(); i++ )
-		for( j = 0; j < filter_map.size2(); j++ )
+	for( i = 0; i < (int)filter_map.size1(); i++ )
+		for( j = 0; j < (int)filter_map.size2(); j++ )
 			filter_map( i, j )	*=	normalized;
-
-	
-
-	// 產生橫向的filter
-	filter_map_w.resize( 2*w + 1 );
-	for(  i = -w;  i <= w;  i++ )
-		filter_map_w( i+w )		=	gw[i];
-
-	printf("\n\n\n");
-	for(  i = 0;  i < (int)filter_map_w.size();  i++ )
-		cout << filter_map_w(i) << " ";
-	cout << endl;
-
-	// normalized
-	/*dsum	=	0;
-	for(  i = 0;  i < filter_map_w.size();  i++  )
-		dsum	+=	filter_map_w( i );
-	normalized	=	1.0 / dsum;
-	for(  i = 0; i < filter_map_w.size();  i++ )
-		filter_map_w( i )	*=	normalized;*/
-
-	// 產生縱向的filter
-	filter_map_l.resize( 2*l + 1 );
-	for( i = -l;  i <= l;  i++  )
-		filter_map_l( i+l )		=	gl[i];
-
-	// normalized
-	/*dsum	=	0;
-	for( i = 0;  i < filter_map_l.size();  i++ )
-		dsum	+=	filter_map_l(i);
-	normalized	=	1.0 / dsum;*/
-	for( i = 0;  i < (int)filter_map_l.size();  i++ )
-		filter_map_l(i)		*=	normalized;
-
-	for(  i = 0;  i < (int)filter_map_l.size();  i++  )
-		cout << filter_map_l(i) << " ";
-	cout << endl;
-
-
-	printf("\n\n");
-
-	for( i = 0;  i < (int)filter_map.size1();  i++  )
-	{
-		for( j = 0; j < (int)filter_map.size2();  j++ )
-			printf("%.3lf ", filter_map_w(i) * filter_map_l(j) );
-		printf("\n");
-	}
-
 }
 
 
@@ -468,5 +280,3 @@ double&		GaussFilter::operator () ( int i, int j )
 
 	return		filter_map( i + w_scale,  j + l_scale  );
 }
-
-

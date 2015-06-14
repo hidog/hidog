@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{65f09ffb-ad3c-4aa8-8253-a1ab1620e22c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\imgproc">
+      <UniqueIdentifier>{15c2309a-24e0-412c-afdf-97074c943fe9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,6 +30,12 @@
     <ClInclude Include="targetver.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\imgproc\gaussfilter.h">
+      <Filter>src\imgproc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\imgproc\imgproc_def.h">
+      <Filter>src\imgproc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -31,6 +43,9 @@
     </ClCompile>
     <ClCompile Include="vs2012.cpp">
       <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\imgproc\gaussfilter.cpp">
+      <Filter>src\imgproc</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
